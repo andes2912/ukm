@@ -123,4 +123,9 @@ class BahasaValidasiController extends Controller
     {
         return Storage::download($validasi->filename, $validasi->title);
     }
+    
+        public function unduh(InputBahasa $bahasa)
+    {
+        return Storage::download($bahasa->filename, $bahasa->title);
+    }
 }

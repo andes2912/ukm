@@ -33,7 +33,7 @@ class InputBahasaController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * Input Data
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -41,6 +41,13 @@ class InputBahasaController extends Controller
         $InputBahasa = InputBahasa::all();
         return view('bahasa.input', compact('InputBahasa'));
     }
+    
+    public function all()
+    {
+        $InputBahasa = InputBahasa::orderby('id','DESC')->get();
+        return view('bahasa.all', compact('InputBahasa'));
+    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -111,15 +118,21 @@ class InputBahasaController extends Controller
         $InputBahasa->delete();
         return redirect()->route('bahasa.all');
     }
-
+    // Download file 
     public function download(InputBahasa $bahasa)
     {
         return Storage::download($bahasa->filename, $bahasa->title);
     }
 
-        public function all()
+    public function unduh(BahasaValidasi $validasi)
     {
-        $InputBahasa = InputBahasa::orderby('id','DESC')->get();
-        return view('bahasa.all', compact('InputBahasa'));
+        return Storage::download($validasi->filename, $validasi->title);
     }
+
+    public function unduhvalidasi(BahasaValidasi $BahasaValidasi)
+    {
+        return Storage::download($BahasaValidasi->filename, $BahasaValidasi->title);
+    }
+
+
 }

@@ -55,7 +55,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return true;" title="Proposal Sudah di Validasi" ><i class="pe-7s-check"></i><span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('validasi.download', $BahasaValidasi->id) }}" title="Download file {{ $BahasaValidasi->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
+								<li><a href="{{ route('unduhvalidasi.download', $BahasaValidasi->id) }}" title="Download file {{ $BahasaValidasi->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
 			
 								
 							</ul>
@@ -77,7 +77,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('proposal.create')}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Revisi</span></a></li>
-								<li><a href="{{ route('validasi.download', $BahasaValidasi2->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhvalidasi.download', $BahasaValidasi2->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 

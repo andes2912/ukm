@@ -29,9 +29,9 @@ Route::group(['prefix' => 'admin'], function() {
 
     //Halaman Route UKM Bahasa
     Route::get('/UkmBahasa', 'AdminController@UkmBahasa')->name('admin.UkmBahasa.bahasa');
-    //Route::get('/UkmBahasa/validasi', 'AdminController@UkmBahasaValidasi')->name('admin.UkmBahasa.bahasavalidasi');
     Route::Resource('/UkmBahasa/inputvalidasi', 'BahasaValidasiController');    
     Route::get('UkmBahasa/inputvalidasi/{validasi}/download', 'BahasaValidasiController@download')->name('validasi.download');
+    Route::get('UkmBahasa/{bahasa}/unduh','BahasaValidasiController@unduh')->name('bahasa.unduh');
 
     //Halaman Route UKM Dcfc
     Route::get('/UkmDcfc','AdminController@UkmDcfc')->name('admin.UkmDcfc.dcfc');
@@ -49,6 +49,8 @@ Route::group(['prefix' => 'bahasa'], function() {
     Route::Resource('/proposal','InputBahasaController');
     Route::get('/all','InputBahasaController@all')->name('bahasa.all');
     Route::get('proposal/{bahasa}/download', 'InputBahasaController@download')->name('bahasa.download');
+    Route::get('proposal/{validasi}/unduh','InputBahasaController@unduh')->name('unduh.download');
+    Route::get('validasi/{BahasaValidasi}/unduhvalidasi','InputBahasaController@unduhvalidasi')->name('unduhvalidasi.download');
 
     
 });

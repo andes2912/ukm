@@ -69,7 +69,7 @@
 							
 							<div class="btn-group block">
 								<td>
-									<a href="{{ route('bahasa.download', $BahasaValidasi->id) }}" type="button" class="btn inverse red">Lihat</a>
+									<a href="{{ route('unduh.download', $BahasaValidasi->id) }}" type="button" class="btn inverse red">Lihat</a>
 								</td>
 							</div>
 							

@@ -61,7 +61,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('bahasa.download', $BahasaValidasi->id) }}" class="set_fav" onclick="return false;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('validasi.download', $BahasaValidasi->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 								
 							</ul>
 						</div> 

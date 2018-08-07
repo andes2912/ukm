@@ -73,7 +73,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.download', $InputBahasa->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('bahasa.unduh', $InputBahasa->id) }}">Lihat</a></li>									
 									<li><a href="{{url('admin/UkmBahasa/inputvalidasi/create')}}">Validasi</a></li>
 									<li><a href="#">Hapus</a></li>
 								</ul>
