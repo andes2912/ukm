@@ -9,4 +9,5 @@ class BahasaValidasi extends Model
      protected $fillable = [
         'title', 'status', 'filename'
     ];
+
 }

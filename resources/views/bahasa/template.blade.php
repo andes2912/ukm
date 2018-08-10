@@ -55,8 +55,6 @@
 		<div class="main-brand">
 			<div class="main-brand__container">
 				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
-				<input type="checkbox" id="s-logo" class="sw" />
-				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
 			</div>
 		</div>
 		

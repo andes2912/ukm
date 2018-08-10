@@ -44,8 +44,9 @@ class InputBahasaController extends Controller
     
     public function all()
     {
-        $InputBahasa = InputBahasa::orderby('id','DESC')->get();
-        return view('bahasa.all', compact('InputBahasa'));
+        $InputBahasa = InputBahasa::Where('status','Baru')->orderby('id','DESC')->get();
+        $InputBahasa1 = InputBahasa::Where('status','Revisi')->orderby('id','DESC')->get();
+        return view('bahasa.all', compact('InputBahasa','InputBahasa1'));
     }
     
 
@@ -58,13 +59,15 @@ class InputBahasaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [      
-        'file' => 'required|file|max:2000'
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:2',
             ]);
 
         $uploadedFile = $request->file('file');        
         $path = $uploadedFile->store('public/files');
         $InputBahasa = InputBahasa::create([
         'title' => $uploadedFile->getClientOriginalName(),
+        'status' => $request->status,
         'filename' => $path
     ]);
 
@@ -90,7 +93,8 @@ class InputBahasaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $BahasaValidasi4 = BahasaValidasi::findOrFail($id);
+        return view('bahasa.edit',compact('BahasaValidasi4'));
     }
 
     /**

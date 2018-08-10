@@ -29,9 +29,9 @@ class BahasaValidasiController extends Controller
     public function index()
     {
         $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->get();
-        $BahasaValidasi2 = BahasaValidasi::WHERE('status','Revisi')->orderby('id','DESC')->get();
+        $InputBahasa1 = InputBahasa::WHERE('status','Revisi')->orderby('id','DESC')->get();
         $BahasaValidasi3 = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->get();       
-        return view('admin.UkmBahasa.bahasavalidasi', compact('BahasaValidasi','BahasaValidasi2','BahasaValidasi3'));  
+        return view('admin.UkmBahasa.bahasavalidasi', compact('BahasaValidasi','InputBahasa1','BahasaValidasi3'));  
     }
 
     /**
@@ -42,7 +42,7 @@ class BahasaValidasiController extends Controller
     public function create()
     {
         $BahasaValidasi = BahasaValidasi::WHERE('status','menunggu')->get();
-        return view('admin.UkmBahasa.input', compact('BahasaValidasi'));
+        return view('admin.UkmBahasa.edit', compact('BahasaValidasi'));
     }
 
     /**
@@ -67,7 +67,7 @@ class BahasaValidasiController extends Controller
         'filename' => $path
     ]);
 
-            return redirect()->route('inputvalidasi.index');
+            return redirect()->route('admin.UkmBahasa.bahasa');
     }
 
     /**
@@ -89,7 +89,8 @@ class BahasaValidasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $InputBahasa1 = InputBahasa::FindOrFail($id);
+        return view('admin.UkmBahasa.edit', compact('InputBahasa1'));
     }
 
     /**
@@ -116,7 +117,7 @@ class BahasaValidasiController extends Controller
         Storage::delete($BahasaValidasi2->filename);
         $BahasaValidasi2->delete();
         
-        return redirect()->route('inputvalidasi.index');
+        return redirect()->route('admin.UkmBahasa.bahasa');
     }
 
         public function download(BahasaValidasi $validasi)
@@ -128,4 +129,6 @@ class BahasaValidasiController extends Controller
     {
         return Storage::download($bahasa->filename, $bahasa->title);
     }
+
+    
 }

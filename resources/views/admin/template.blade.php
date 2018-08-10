@@ -136,11 +136,10 @@
 
 		<footer class="footer-brand">
 				<img src="{{ asset('asset/img/logo_trim.png')}}">
-				<p>© 2018 IBI Darmajaya. All rights reserved</p> <hr>
+				<p>© 2018 IBI Darmajaya</p> <hr>
 				<p>	<span> <a href=""> About </a> </span> | 
 					<span> <a href=""> Hak Cipta</a></span>
 				</p> <hr>
-
 		</footer>
 		 <!-- /content -->
 

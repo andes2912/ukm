@@ -35,4 +35,30 @@ class BahasaController extends Controller
         $BahasaValidasi3 = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->get();
         return view('bahasa.validasi', compact('BahasaValidasi','BahasaValidasi2','BahasaValidasi3'));
     }
+
+        // Validasi revisi bahasa
+        public function inputvalidasi()
+    {
+        $BahasaValidasi = BahasaValidasi::WHERE('status','menunggu')->get();
+        return view('bahasa.inputvalidasi', compact('BahasaValidasi'));
+    }
+
+        public function store(Request $request)
+    {
+        $this->validate($request, [
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:3',
+        'file' => 'required|file|max:2000'
+            ]);   
+
+        $uploadedFile = $request->file('file');        
+        $path = $uploadedFile->store('public/validasi');
+        $BahasaValidasi = BahasaValidasi::create([
+        'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
+        'status' => $request->status,
+        'filename' => $path
+        
+    ]);
+                return redirect()->route('bahasa.validasi');
+    }
 }

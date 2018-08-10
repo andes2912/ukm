@@ -17,6 +17,7 @@ class CreateInputBahasasTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('filename');
+            $table->enum('status', array('Revisi','Baru'));
             $table->timestamps();
         });
     }

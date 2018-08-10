@@ -26,12 +26,12 @@
 		<div class="row">
 			<div class="col-md-8">
 				<article class="widget">
-					<header class="widget__header">
+					<header class="widget__header one-btn">
 						<div class="widget__title">
 							<i class="pe-7f-note"></i><h3>Report Validasi Proposal</h3>
 						</div>
 						<div class="widget__config">
-							<a href="#"><i class="pe-7f-refresh"></i></a>
+							<a href="#"><i class="pe-7s-close"></i></a>
 							<a href="#" style="line-height: 68px;"><i class="pe-7g-arrow2-down"></i></a>
 						</div>
 					</header>
@@ -55,14 +55,14 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure>
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}} </h4>
-							<p class="message__msg"><span>{{ $BahasaValidasi->created_at->diffForHumans() }}</span> | {{ $BahasaValidasi->created_at }}</p>
+							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}} <span>{{ $BahasaValidasi->created_at->diffForHumans() }}</span> </h4> <hr>
+							<p class="message__msg"><span>Dikirm : Admin</span> | <span> Tanggal :{{ $BahasaValidasi->created_at }} </span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
 								<li><a href="{{ route('validasi.download', $BahasaValidasi->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
-								
+
 							</ul>
 						</div> 
 					</div>
@@ -71,20 +71,21 @@
 			</div> <!-- /tabscontent1 -->
 			
 			<div class="tabs__content--2">
-				@foreach($BahasaValidasi2 as $BahasaValidasi2)
+				@foreach($InputBahasa1 as $InputBahasa1)
 				<div class="media message">
 					<figure class="pull-left rounded-image message__img">
 						<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
+						
 					</figure>
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$BahasaValidasi2->title}}</h4>
-						<p class="message__msg"><span>{{ $BahasaValidasi2->created_at->diffForHumans() }}</span> | <span>{{ $BahasaValidasi2->created_at}}</span></p>
+						<h4 class="media-heading message__heading">{{$InputBahasa1->title}} <span>{{ $InputBahasa1->created_at->diffForHumans() }}</span></h4> <hr>
+						<p class="message__msg"><span>Dikirim : UKM Bahasa</span> | <span> Tanggal : {{ $InputBahasa1->created_at}}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="{{route('inputvalidasi.create')}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
-								<li><a href="{{ route('validasi.download', $BahasaValidasi2->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
-								<li><form action="{{ route('inputvalidasi.destroy', $BahasaValidasi2->id)}}" method="POST">
+								<li><a href="{{route('inputvalidasi.edit', $InputBahasa1->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
+								<li><a href="{{ route('validasi.download', $InputBahasa1->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><form action="{{ route('inputvalidasi.destroy', $InputBahasa1->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
 										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>

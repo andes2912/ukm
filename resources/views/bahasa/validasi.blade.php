@@ -47,10 +47,12 @@
 					<div class="tabs__content--1">
 					@foreach($BahasaValidasi as $BahasaValidasi)
 					<div class="media message">
-						
+						<figure class="pull-left rounded-image message__img">
+							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
+						</figure>
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}}</h4>
-							<p class="message__msg"><span>{{ $BahasaValidasi->created_at->diffForHumans() }}</span> | {{ $BahasaValidasi->created_at }}</p>
+							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}} <span>{{ $BahasaValidasi->created_at->diffForHumans() }}</span> </h4> <hr>
+							<p class="message__msg"><span>Dikirim : Admin</span> | <span> Tanggal :{{ $BahasaValidasi->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -69,14 +71,16 @@
 			<div class="tabs__content--2">
 				@foreach($BahasaValidasi2 as $BahasaValidasi2)
 				<div class="media message">
-					
+					<figure class="pull-left rounded-image message__img">
+							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
+						</figure>
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$BahasaValidasi2->title}}</h4>
-						<p class="message__msg"><span>{{ $BahasaValidasi2->created_at->diffForHumans() }}</span> | {{ $BahasaValidasi2->created_at}}</p>
+						<h4 class="media-heading message__heading">{{$BahasaValidasi2->title}} <span>{{ $BahasaValidasi2->created_at->diffForHumans() }}</span></h4> <hr>
+						<p class="message__msg"><span>Dikirim : Admin </span> | <span> Tanggal :{{ $BahasaValidasi2->created_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="{{route('proposal.create')}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Revisi</span></a></li>
+								<li><a href="{{route('proposal.edit',$BahasaValidasi2->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Revisi</span></a></li>
 								<li><a href="{{ route('unduhvalidasi.download', $BahasaValidasi2->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
@@ -91,7 +95,9 @@
 			<div class="tabs__content--3">
 				@foreach($BahasaValidasi3 as $BahasaValidasi3)
 				<div class="media message">
-					
+					<figure class="pull-left rounded-image message__img">
+							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
+						</figure>
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $BahasaValidasi3->title }}</h4>
 						<p class="message__msg"><span>{{ $BahasaValidasi3->created_at->diffForHumans() }}</span> | <span>{{ $BahasaValidasi3->created_at }}</span></p>
