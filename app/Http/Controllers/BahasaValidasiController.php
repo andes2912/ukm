@@ -29,9 +29,11 @@ class BahasaValidasiController extends Controller
     public function index()
     {
         $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->get();
+        $BahasaValidasi2 = BahasaValidasi::Where('status','Revisi')->OrderBy('id','desc')->get();
+        $BahasaValidasi3 = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->get();
         $InputBahasa1 = InputBahasa::WHERE('status','Revisi')->orderby('id','DESC')->get();
-        $BahasaValidasi3 = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->get();       
-        return view('admin.UkmBahasa.bahasavalidasi', compact('BahasaValidasi','InputBahasa1','BahasaValidasi3'));  
+       
+        return view('admin.UkmBahasa.bahasavalidasi', compact('BahasaValidasi','BahasaValidasi2','BahasaValidasi3','InputBahasa1'));  
     }
 
     /**
@@ -67,7 +69,7 @@ class BahasaValidasiController extends Controller
         'filename' => $path
     ]);
 
-            return redirect()->route('admin.UkmBahasa.bahasa');
+            return redirect()->route('admin.UkmBahasa.bahasavalidasi');
     }
 
     /**

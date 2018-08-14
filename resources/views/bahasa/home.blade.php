@@ -22,13 +22,12 @@
     @section('isi')
                 <div class="col-md-12">
 			<article class="widget">
-				<header class="widget__header">
+				<header class="widget__header one-btn">
 					<div class="widget__title">
 						<i class="pe-7s-menu"></i><h3>News Update</h3>
 					
 					</div>
 					<div class="widget__config">
-						<a href="#"><i class="pe-7f-refresh"></i></a>
 						<a href="#"><i class="pe-7s-close"></i></a>
 					</div>
 				</header>
@@ -56,7 +55,7 @@
 										<div class="media-body post_desc">
 											
 											<h3>{{$news->title}}</h3>
-											<p>By : Admin</p>
+											<span>by : Admin</span> | {{$news->created_at}}
 										</div>
 									</div>
 								</td>

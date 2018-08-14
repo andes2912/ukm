@@ -75,7 +75,17 @@ return [
             'driver' => 'token',
             'provider' => 'dcfcs',
         ],
-        
+
+        'bem' => [
+            'driver' => 'session',
+            'provider' => 'bems',
+        ],
+
+        'api-bem' => [
+            'driver' => 'token',
+            'provider' => 'bems',
+        ],
+
     ],
 
     /*
@@ -112,6 +122,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Model\Dcfc::class,
         ],
+         'bems' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\bem::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
@@ -154,6 +169,11 @@ return [
         ],
         'dcfcs' => [
             'provider' => 'dcfcs',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'bems' => [
+            'provider' => 'bems',
             'table' => 'password_resets',
             'expire' => 15,
         ],

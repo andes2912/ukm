@@ -39,7 +39,6 @@
 								<th width="270">Title</th>
 								<th width="120">Date</th>
 								<th>Description</th>
-								<th>Edit</th>
 								<th>Hapus</th>
 							</tr>
 						</thead>
@@ -56,17 +55,19 @@
 									</div>
 								</td>
 									<td>
-										<p class="post__date">{{$news->created_at->diffForHumans()}}</p>
+										<p class="post__date">{{$news->created_at}}</p>
 									</td>
 									<td>
 										<p class="post__info">{{$news->description}}</p>
 									</td>
 									<td>
-										<a href="#" onclick="return false;" class="post__del"><i class="pe-7f-tools"></i></a>
+										<form action="{{ route('news.destroy', $news->id)}}" method="POST">
+											{{csrf_field()}}
+											<input type="hidden" name="_method" value="DELETE">
+											<button type="submit" class="btn blue"> <i class="pe-7s-close"> </i> </button>								
+										</form>
 									</td>
-									<td>
-										<a href="#" onclick="return false;" class="post__del"><i class="pe-7f-close"></i></a>
-									</td>
+								
 							</tr>
 							<tr class="spacer"></tr>
 

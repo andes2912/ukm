@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', function () {return view('index'); });
+Route::get('/', function () {return view('landing'); });
 
 Auth::routes();
 
@@ -38,6 +38,14 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/UkmDcfc','AdminController@UkmDcfc')->name('admin.UkmDcfc.dcfc');
     Route::get('/UkmDcfc/validasi', 'AdminController@UkmDcfcValidasi')->name('admin.UkmDcfc.dcfcvalidasi');
 
+});
+
+
+// Halaman Route BEM
+Route::group(['prefix' => 'bem'], function(){
+    Route::get('/','BEMController@index')->name('bem.home');
+    Route::get('/login','AuthBem\LoginController@ShowLoginForm')->name('bem.login');
+    Route::post('/login','AuthBem\LoginController@Login')->name('bem.submit.login');
 });
 
 Route::group(['prefix' => 'bahasa'], function() {  

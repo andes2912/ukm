@@ -34,6 +34,12 @@ class RedirectIfAuthenticated
                     return redirect()->route('dcfc.home');
                 }
                 break;
+
+            case 'bem':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('bem.home');
+                }
+                break;
             
             default:
                 if (Auth::guard($guard)->check()) {

@@ -58,7 +58,8 @@
 							<p class="post_info"> {{$BahasaValidasi2->id}} </p>
 						</td>
 						<td>
-							<p class="post__info">{{ $BahasaValidasi2->title }}</p>
+							<p >{{ $BahasaValidasi2->title }}</p>
+													<p class="post__info"> Pengirim : {{ Auth::user()->name}}</p>
 						</td>
 						<td>
 							<p class="post__date">{{ $BahasaValidasi2->created_at }}</p>

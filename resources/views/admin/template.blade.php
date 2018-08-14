@@ -32,11 +32,6 @@
 			<img src="{{asset('asset/img/logo.png')}}">
 			</li>
 			<li>
-				{{-- <a href="{{ route('logout') }}"
-					onclick="event.preventDefault();
-								document.getElementById('logout-form').submit();">
-					Logout
-				</a> --}}
 				<a href="{{ route('logout') }}"
 					onclick="event.preventDefault();
 					document.getElementById('logout-form').submit();" onclick="return true;" class="btn-circle btn-sm">
@@ -59,11 +54,17 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
-				<input type="checkbox" id="s-logo" class="sw" />
-				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
+				
+				{{-- <div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>								 --}}
+				<label class="swtc swtc--dark"></label> 
+				<a href="#"><button class="btn blue">
+					Notifikasi
+					<span class="badge badge--blue">3</span>
+				</button></a>
+				
 			</div>
 		</div>
+
 		
 	</header>
 	<!-- /top-bar -->

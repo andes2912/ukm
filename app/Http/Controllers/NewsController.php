@@ -52,7 +52,8 @@ class NewsController extends Controller
         $news->title = input::get('title');
         $news->description = input::get('description');
         $news->save();
-        //dd($news);
+
+        return redirect()->route('news.index');
     }
 
     /**
@@ -97,6 +98,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $News = News::FindOrFail($id);
+        $News->delete();
+
+        return redirect()->route('news.index');
     }
 }

@@ -24,7 +24,7 @@
     @section('isi')
 		
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-6">
 				<article class="widget">
 					<header class="widget__header one-btn">
 						<div class="widget__title">
@@ -51,12 +51,12 @@
 					<div class="tabs__content--1">
 					@foreach($BahasaValidasi as $BahasaValidasi)
 					<div class="media message">
-						<figure class="pull-left rounded-image message__img">
+						{{-- <figure class="pull-left rounded-image message__img">
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						</figure>
+						</figure> --}}
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}} <span>{{ $BahasaValidasi->created_at->diffForHumans() }}</span> </h4> <hr>
-							<p class="message__msg"><span>Dikirm : Admin</span> | <span> Tanggal :{{ $BahasaValidasi->created_at }} </span></p>
+							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}}</h4> <hr>
+							<p class="message__msg"><span>Pengirim  : {{ Auth::user()->name}} </span> | <span> Tanggal : {{ $BahasaValidasi->created_at }} </span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -73,13 +73,12 @@
 			<div class="tabs__content--2">
 				@foreach($InputBahasa1 as $InputBahasa1)
 				<div class="media message">
-					<figure class="pull-left rounded-image message__img">
-						<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						
-					</figure>
+					{{-- <figure class="pull-left rounded-image message__img">
+						<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">				
+					</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$InputBahasa1->title}} <span>{{ $InputBahasa1->created_at->diffForHumans() }}</span></h4> <hr>
-						<p class="message__msg"><span>Dikirim : UKM Bahasa</span> | <span> Tanggal : {{ $InputBahasa1->created_at}}</span></p>
+						<h4 class="media-heading message__heading">{{$InputBahasa1->title}} </h4> <hr>
+						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $InputBahasa1->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputBahasa1->created_at->diffForHumans() }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -131,7 +130,38 @@
 	</article><!-- /widget -->
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-6">
+		<article class="widget">
+			<header class="widget__header one-btn">
+				<div class="widget__title">
+					<i class="pe-7f-user"></i><h3>Ravisi Dari Admin</h3>
+				</div>
+				<div class="widget__config">
+					<a href="#"><i class="pe-7s-close"></i></a>
+				</div>
+			</header>
+
+			<div class="widget__content">
+				<div class="clearfix"></div>								
+				<div class="members__container">									
+					<div class="media message checked">
+						<div class="media-body"> @foreach( $BahasaValidasi2 as $BahasaValidasi2 )
+							<h3> {{$BahasaValidasi2->title}} </h3> <br>
+							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BahasaValidasi2->created_at}} | {{$BahasaValidasi2->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							@endforeach											
+						</div>
+						
+					</div>
+				</div> <!-- /members__container -->								
+				<div class="clearfix"></div>
+				<div class="members__footer"> <a href=" {{route('admin.UkmBahasa.bahasa')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('admin.UkmBahasa.revisi')}} "><button class="members__search"> Index Revisi
+					</button></a>
+				</div>
+			</div>
+		</article><!-- /widget -->
+	</div>
+
+	{{-- <div class="col-md-4">
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
@@ -155,5 +185,5 @@
 			</div> <!-- /widget__content -->
 
 		</article><!-- /widget -->
-	</div>
+	</div> --}}
     @endsection

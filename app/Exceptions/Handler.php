@@ -81,6 +81,10 @@ class Handler extends ExceptionHandler
                 $login = 'dcfc.login';
                 break;
             
+            case 'bem':
+                $login = 'bem.login';
+                break;
+            
             default:
                 $login = 'login';
                 break;
