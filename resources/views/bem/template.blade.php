@@ -79,7 +79,7 @@
 
 			<ul class="main-nav">
 				<li class="main-nav--active">
-						<a class="main-nav__link" href="{{route('bahasa.home')}}">
+						<a class="main-nav__link" href="{{route('bem.home')}}">
 							<span class="main-nav__icon"><i class="pe-7f-home"></i></span>
 							Dashboard
 						</a>
@@ -88,21 +88,23 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
-							Program <span class="badge badge--line badge--blue">3</span>
+							UKM Darmajaya <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href=""><span> Input Proposal</span></a></li>
-							<li><a href=""><span>Report Validasi</span></a></li>
+							<li ><a href=" {{url('bem/bahasa')}} "><span>UKM Bahasa</span></a></li>
+							<li><a href=""><span>UKM As'salam</span></a></li>
+							<li ><a href=""><span>UKM Dcfc</span></a></li>
 						</ul>
 					</li>
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
-							Arsip Proposal <span class="badge badge--line badge--blue">2</span>
+							Arsip Proposal <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href=""><span>Sudah Di Validasi</span></a></li>
-							<li><a href=""><span>Index Proposal</span></a></li>
+							<li><a href=""><span>Arsip Bahasa</span></a></li>
+							<li><a href=""><span>Arsip As'salam</span></a></li>
+							<li><a href=""><span>Arsip Dcfc</span></a> </li>
 						</ul>
 					</li>
 					
@@ -131,16 +133,10 @@
 				<p>	<span> <a href=""> About </a> </span> | 
 					<span> <a href=""> Hak Cipta</a></span>
 				</p> <hr>
-
 			</footer>
-
-
 		</section> <!-- /content -->
 
 	</div>
-
-
-	 
 	<script type="text/javascript" src="{{asset('asset/js/main.js')}}"></script>
 	<script type="text/javascript" src="{{asset('asset/js/amcharts/amcharts.js')}}"></script>
 	<script type="text/javascript" src="{{asset('asset/js/amcharts/serial.js')}}"></script>

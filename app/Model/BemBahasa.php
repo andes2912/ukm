@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InputBahasa extends Model
+class BemBahasa extends Model
 {
     protected $fillable = [
-        'title', 'user', 'status', 'filename'
+        'title', 'filename', 'status'
     ];
 }

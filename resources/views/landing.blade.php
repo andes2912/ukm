@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Color Admin | One Page Parallax Front End Theme</title>
+	<title>Welcome to E-Prop - IBI DARMAJAYA</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="navbar-brand">
+                    <a href="#" class="navbar-brand">
                         <span class="brand-logo"></span>
                         <span class="brand-text">
                             <span class="text-theme">Color</span> Admin
@@ -50,7 +50,7 @@
                         <li><a href="#contact" data-click="scroll-to-target">Dasboard</a></li>
                         <li><a href="#contact" data-click="scroll-to-target">Blog</a></li>
                         <li class="active dropdown">
-                            <a href="#home" data-click="scroll-to-target" data-target="#" data-toggle="dropdown">Login
+                            <a href="" data-click="scroll-to-target" data-toggle="dropdown">UKM Darmajaya
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
@@ -82,15 +82,16 @@
             <!-- end content-bg -->
             <!-- begin container -->
             <div class="container home-content">
-                <h1>Welcome to Color Admin</h1>
-                <h3>Multipurpose One Page Theme</h3>
+                <h1>Welcome to E-Prop</h1>
+                <h3>Pengajuan Proposal Unit Kegiatan Mahasiswa Berbasis Digital</h3>
                 <p>
-                    We have created a multi-purpose theme that take the form of One-Page or Multi-Page Version.<br />
-                    Use our <a href="#">theme panel</a> to select your favorite theme color.
+                    Kini mengajukan proposal untuk kegiatan UKM sangat mudah dan cepat dengan bantuan sistem
+                    pengelolaan pengajuan ini atau E-Prop. <br> Dengan interface yang mudah dan simple serta kemudahan
+                    dalam pengoprasian berbasis Website.
                 </p>
-                <a href="#" class="btn btn-theme">Explore More</a> <a href="#" class="btn btn-outline">Purchase Now</a><br />
+                <a href="#" class="btn btn-theme">Explore More</a> <a href="#" class="btn btn-outline">Try Now</a><br />
                 <br />
-                or <a href="#">subscribe</a> newsletter
+               
             </div>
             <!-- end container -->
         </div>
@@ -102,11 +103,11 @@
             <div class="container">
                 <div class="footer-brand">
                     <div class="footer-brand-logo"></div>
-                    Color Admin
+                    E-Prop Darmajaya
                 </div>
                 <p>
-                    &copy; Copyright Color Admin 2014 <br />
-                    An admin & front end theme with serious impact. Created by <a href="#">SeanTheme</a>
+                    &copy; Copyright  E-Prop Darmajaya 2018 <br />
+                    
                 </p>
                 <p class="social-list">
                     <a href="#"><i class="fa fa-facebook fa-fw"></i></a>

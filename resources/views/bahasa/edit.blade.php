@@ -1,6 +1,6 @@
 @extends('bahasa.template')
 	@section('title')
-		Halaman Admin - Bahasa
+		Halaman Bahasa
 	@endsection
 
 	@section('topbar')
@@ -60,14 +60,14 @@
                         <a href="#"><i class="pe-7s-close"></i></a>
                     </div>
                 </header>
-            <form action="{{ route('proposal.store', $BahasaValidasi4->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('proposal.store', $InputValidasiBemRev->id) }}" method="POST" enctype="multipart/form-data">
                    {{ csrf_field() }}
                 <div class="widget__content">
 
                     <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
                     </label>
-                    <input type="text" name="title" class="stacked-input" value=" {{$BahasaValidasi4->title}} " id="input-1" placeholder="Judul Proposal">                   
+                    <input type="text" name="title" class="stacked-input" value=" {{$InputValidasiBemRev->title}} " id="input-1" placeholder="Judul Proposal">                   
 
                     <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
@@ -79,8 +79,17 @@
                             {{-- <option value="Menunggu">Menunggu</option> --}}
                         </select>
                     
+                     <label for="input-1" class="stacked-label">
+                        <i class="pe-7f-pen"></i>
+                    </label>  
+
+                    <input type="text" class="stacked-input" id="input-1" placeholder="Ditujukan Untuk" disabled>
+                        <select class="btn btn-block white dropdown-toggle" type="button" name="user">
+                            <option value="BEM">Badan Eksekutif Mahasiswa</option>
+                        </select>
+                    
                     <label class="full-label">
-                        <input type="file" name="file" id="file-att" value=" {{$BahasaValidasi4->file}} ">
+                        <input type="file" name="file" id="file-att" value=" {{$InputValidasiBemRev->file}} ">
                         <i class="pe-7f-paperclip"></i><span class="label">Pilih File .pdf</span>
                     </label>
                     <button type="submit" onclick="return true;">Send</button>

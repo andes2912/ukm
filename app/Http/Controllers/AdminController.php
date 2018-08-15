@@ -31,7 +31,7 @@ class AdminController extends Controller
     // UKM BAHASA
     public function UkmBahasa() 
     {
-        $InputBahasa = InputBahasa::WHERE('status','Baru')->OrderBy('id','desc')->get();
+        $InputBahasa = InputBahasa::WHERE('status','Baru')->where('user','KMH')->OrderBy('id','desc')->get();
         $BahasaValidasi2 = BahasaValidasi::WHERE('status','Revisi')->OrderBy('id','desc')->get();
         return view('admin.UkmBahasa.bahasa', compact('InputBahasa','BahasaValidasi2'));
     }

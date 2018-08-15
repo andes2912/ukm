@@ -1,6 +1,6 @@
-@extends('admin.template')
+@extends('bem.template')
 	@section('title')
-		Halaman Admin - Bahasa
+		Halaman BEM - Bahasa
 	@endsection
 
 	@section('topbar')
@@ -39,9 +39,9 @@
 					<div class="widget__content">
 						<div class="tabs">
 							<input type="radio" id="tab1" name="msgs_tabs" checked>
-							<label for="tab1" class="tabs__tab">Disetujui</label>
+							<label for="tab1" class="tabs__tab">Proposal Disetujui</label>
 							<input type="radio" id="tab2" name="msgs_tabs">
-							<label for="tab2" class="tabs__tab">Revisi Diterima</label>
+							<label for="tab2" class="tabs__tab">Revisi Masuk</label>
 							<input type="radio" id="tab3" name="msgs_tabs">
 							<label for="tab3" class="tabs__tab">Menunggu</label>
 							<div class="clearfix"></div>
@@ -49,19 +49,19 @@
 					<div class="tabs__content">	
 
 					<div class="tabs__content--1">
-					@foreach($BahasaValidasiAcc as $BahasaValidasiAcc)
+					@foreach($BemBahasaAcc as $BemBahasaAcc)
 					<div class="media message">
 						{{-- <figure class="pull-left rounded-image message__img">
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$BahasaValidasiAcc->title}}</h4> <hr>
-							<p class="message__msg"><span>Pengirim  : {{ Auth::user()->name}} </span> | <span> Tanggal : {{ $BahasaValidasiAcc->created_at }} </span></p>
+							<h4 class="media-heading message__heading"> {{$BemBahasaAcc->title}}</h4> <hr>
+							<p class="message__msg"><span> Tanggal : {{ $BemBahasaAcc->created_at }} </span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('validasi.download', $BahasaValidasiAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('unduhBem.download', $BemBahasaAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 
 							</ul>
 						</div> 
@@ -71,20 +71,27 @@
 			</div> <!-- /tabscontent1 -->
 			
 			<div class="tabs__content--2">
-				@foreach($BahasaKmhRev as $BahasaKmhRev)
+				@foreach($InputBhsRev as $InputBhsRev)
 				<div class="media message">
 					{{-- <figure class="pull-left rounded-image message__img">
 						<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">				
 					</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$BahasaKmhRev->title}} </h4> <hr>
-						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $BahasaKmhRev->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $BahasaKmhRev->created_at->diffForHumans() }}</span></p>
+						<h4 class="media-heading message__heading">{{$InputBhsRev->title}} </h4> <hr>
+						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $InputBhsRev->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputBhsRev->created_at->diffForHumans() }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="{{route('validasi.edit', $BahasaKmhRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
-								<li><a href="{{ route('bahasa.unduh', $BahasaKmhRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
-								
+								<li><a href="{{route('bahasavalidasi.edit', $InputBhsRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
+								<li><a href="{{ route('unduhBhs.download', $InputBhsRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><form action="{{ route('bahasavalidasi.destroy', $InputBhsRev->id)}}" method="POST">
+									{{csrf_field()}}
+										<input type="hidden" name="_method" value="DELETE">
+										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>
+										 
+										
+									</form>
+								</li>
 							</ul>
 						</div> 
 					</div>
@@ -93,14 +100,14 @@
 			</div> <!-- /tabscontent2 -->
 			
 			<div class="tabs__content--3">
-				@foreach($BahasaValidasiDelay as $BahasaValidasiDelay)
+				@foreach($BemBahasaDelay as $BemBahasaDelay)
 				<div class="media message fav">
 					<figure class="pull-left rounded-image message__img">
 						<img class="media-object" src="{{ asset('asset/img/user1.jpg')}}" alt="user">
 					</figure>
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{ $BahasaValidasiDelay->title }}</h4>
-						<p class="message__msg"><span>{{ $BahasaValidasiDelay->created_at->diffForHumans() }}</span> | <span>{{ $BahasaValidasiDelay->created_at}}</span></p>
+						<h4 class="media-heading message__heading">{{ $BemBahasaDelay->title }}</h4>
+						<p class="message__msg"><span>{{ $BemBahasaDelay->created_at->diffForHumans() }}</span> | <span>{{ $BemBahasaDelay->created_at}}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o6">
 						<label class="message__controls--opener" for="msg-o6"><i class="pe-7s-note"></i></label>
 						<div class="message__controls--cont">
@@ -127,7 +134,7 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7f-user"></i><h3>Revisi Terkirim</h3>
+					<i class="pe-7f-user"></i><h3>Ravisi Terkirim</h3>
 				</div>
 				<div class="widget__config">
 					<a href="#"><i class="pe-7s-close"></i></a>
@@ -138,16 +145,16 @@
 				<div class="clearfix"></div>								
 				<div class="members__container">									
 					<div class="media message checked">
-						<div class="media-body"> @foreach( $BahasaValidasiRev as $BahasaValidasiRev )
-							<h3> {{$BahasaValidasiRev->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BahasaValidasiRev->created_at}} | {{$BahasaValidasiRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
-							@endforeach											
+						<div class="media-body"> @foreach( $BemBahasaRev as $BemBahasaRev )
+							<h3> {{$BemBahasaRev->title}} </h3> <br>
+							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BemBahasaRev->created_at}} | {{$BemBahasaRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							@endforeach
 						</div>
 						
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href=" {{route('admin.UkmBahasa.bahasa')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('admin.UkmBahasa.revisi')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href=""><button class="members__load-more"> Index pengajuan</button></a><a href=" "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

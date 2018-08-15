@@ -315,6 +315,7 @@ class ComposerStaticInit3628b61592929447886a385f2f57c3b4
     );
 
     public static $classMap = array (
+        'App\\BemBahasa' => __DIR__ . '/../..' . '/app/BemBahasa.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
@@ -329,6 +330,7 @@ class ComposerStaticInit3628b61592929447886a385f2f57c3b4
         'App\\Http\\Controllers\\BEMController' => __DIR__ . '/../..' . '/app/Http/Controllers/BEMController.php',
         'App\\Http\\Controllers\\BahasaController' => __DIR__ . '/../..' . '/app/Http/Controllers/BahasaController.php',
         'App\\Http\\Controllers\\BahasaValidasiController' => __DIR__ . '/../..' . '/app/Http/Controllers/BahasaValidasiController.php',
+        'App\\Http\\Controllers\\BemBahasaController' => __DIR__ . '/../..' . '/app/Http/Controllers/BemBahasaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DcfcController' => __DIR__ . '/../..' . '/app/Http/Controllers/DcfcController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',

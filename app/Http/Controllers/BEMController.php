@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\News;
+use App\Model\InputBahasa;
+use App\Model\BahasaValidasi;
+use App\Model\BemBahasa;
 class BEMController extends Controller
 {
         /**
@@ -91,5 +94,20 @@ class BEMController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // Khusus Controller UKM BAHASA
+    public function Bahasa()
+    {
+        $InputBahasa = InputBahasa::Where('status','Baru')->where('user','BEM')->OrderBy('id','Desc')->get();
+        return view('bem.Bahasa.bahasa',compact('InputBahasa'));
+    }
+
+    public function arsipBhs()
+    {
+        $ArsipBhsAcc = BemBahasa::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipBhsRev = BemBahasa::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipBhsDelay = BemBahasa::where('status','Menunggu')->orderBy('id','Desc')->LIMIT('3')->get();
+        return view('bem.Bahasa.arsipBhs',compact('ArsipBhsAcc','ArsipBhsRev','ArsipBhsDelay'));
     }
 }

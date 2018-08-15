@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInputBahasasTable extends Migration
+class CreateBemBahasasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateInputBahasasTable extends Migration
      */
     public function up()
     {
-        Schema::create('input_bahasas', function (Blueprint $table) {
+        Schema::create('bem_bahasas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('filename');
-            $table->enum('status', array('Revisi','Baru'));
-            $table->enum('user', array('BEM','KMH'));
+            $table->enum('status', array('Disetujui','Revisi','Menunggu'));
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateInputBahasasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('input_bahasas');
+        Schema::dropIfExists('bem_bahasas');
     }
 }

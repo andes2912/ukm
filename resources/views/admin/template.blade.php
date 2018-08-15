@@ -104,22 +104,23 @@
 							<li><a href="{{route('admin.UkmDcfc.dcfc')}}"><span>UKM DCFC</span></a></li>
 						</ul>
 					</li>
+					
+					<li class="main-nav--collapsible">
+						<a class="main-nav__link" href="#" onclick="return false;">
+							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
+							Arsip Proposal <span class="badge badge--line badge--blue">3</span>
+						</a>
+						<ul class="main-nav__submenu">
+							<li><a href=""><span>Arsip Bahasa</span></a></li>
+							<li><a href=""><span>Arsip As'salam</span></a></li>
+							<li><a href=""><span>Arsip DCFC</span></a></li>
+						</ul>
+					</li>
+
 					<li>
 						<a class="main-nav__link" href="{{route('news.index')}}">
 							<span class="main-nav__icon"><i class="pe-7f-browser"></i></span>
 							Berita 
-						</a>
-					</li>
-					<li>
-						<a class="main-nav__link" href="tables.html">
-							<span class="main-nav__icon"><i class="pe-7f-note"></i></span>
-							Tables &amp; forms
-						</a>
-					</li>
-					<li>
-						<a class="main-nav__link" href="stats.html">
-							<span class="main-nav__icon"><i class="pe-7f-graph3"></i></span>
-							Statistics
 						</a>
 					</li>
 			</ul> <!-- /main-nav -->

@@ -48,21 +48,21 @@
             <article class="widget widget__form">
                 <header class="widget__header">
                     <div class="widget__title">
-                        <i class="pe-7s-menu"></i><h3>Kirim Proposal</h3>
+                        <i class="pe-7s-menu"></i><h3>Kirim Proposal Untuk Kemahasiswaan</h3>
                     </div>
                     <div class="widget__config">
                         <a href="#"><i class="pe-7f-refresh"></i></a>
                         <a href="#"><i class="pe-7s-close"></i></a>
                     </div>
                 </header>
-            <form action="{{ route('proposal.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('proposal.store', $EditValKmh->id) }}" method="POST" enctype="multipart/form-data">
                    {{ csrf_field() }}
                 <div class="widget__content">
                     
                     <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
                     </label>
-                    <input type="text" name="title" class="stacked-input" id="input-1" placeholder="Judul Proposal" required>
+                    <input type="text" name="title" value=" {{$EditValKmh->title}} " class="stacked-input" id="input-1" placeholder="Judul Proposal" required>
                     
                    <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
@@ -70,7 +70,7 @@
 
                     <input type="text" class="stacked-input" id="input-1" placeholder="Status Proposal" disabled>
                         <select class="btn btn-block white dropdown-toggle" type="button" name="status">
-                            <option value="Baru">Mengajukan</option>
+                            <option value="Revisi">Revisi</option>
                         </select>
 
                     <label for="input-1" class="stacked-label">
@@ -79,7 +79,7 @@
 
                     <input type="text" class="stacked-input" id="input-1" placeholder="Ditujukan Untuk" disabled>
                         <select class="btn btn-block white dropdown-toggle" type="button" name="user">
-                            <option value="BEM">Badan Eksekutif Mahasiswa</option>
+                            <option value="KMH">Kemahasiswaan</option>
                         </select>
 
                     <label class="full-label">

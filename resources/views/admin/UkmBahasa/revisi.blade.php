@@ -28,7 +28,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Revisi Proposal UKM Bahasa [ Telah Dikirim ]</h3>
-					<a href="{{url('admin/UkmBahasa/inputvalidasi')}}" button class="btn inverse blue">Lihat Validasi</a> 
+					<a href="{{url('admin/UkmBahasa/validasi')}}" button class="btn inverse blue">Lihat Validasi</a> 
 					{{-- <a href="{{route('inputvalidasi.edit',$InputBahasa1)}}" button class="btn inverse red">Validasi</a> --}}
 				</div>
 				<div class="widget__config">
@@ -75,13 +75,10 @@
 								</button>
 								<ul class="dropdown-menu">
 									<li><a href="{{ route('bahasa.unduh', $BahasaValidasi2->id) }}">Lihat</a></li>									
-									{{-- <li><a href="{{route('inputvalidasi.edit', $BahasaValidasi->id)}}">Validasi</a></li> --}}
-									<li><form action="{{ route('inputvalidasi.destroy', $BahasaValidasi2->id)}}" method="POST">
+									<li><form action="{{ route('validasi.destroy', $BahasaValidasi2->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>
-										 
-										
+										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>										 								
 									</form>
 								</li>
 								</ul>

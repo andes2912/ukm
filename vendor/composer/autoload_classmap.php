@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\BemBahasa' => $baseDir . '/app/BemBahasa.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -20,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\BEMController' => $baseDir . '/app/Http/Controllers/BEMController.php',
     'App\\Http\\Controllers\\BahasaController' => $baseDir . '/app/Http/Controllers/BahasaController.php',
     'App\\Http\\Controllers\\BahasaValidasiController' => $baseDir . '/app/Http/Controllers/BahasaValidasiController.php',
+    'App\\Http\\Controllers\\BemBahasaController' => $baseDir . '/app/Http/Controllers/BemBahasaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DcfcController' => $baseDir . '/app/Http/Controllers/DcfcController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',

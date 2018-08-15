@@ -84,15 +84,21 @@
 							Dashboard
 						</a>
 					</li>
+					<li>
+						<a class="main-nav__link" href="{{ route('proposal.create') }}">
+							<span class="main-nav__icon"><i class="pe-7f-pen"></i></span>
+							Input Proposal
+						</a>
+					</li>
 					
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
-							Program <span class="badge badge--line badge--blue">3</span>
+							Report Validasi <span class="badge badge--line badge--blue">2</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href="{{ route('proposal.create') }}"><span> Input Proposal</span></a></li>
-							<li><a href="{{url('bahasa/validasi')}}"><span>Report Validasi</span></a></li>
+							<li><a href="{{url('bahasa/validasi/Bem')}}"><span>Badan Eksekutif [BEM]</span></a></li>
+							<li><a href="{{url('bahasa/validasi')}}"><span>Kemahasiswaan</span></a></li>
 						</ul>
 					</li>
 					<li class="main-nav--collapsible">

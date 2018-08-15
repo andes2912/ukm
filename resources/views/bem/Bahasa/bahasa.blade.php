@@ -1,6 +1,6 @@
-@extends('admin.template')
+@extends('bem.template')
 	@section('title')
-		Halaman Admin - Bahasa
+		Halaman BEM - Bahasa
 	@endsection
 
 	@section('topbar')
@@ -28,11 +28,10 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Bahasa [ Pengajuan ]</h3>
-					<a href="{{url('admin/UkmBahasa/validasi')}}" button class="btn inverse blue">Lihat Validasi</a> 
-					{{-- <a href="{{route('inputvalidasi.edit', $InputBahasa1)}}" button class="btn inverse red">Validasi</a> --}}
+					<a href=" {{url('bem/bahasa/bahasavalidasi')}} " button class="btn inverse blue">Lihat Validasi</a> 
 				</div>
 				<div class="widget__config">
-					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
+					<a href=""><i class="pe-7s-back"></i></a>
 				</div>
 				
 			</header>
@@ -73,8 +72,8 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $InputBahasa->id) }}">Lihat</a></li>									
-									<li><a href="{{route ('validasi.edit', $InputBahasa->id)}}">Validasi</a></li>
+									<li><a href="">Lihat</a></li>									
+									<li><a href=" {{route('bahasavalidasi.edit', $InputBahasa->id )}} ">Validasi</a></li>
 									
 								</ul>
 							</td>

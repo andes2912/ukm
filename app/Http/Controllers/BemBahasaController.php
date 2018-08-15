@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\BahasaValidasi;
-use App\Model\InputBahasa;
 use Illuminate\Support\Facades\Input;
-use Storage;
+use App\Model\BemBahasa;
+use App\Model\InputBahasa;
+use File;
+use Illuminate\Support\Facades\Storage;
 
-class BahasaValidasiController extends Controller
+class BemBahasaController extends Controller
 {
-    
-    /**
+            /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:bem');
     }
-
+    
     /**
      * Display a listing of the resource.
      *
@@ -28,12 +28,13 @@ class BahasaValidasiController extends Controller
      */
     public function index()
     {
-        $BahasaValidasiAcc = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->LIMIT('3')->get();
-        $BahasaValidasiRev = BahasaValidasi::Where('status','Revisi')->OrderBy('id','desc')->LIMIT('3')->get();
-        $BahasaValidasiDelay = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->LIMIT('3')->get();
-        $BahasaKmhRev = InputBahasa::WHERE('status','Revisi')->orderby('id','DESC')->LIMIT('5')->get();
-       
-        return view('admin.UkmBahasa.bahasavalidasi', compact('BahasaValidasiAcc','BahasaValidasiRev','BahasaValidasiDelay','BahasaKmhRev'));  
+        $InputBhsMasuk = InputBahasa::Where('status','Baru')->OrderBy('id','Desc')->get();
+        $InputBhsRev = InputBahasa::where('status','Revisi')->orderBy('id', 'Desc')->get();
+        $BemBahasaAcc = BemBahasa::where('status','Disetujui')->orderBy('id', 'Desc')->get();
+        $BemBahasaRev = BemBahasa::where('status','Revisi')->orderBy('id', 'Desc')->get();
+        $BemBahasaDelay = BemBahasa::where('status','Menunggu')->orderBy('id', 'Desc')->get();
+
+        return view('bem.bahasa.validasi', compact( 'InputBhsMasuk','InputBhsRev','BemBahasaMasuk', 'BemBahasaRev','BemBahasaAcc','BemBahasaDelay'));
     }
 
     /**
@@ -43,8 +44,8 @@ class BahasaValidasiController extends Controller
      */
     public function create()
     {
-        $BahasaValidasi = BahasaValidasi::WHERE('status','menunggu')->get();
-        return view('admin.UkmBahasa.edit', compact('BahasaValidasi'));
+        $InputBahasa = InputBahasa::all();
+        return view('bem.bahasa.InputValBhs', compact('InputBahasa'));
     }
 
     /**
@@ -55,21 +56,19 @@ class BahasaValidasiController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $this->validate($request, [      
         'title' => 'nullable|max:100',
-        'status' => 'required|min:3',
-        'file' => 'required|file|max:2000'
-            ]);   
+        'status' => 'required|min:2',
+            ]);
 
         $uploadedFile = $request->file('file');        
         $path = $uploadedFile->store('public/validasi');
-        $BahasaValidasi = BahasaValidasi::create([
+        $BemBahasa = BemBahasa::create([
         'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
         'status' => $request->status,
         'filename' => $path
     ]);
-
-            return redirect()->route('validasi.index');
+        return redirect()->route('bahasavalidasi.index');
     }
 
     /**
@@ -91,8 +90,8 @@ class BahasaValidasiController extends Controller
      */
     public function edit($id)
     {
-        $InputBahasa1 = InputBahasa::FindOrFail($id);
-        return view('admin.UkmBahasa.edit', compact('InputBahasa1'));
+        $InputBahasa = InputBahasa::findOrFail($id);
+        return view('bem.bahasa.InputValBhs', compact('InputBahasa'));
     }
 
     /**
@@ -115,23 +114,16 @@ class BahasaValidasiController extends Controller
      */
     public function destroy($id)
     {
-        $BahasaValidasi2 = BahasaValidasi::findOrFail($id);
-        Storage::delete($BahasaValidasi2->filename);
-        $BahasaValidasi2->delete();
-        
-        return redirect()->route('admin.UkmBahasa.bahasa');
-    }
-    
-
-        public function download(BahasaValidasi $validasi)
-    {
-        return Storage::download($validasi->filename, $validasi->title);
-    }
-    
-        public function unduh(InputBahasa $bahasa)
-    {
-        return Storage::download($bahasa->filename, $bahasa->title);
+        //
     }
 
-    
+      public function unduhBem(BemBahasa $unduhBem)
+    {
+        return Storage::download($unduhBem->filename, $unduhBem->title);
+    }
+
+       public function unduhBhs(InputBahasa $unduhBhs)
+    {
+        return Storage::download($unduhBhs->filename, $unduhBhs->title);
+    }
 }
