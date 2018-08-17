@@ -27,8 +27,8 @@
 						<i class="pe-7s-menu"></i><h3>News Update</h3>
 					
 					</div>
-					<div class="widget__config">
-						<a href="#"><i class="pe-7s-close"></i></a>
+					<div class="widget__config true">
+						<a href=" {{route('bahasa.all')}} " ><i class="pe-7s-close"></i></a>
 					</div>
 				</header>
 							

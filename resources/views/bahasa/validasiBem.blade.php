@@ -20,11 +20,11 @@
 
     @section('isi')
         <div class="row">
-			<div class="col-md-8">
+			<div class="col-md-6">
 				<article class="widget">
 					<header class="widget__header one-btn">
 						<div class="widget__title">
-							<i class="pe-7f-note"></i><h3>Validasi Proposal Dari Badan Eksekutif [ BEM ]</h3>
+							<i class="pe-7f-note"></i><h3>Validasi Proposal Dari [ BEM ]</h3>
 						</div>
 						<div class="widget__config">
 							<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -47,12 +47,12 @@
 					<div class="tabs__content--1">
 					@foreach($InputValidasiBemAcc as $InputValidasiBemAcc)
 					<div class="media message">
-						<figure class="pull-left rounded-image message__img">
+						{{-- <figure class="pull-left rounded-image message__img">
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						</figure>
+						</figure> --}}
 						<div class="media-body">
 							<h4 class="media-heading message__heading"> {{$InputValidasiBemAcc->title}} <span>{{ $InputValidasiBemAcc->created_at->diffForHumans() }}</span> </h4> <hr>
-							<p class="message__msg"><span>Dikirim : Admin</span> | <span> Tanggal :{{ $InputValidasiBemAcc->created_at }}</span></p>
+							<p class="message__msg"><span>Pengirim : BEM </span> | <span> Tanggal :{{ $InputValidasiBemAcc->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -72,12 +72,12 @@
 			<div class="tabs__content--2">
 				@foreach($InputValidasiBemRev as $InputValidasiBemRev)
 				<div class="media message">
-					<figure class="pull-left rounded-image message__img">
+					{{-- <figure class="pull-left rounded-image message__img">
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						</figure>
+						</figure> --}}
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{$InputValidasiBemRev->title}} <span>{{ $InputValidasiBemRev->created_at->diffForHumans() }}</span></h4> <hr>
-						<p class="message__msg"><span>Dikirim : Admin </span> | <span> Tanggal :{{ $InputValidasiBemRev->created_at}} </span></p>
+						<p class="message__msg"><span>Pengirim : BEM </span> | <span> Tanggal :{{ $InputValidasiBemRev->created_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -94,14 +94,14 @@
 			</div> <!-- /tabscontent2 -->
 			
 			<div class="tabs__content--3">
-				@foreach($validasiBemAcc as $validasiBemAcc)
+				@foreach($InputValidasiBemDelay as $InputValidasiBemDelay)
 				<div class="media message">
-					<figure class="pull-left rounded-image message__img">
+					{{-- <figure class="pull-left rounded-image message__img">
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						</figure>
+						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{ $validasiBemAcc->title }}</h4>
-						<p class="message__msg"><span>{{ $validasiBemAcc->created_at->diffForHumans() }}</span> | <span>{{ $validasiBemAcc->created_at }}</span></p>
+						<h4 class="media-heading message__heading">{{ $InputValidasiBemDelay->title }}</h4>
+						<p class="message__msg"><span>{{ $InputValidasiBemDelay->created_at->diffForHumans() }}</span> | <span>{{ $InputValidasiBemDelay->created_at }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o6" checked>
 						
 						<div class="message__controls--cont">
@@ -122,29 +122,34 @@
 	</article><!-- /widget -->
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-6">
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7f-menu pe-rotate-90"></i><h3>Pemberitahuan</h3>
+					<i class="pe-7f-user"></i><h3>Revisi Terkirim ke [ BEM ]</h3>
 				</div>
 				<div class="widget__config">
-					<a href="#"><i class="pe-7f-refresh"></i></a>
+					<a href="#"><i class="pe-7s-close"></i></a>
 				</div>
 			</header>
-			
-			<div class="widget__content widget__grid filled pad20">
-				<p><b><h2><center><u> Mohon Untuk Dibaca </u> </center></h2></b><br>
-					<h5>Pastikan data yang divalidasi sudah memenuhi standarisasi peraturan pengajuan Proposal
-						program kerja yang ditentukan oleh institusi. <br><br>
-						Mohon untuk menghapus proposal masih dalam tabel 'revisi' apabila proposal tersebut sudah
-						di validasi (diterima). <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-						
-						<u style="float:right">IBI DARMAJAYA</u>	
-					</h5>	
-				</p>			
-			</div> <!-- /widget__content -->
 
+			<div class="widget__content">
+				<div class="clearfix"></div>								
+				<div class="members__container">									
+					<div class="media message checked">
+						<div class="media-body"> @foreach( $validasiBemRev as $validasiBemRev )
+							<h3> {{$validasiBemRev->title}} </h3> <br>
+							<p class="message__location"> <i class="pe-7s-clock"></i> {{$validasiBemRev->created_at}} | {{$validasiBemRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							@endforeach
+						</div>
+						
+					</div>
+				</div> <!-- /members__container -->								
+				<div class="clearfix"></div>
+				<div class="members__footer"> <a href="{{route('admin.UkmBahasa.bahasa')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
+					</button></a>
+				</div>
+			</div>
 		</article><!-- /widget -->
 	</div>
 

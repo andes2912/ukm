@@ -59,7 +59,6 @@ Route::group(['prefix' => 'bem'], function(){
 // Halaman Route UKM Bahasa
 Route::group(['prefix' => 'bahasa'], function() {  
     Route::get('/', 'BahasaController@index')->name('bahasa.home');
-    Route::get('/validasi', 'BahasaController@validasi')->name('bahasa.validasi');
     Route::get('/login', 'AuthBahasa\LoginController@ShowLoginForm')->name('bahasa.login');
     Route::post('/login', 'AuthBahasa\LoginController@Login')->name('bahasa.submit.login');
     Route::get('/logout','AuthBahasa\LoginController@logoutBahasa')->name('logout.bahasa');
@@ -75,12 +74,15 @@ Route::group(['prefix' => 'bahasa'], function() {
     // BEM
     Route::get('validasi/bem{unduhBem}/unduhBem','InputBahasaController@unduhBem')->name('unduhBem.download');
     Route::get('/validasi/Bem', 'BahasaController@validasiBem')->name('bahasa.validasiBem');
+    Route::get('/allbem','BahasaController@allBem')->name('bahasa.allbem');
 
     // Kemahasiswaan
     Route::get('proposal/kmh/{id}','InputBahasaController@KirimKmh')->name('bahasa.inputKmh');
     Route::get('proposal/kmh/{id}','InputBahasaController@editKmh')->name('bahasa.inputKmh');
     Route::get('proposal/kmhval/{id}','InputBahasaController@KirimValKmh')->name('bahasa.inputBhsKmh');
     Route::get('proposal/kmhval/{id}','InputBahasaController@editValKmh')->name('bahasa.inputBhsKmh');
+    Route::get('/validasi', 'BahasaController@validasi')->name('bahasa.validasi');
+    Route::get('/allkmh','BahasaController@allKmh')->name('bahasa.allkmh');
 
     
 

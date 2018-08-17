@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Welcome to E-Prop - IBI DARMAJAYA</title>
+    <title>Welcome to E-Prop - IBI DARMAJAYA</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -19,7 +19,7 @@
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="../landing/plugins/pace/pace.min.js"></script>
+	<script src="landing/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body data-spy="scroll" data-target="#header-navbar" data-offset="51">
@@ -39,7 +39,7 @@
                     <a href="#" class="navbar-brand">
                         <span class="brand-logo"></span>
                         <span class="brand-text">
-                            <span class="text-theme">Color</span> Admin
+                            <span class="text-theme">E-Prop</span>
                         </span>
                     </a>
                 </div>
@@ -89,7 +89,7 @@
                     pengelolaan pengajuan ini atau E-Prop. <br> Dengan interface yang mudah dan simple serta kemudahan
                     dalam pengoprasian berbasis Website.
                 </p>
-                <a href="#" class="btn btn-theme">Explore More</a> <a href="#" class="btn btn-outline">Try Now</a><br />
+                <a href="#" class="btn btn-theme">Pelajari Lebih Lanjut</a> <br />
                 <br />
                
             </div>

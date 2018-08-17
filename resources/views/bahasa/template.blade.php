@@ -71,7 +71,6 @@
 						<img class="media-object" src="{{asset('asset/img/bahasa.png')}}">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
-					<h3 class="user-info__role">Admin</h3>
 					<ul class="user-info__numbers">
 						
 					</ul>
@@ -112,12 +111,6 @@
 						</ul>
 					</li>
 					
-					<li>
-						<a class="main-nav__link" href="tables.html">
-							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
-							Galery
-						</a>
-					</li>
 			</ul> <!-- /main-nav -->
 			
 		</aside> <!-- /sidebar -->
@@ -133,7 +126,7 @@
 
 			<footer class="footer-brand">
 				<img src="{{ asset('asset/img/logo_trim.png')}}">
-				<p>© 2018 IBI Darmajaya. All rights reserved</p> <hr>
+				<p>© 2018 IBI Darmajaya.</p>
 				<p>	<span> <a href=""> About </a> </span> | 
 					<span> <a href=""> Hak Cipta</a></span>
 				</p> <hr>

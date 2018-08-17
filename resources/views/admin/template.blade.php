@@ -111,7 +111,7 @@
 							Arsip Proposal <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li><a href=""><span>Arsip Bahasa</span></a></li>
+							<li><a href=" {{route('admin.UkmBahasa.revisi')}} "><span>Arsip Bahasa</span></a></li>
 							<li><a href=""><span>Arsip As'salam</span></a></li>
 							<li><a href=""><span>Arsip DCFC</span></a></li>
 						</ul>

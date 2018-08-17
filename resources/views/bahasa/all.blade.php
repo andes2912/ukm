@@ -24,7 +24,7 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title">
 						<i class="pe-7s-menu"></i><h3>Daftar Proposal UKM Bahasa [ Revisi ]</h3>
-						<a href=" {{route('bahasa.revisiBhs')}}" class="btn blue btn-primary">Lihat Revisi</a>
+						<a href=" {{route('bahasa.revisiBhs')}}" class="btn blue btn-primary">Index Revisi</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -101,8 +101,9 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
-						<i class="pe-7s-menu"></i><h3>Daftar Pengajuan Proposal Kepada [ Badan Eksekutif Mahasiswa ]</h3>
-						<a href="{{ route ('bahasa.validasiBem')}}" class="btn blue btn-primary">Lihat Validasi BEM</a>
+						<i class="pe-7s-menu"></i><h3> Pengajuan Proposal Kepada [ Badan Eksekutif Mahasiswa ]</h3>
+						<a href="{{ route ('bahasa.validasiBem')}}" class="btn blue btn-primary">Validasi BEM</a>
+						<a href="{{ route ('bahasa.allbem')}}" class="btn blue btn-primary">Index BEM</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -173,8 +174,9 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
-						<i class="pe-7s-menu"></i><h3>Daftar Pengajuan Proposal Kepada [ Kemahasiswaan ]</h3>
-						<a href="{{ route ('bahasa.validasi')}}" class="btn blue btn-primary">Lihat Validasi KMH</a>
+						<i class="pe-7s-menu"></i><h3> Pengajuan Proposal Kepada [ Kemahasiswaan ]</h3>
+						<a href="{{ route ('bahasa.validasi')}}" class="btn blue btn-primary"> Validasi KMH</a>
+						<a href="{{ route ('bahasa.allkmh')}}" class="btn blue btn-primary">Index KMH</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>

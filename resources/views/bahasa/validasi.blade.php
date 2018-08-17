@@ -143,7 +143,7 @@
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href="{{route('admin.UkmBahasa.bahasa')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('admin.UkmBahasa.revisi')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href="{{route('bahasa.all')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bahasa.allkmh')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

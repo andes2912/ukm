@@ -32,20 +32,20 @@ class BahasaController extends Controller
 
     public function validasi()
     {
-        $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->get();
-        $EditValKmh = BahasaValidasi::WHERE('status','Revisi')->orderby('id','DESC')->get();
-        $BahasaValidasi3 = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->get();
-        $InputBhsRev = InputBahasa::where('user','KMH')->where('status','Revisi')->orderBy('id','Desc')->get();
+        $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->LIMIT('5')->get();
+        $EditValKmh = BahasaValidasi::WHERE('status','Revisi')->orderby('id','DESC')->LIMIT('5')->get();
+        $BahasaValidasi3 = BahasaValidasi::WHERE('status','Menunggu')->orderby('id','DESC')->LIMIT('5')->get();
+        $InputBhsRev = InputBahasa::where('user','KMH')->where('status','Revisi')->orderBy('id','Desc')->LIMIT('5')->get();
         return view('bahasa.validasi', compact('BahasaValidasi','EditValKmh','BahasaValidasi3','InputBhsRev'));
     }
 
     public function validasiBem()
     {
-        $validasiBemRev = InputBahasa::Where('user','BEM')->Where('status','Revisi')->get();
-        $validasiBemAcc = InputBahasa::Where('user','BEM')->Where('status','Disetujui')->get();
-        $InputValidasiBemRev = BemBahasa::Where('status','Revisi')->get();
-        $InputValidasiBemAcc = BemBahasa::Where('status','Disetujui')->get();
-        return view('bahasa.validasiBem', compact('validasiBemRev','validasiBemAcc','InputValidasiBemRev','InputValidasiBemAcc'));
+        $validasiBemRev = InputBahasa::Where('user','BEM')->Where('status','Revisi')->LIMIT('5')->get();
+        $InputValidasiBemRev = BemBahasa::Where('status','Revisi')->LIMIT('5')->get();
+        $InputValidasiBemAcc = BemBahasa::Where('status','Disetujui')->LIMIT('5')->get();
+        $InputValidasiBemDelay = BemBahasa::Where('status','Menunggu')->LIMIT('5')->get();
+        return view('bahasa.validasiBem', compact('validasiBemRev','InputValidasiBemRev', 'InputValidasiBemAcc','InputValidasiBemDelay'));
     }
 
     public function all()
@@ -58,10 +58,24 @@ class BahasaController extends Controller
 
 
         // Validasi revisi bahasa
-        public function revisiBhs()
+    public function revisiBhs()
     {
         $RevisiBhs = InputBahasa::WHERE('status','revisi')->orderBy('id','Desc')->get();
         return view('bahasa.revisiBhs', compact('RevisiBhs'));
     }
+
+        // Pengajuan untuk BEM
+    public function allBem()
+    {
+        $allBem = InputBahasa::Where('status','Baru')->where('user','BEM')->orderBy('id','Desc')->get();
+        return view('bahasa.allbem', compact('allBem'));
+    }    
+
+          // Pengajuan untuk BEM
+    public function allKmh()
+    {
+        $allKmh = InputBahasa::Where('status','Baru')->where('user','KMH')->orderBy('id','Desc')->get();
+        return view('bahasa.allkmh', compact('allKmh'));
+    }    
 
 }
