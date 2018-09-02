@@ -23,7 +23,7 @@
 					<i class="pe-7f-menu"></i><h3>Media Table</h3>
 				</div>
 				<div class="widget__config">
-					<a href="#"><i class="pe-7s-plus"></i></a>
+					<a href="#" title="Buat Berita" onclick="window.location.href = '{{route('news.create')}}'"><i class="pe-7s-plus"></i></a>
 				</div>
 			</header>
 			

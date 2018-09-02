@@ -336,7 +336,7 @@ input:active, input:focus {
 }
 
 body {
-  background: url(../img/_bg.jpg);
+  background: url(../img/bg.jpg);
   background-size: cover;
   font-family: 'Source Sans Pro', sans-serif;
   color: rgba(255, 255, 255, 0.9);
@@ -1748,7 +1748,7 @@ input[type="checkbox"].btn-more-check:checked + label.c-btn--more:after {
 .error:nth-child(2) {
   margin-left: 1px;
   text-shadow: -1px 0 rgba(255, 0, 0, 0.4);
-  background: url(../img/bg.jpg);
+  background: url(../img/bg3.jpg);
   background-size: cover;
   background-position: fixed;
   overflow: hidden;
@@ -1760,7 +1760,7 @@ input[type="checkbox"].btn-more-check:checked + label.c-btn--more:after {
 .error:nth-child(3) {
   margin-left: -1px;
   text-shadow: -1px 0 rgba(0, 0, 255, 0.4);
-  background: url(../img/bg.jpg);
+  background: url(../img/bg3.jpg);
   background-size: cover;
   background-position: fixed;
   overflow: hidden;
@@ -3974,13 +3974,13 @@ input[name^="tab-radio"]:checked + label {
 *** Modal ***
 *************/
 .modal-content {
-  background: url(../img/bg.jpg);
-  background-size: 700% 700%;
+  background: url(../img/bg3.jpg);
+  background-size: 100% 100%;
   border-radius: 0;
   border: 0;
 }
 .bg1 .modal-content {
-  background: url(../img/bg.jpg);
+  background: url(../img/bg3.jpg);
 }
 .bg2 .modal-content {
   background: url(../img/bg2.jpg);
@@ -4271,8 +4271,8 @@ input[name^="tab-radio"]:checked + label {
     padding-bottom: 0;
     -webkit-transition: max-height .3s;
             transition: max-height .3s;
-    background: url(../img/bg.jpg);
-    background-size: 700% 700%;
+    background: url(../img/bg3.jpg);
+    background-size: 100% 100%;
   }
   .bg1 .sidebar {
     background: url(../img/bg.jpg);

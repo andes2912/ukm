@@ -62,7 +62,6 @@
 						<img class="media-object" src="{{asset('asset/img/profile.jpg')}}">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
-					<h3 class="user-info__role">Admin</h3>
 					<ul class="user-info__numbers">
 						
 					</ul>
@@ -70,34 +69,42 @@
 
 			<ul class="main-nav">
 				<li class="main-nav--active">
-						<a class="main-nav__link" href="{{route('bahasa.home')}}">
+						<a class="main-nav__link" href="{{route('dcfc.home')}}">
 							<span class="main-nav__icon"><i class="pe-7f-home"></i></span>
 							Dashboard
+						</a>
+					</li>
+
+					<li>
+						<a class="main-nav__link" href=" {{route('proposaldcfc.create')}} ">
+							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
+							Input Proposal
 						</a>
 					</li>
 					
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
-							Program <span class="badge badge--line badge--blue">3</span>
+							Report Validasi <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href="{{ route('inputdcfc.create') }}"><span> Input Program</span></a></li>
-							<li><a href=""><span>Jadwal Program</span></a></li>
+							<li ><a href=" {{route('dcfc.ValidasiBem')}} "><span> Badan Eksekutif [BEM] </span></a></li>
+							<li><a href=" {{route('dcfc.validasiKmh')}} "><span>Kemahasiswaan</span></a></li>
 						</ul>
 					</li>
-					<li>
-						<a class="main-nav__link" href="grid.html">
-							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
-							Arsip 
+
+					<li class="main-nav--collapsible">
+						<a class="main-nav__link" href="#" onclick="return false;">
+							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
+							Arsip Proposal<span class="badge badge--line badge--blue">3</span>
 						</a>
+						<ul class="main-nav__submenu">
+							<li ><a href=" {{route('dcfc.arsip')}} "><span> Index Proposal  </span></a></li>
+							<li><a href=" {{route('dcfc.validasiKmh')}} "><span>Sudah Di Validasi</span></a></li>
+						</ul>
 					</li>
-					<li>
-						<a class="main-nav__link" href="tables.html">
-							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
-							Galery
-						</a>
-					</li>
+					
+					
 			</ul> <!-- /main-nav -->
 			
 		</aside> <!-- /sidebar -->

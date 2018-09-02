@@ -13,7 +13,7 @@
 	<link href="landing/plugins/bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="landing/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="landing/plugins/animate/animate.min.css" rel="stylesheet" />
-	<link href="landing/css/one-page-parallax/style.min.css" rel="stylesheet" />
+	<link href="landing/css/one-page-parallax/style.css" rel="stylesheet" />
 	<link href="landing/css/one-page-parallax/style-responsive.min.css" rel="stylesheet" />
 	<link href="landing/css/one-page-parallax/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
@@ -77,18 +77,18 @@
         <div id="home" class="content has-bg home">
             <!-- begin content-bg -->
             <div class="content-bg">
-                <img src="landing/img/bg/bg-home.jpg" alt="Home" />
+                <img src="landing/img/bg/bg.jpg" width="1863px" height="650px" alt="Home" />
             </div>
             <!-- end content-bg -->
             <!-- begin container -->
             <div class="container home-content">
                 <h1>Welcome to E-Prop</h1>
                 <h3>Pengajuan Proposal Unit Kegiatan Mahasiswa Berbasis Digital</h3>
-                <p>
+                <h5>
                     Kini mengajukan proposal untuk kegiatan UKM sangat mudah dan cepat dengan bantuan sistem
                     pengelolaan pengajuan ini atau E-Prop. <br> Dengan interface yang mudah dan simple serta kemudahan
                     dalam pengoprasian berbasis Website.
-                </p>
+                </h5>
                 <a href="#" class="btn btn-theme">Pelajari Lebih Lanjut</a> <br />
                 <br />
                
@@ -99,7 +99,7 @@
 
         
         <!-- begin #footer -->
-        <div id="footer" class="footer">
+        {{-- <div id="footer" class="footer">
             <div class="container">
                 <div class="footer-brand">
                     <div class="footer-brand-logo"></div>
@@ -117,7 +117,7 @@
                     <a href="#"><i class="fa fa-dribbble fa-fw"></i></a>
                 </p>
             </div>
-        </div>
+        </div> --}}
         <!-- end #footer -->
     </div>
     <!-- end #page-container -->

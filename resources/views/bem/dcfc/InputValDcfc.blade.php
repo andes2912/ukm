@@ -1,6 +1,6 @@
-@extends('bahasa.template')
+@extends('bem.template')
 	@section('title')
-		Halaman UKM Bahasa
+		Halaman UKM Dcfc
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Input Proposal UKM Bahasa</span>
+						<span>Halaman Input Proposal UKM Dcfc</span>
 					</h1>
 					
 				</div>
@@ -31,14 +31,14 @@
                         <a href="#"><i class="pe-7s-close"></i></a>
                     </div>
                 </header>
-            <form action="{{ route('proposal.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('validasidcfc.store') }}" method="POST" enctype="multipart/form-data">
                    {{ csrf_field() }}
                 <div class="widget__content">
                     
                     <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
                     </label>
-                    <input type="text" name="title" class="stacked-input" id="input-1" placeholder="Judul Proposal" required>
+                    <input type="text" name="title" value="{{$InputDcfc->title}}" class="stacked-input" id="input-1" placeholder="Judul Proposal" required>
                     
                    <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
@@ -46,17 +46,10 @@
 
                     <input type="text" class="stacked-input" id="input-1" placeholder="Status Proposal" disabled>
                         <select class="btn btn-block white dropdown-toggle" type="button" name="status">
-                            <option value="Baru">Mengajukan</option>
-                        </select>
-
-                    <label for="input-1" class="stacked-label">
-                        <i class="pe-7f-pen"></i>
-                    </label>  
-
-                    <input type="text" class="stacked-input" id="input-1" placeholder="Ditujukan Untuk" disabled>
-                        <select class="btn btn-block white dropdown-toggle" type="button" name="user">
-                            <option value="BEM">Badan Eksekutif Mahasiswa</option>
-                        </select>
+                            <option value="Revisi">Revisi</option>
+                            <option value="Disetujui">Disetujui</option>
+                            <option value="Menunggu">Menunggu</option>
+                        </select>                
 
                     <label class="full-label">
                         <input type="file" name="file" id="file-att" required>

@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InputDcfc extends Model
+class KmhDcfc extends Model
 {
     protected $fillable = [
-        'title','user','status', 'filename'
+        'title','status','filename'
     ];
 }

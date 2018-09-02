@@ -21,14 +21,38 @@
 				</div>
 	@endsection
 
-    @section('isi')
+	@section('isi')
+	
+	<div class="row">					
+		<div class="col-md-12">
+			<article class="widget">
+				<header class="widget__header one-btn">
+					<div class="widget__title">
+						<i class="pe-7f-warning"></i><h3>INFORMASI</h3>
+					</div>
+					<div class="widget__config">
+						<a href="#"><i class="pe-7f-refresh"></i></a>
+					</div>
+				</header>
+				
+				<div class="widget__content widget__grid filled pad20">
+					<p>Proposal yang ditampilkan disini hanya sebagian dari keseluruhan proposal. Klik 'Detail'
+						jika ingin melihat keseluruhan data proposal.
+					</p>
+				</div> <!-- /widget__content -->
+
+			</article><!-- /widget -->
+		</div>
+
+	</div> <!-- /row -->
 
 	<div class="col-md-12">
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Bahasa [ Pengajuan ]</h3>
-					<a href=" {{url('bem/bahasa/bahasavalidasi')}} " button class="btn inverse blue">Lihat Validasi</a> 
+						<a href=" {{url('bem/bahasa/pengajuan')}} " button class="btn blue">Detail</a>
+						<a href=" {{url('bem/bahasa/bahasavalidasi')}} " button class="btn inverse blue">Lihat Validasi</a> 
 				</div>
 				<div class="widget__config">
 					<a href=""><i class="pe-7s-back"></i></a>

@@ -14,13 +14,13 @@
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}" />
 
 	<link rel="stylesheet" type="text/css" href="{{asset ('asset/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/main.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/main.css')}}">
 	
 	<!-- Pixeden Icon Fonts -->
 	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/pe-icon-7-filled.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/pe-icon-7-stroke.css')}}">
 </head>
-<body>
+<body class="">
 	<div id="loading">
 		<div class="loader loader-light loader-large"></div>
 	</div>
@@ -50,7 +50,7 @@
 				<i class="pe-7s-search"></i>
 			</label>
 			
-		</div>
+		</div> 
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
@@ -88,12 +88,11 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
-							UKM Darmajaya <span class="badge badge--line badge--blue">3</span>
+							UKM Darmajaya <span class="badge badge--line badge--blue">2</span>
 						</a>
 						<ul class="main-nav__submenu">
 							<li ><a href=" {{url('bem/bahasa')}} "><span>UKM Bahasa</span></a></li>
-							<li><a href=""><span>UKM As'salam</span></a></li>
-							<li ><a href=""><span>UKM Dcfc</span></a></li>
+							<li ><a href=" {{route('bem.dcfc.index')}} "><span>UKM Dcfc</span></a></li>
 						</ul>
 					</li>
 					<li class="main-nav--collapsible">
@@ -102,7 +101,7 @@
 							Arsip Proposal <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li><a href=""><span>Arsip Bahasa</span></a></li>
+							<li><a href=" {{route('bem.Bahasa.arsipBhs')}} "><span>Arsip Bahasa</span></a></li>
 							<li><a href=""><span>Arsip As'salam</span></a></li>
 							<li><a href=""><span>Arsip Dcfc</span></a> </li>
 						</ul>

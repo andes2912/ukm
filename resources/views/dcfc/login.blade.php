@@ -1,69 +1,54 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign in UKM DCFC</title>
+	
+	<link rel="icon" sizes="192x192" href="{{asset('asset/img/touch-icon.png')}}" /> 
+	<link rel="apple-touch-icon" href="img/touch-icon-iphone.png" /> 
+	<link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png" /> 
+	<link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png" />
+	
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login Dcfc</div>
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('asset/css/main.min.css')}}">
+	
+	<!-- Pixeden Icon Fonts -->
+	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/pe-icon-7-filled.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('asset/css/pe-icon-7-stroke.css')}}">
+</head>
+<body>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('dcfc.submit.login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+					
+    <div class="col-md-4  col-md-offset-4">
+        <article class="widget widget__login">
+            <header class="widget__header one-btn">
+                <div class="widget__title">
+                    <div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div> Sign in DCFC
                 </div>
+                <div class="widget__config">
+                    <a href="#" onclick="window.location.href = '{{url('')}}'"><i class="pe-7s-help1"></i></a>
+                </div>
+            </header>
+            <form class="form-horizontal" method="POST" action="{{ route('dcfc.submit.login') }}">
+                {{ csrf_field() }}
+            <div class="widget__content">
+                <input type="text" name="email" placeholder="E-mail" value="{{ old('email') }}" required autofocus>
+                <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" required autofocus>
+                <button type="submit">Sign in</button>
             </div>
-        </div>
+            </form>
+            <div class="login__remember text-center">
+                <input type="checkbox" class="custom-checkbox" id="cc1" checked>
+                <label for="cc1"></label>
+                Remember me
+            </div>
+        </article><!-- /widget -->
     </div>
-</div>
-@endsection
+				
+
+</body>
+</html>

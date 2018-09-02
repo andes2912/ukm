@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\News;
 use App\Model\InputBahasa;
+use App\Model\InputDcfc;
 use App\Model\BahasaValidasi;
 use App\Model\BemBahasa;
 class BEMController extends Controller
@@ -93,7 +94,7 @@ class BEMController extends Controller
      */
     public function destroy($id)
     {
-        //
+// 
     }
 
     // Khusus Controller UKM BAHASA
@@ -109,5 +110,39 @@ class BEMController extends Controller
         $ArsipBhsRev = BemBahasa::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
         $ArsipBhsDelay = BemBahasa::where('status','Menunggu')->orderBy('id','Desc')->LIMIT('3')->get();
         return view('bem.Bahasa.arsipBhs',compact('ArsipBhsAcc','ArsipBhsRev','ArsipBhsDelay'));
+    }
+
+    public function approveBhs()
+    {
+        $ArsipBhsApprov = BemBahasa::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('3')->get();
+        return view('bem.bahasa.approveBhs', compact('ArsipBhsApprov'));
+    }
+
+    public function revisiBhs()
+    {
+        $ArsipBhsRev = BemBahasa::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
+        return view('bem.bahasa.revisiBhs', compact('ArsipBhsRev'));
+    }
+
+    public function pengajuanBhs()
+    {
+        $PengajuanBhs = InputBahasa::where('status','Baru')->where('user','BEM')->OrderBy('id','Desc')->get();
+        return view('bem.Bahasa.pengajuanBhs',compact('PengajuanBhs'));
+    }
+
+    public function revisiBhsMasuk()
+    {
+        $revisiBhsMasuk = InputBahasa::where('status','Revisi')->where('user','BEM')->OrderBy('id','Desc')->get();
+        return view('bem.Bahasa.revisiBhsMasuk',compact('revisiBhsMasuk'));
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Khusus Controller UKM Dcfc ///
+
+    public function indexdcfc()
+    {
+        $indexdcfc = InputDcfc::where('status','Baru')->where('user','BEM')->orderby('id','Desc')->get();
+        return view('bem.dcfc.index',compact('indexdcfc'));
     }
 }

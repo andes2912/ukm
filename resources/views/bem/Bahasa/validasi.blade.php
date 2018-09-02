@@ -84,14 +84,7 @@
 							<ul class="message__controls">
 								<li><a href="{{route('bahasavalidasi.edit', $InputBhsRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
 								<li><a href="{{ route('unduhBhs.download', $InputBhsRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
-								<li><form action="{{ route('bahasavalidasi.destroy', $InputBhsRev->id)}}" method="POST">
-									{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>
-										 
-										
-									</form>
-								</li>
+								
 							</ul>
 						</div> 
 					</div>
@@ -134,7 +127,7 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7f-user"></i><h3>Ravisi Terkirim</h3>
+					<i class="pe-7f-user"></i><h3>Revisi Terkirim</h3>
 				</div>
 				<div class="widget__config">
 					<a href="#"><i class="pe-7s-close"></i></a>
@@ -154,7 +147,7 @@
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href=""><button class="members__load-more"> Index pengajuan</button></a><a href=" "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href=" {{url('bem/bahasa/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

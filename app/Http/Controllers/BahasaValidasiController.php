@@ -43,8 +43,8 @@ class BahasaValidasiController extends Controller
      */
     public function create()
     {
-        $BahasaValidasi = BahasaValidasi::WHERE('status','menunggu')->get();
-        return view('admin.UkmBahasa.edit', compact('BahasaValidasi'));
+        // $BahasaValidasi = BahasaValidasi::WHERE('status','menunggu')->get();
+        // return view('admin.UkmBahasa.edit', compact('BahasaValidasi'));
     }
 
     /**
@@ -115,11 +115,11 @@ class BahasaValidasiController extends Controller
      */
     public function destroy($id)
     {
-        $BahasaValidasi2 = BahasaValidasi::findOrFail($id);
-        Storage::delete($BahasaValidasi2->filename);
-        $BahasaValidasi2->delete();
+        $BahasaValidasi = BahasaValidasi::findOrFail($id);
+        Storage::delete($BahasaValidasi->filename);
+        $BahasaValidasi->delete();
         
-        return redirect()->route('admin.UkmBahasa.bahasa');
+        return redirect()->route('admin.UkmBahasa.arsipbhs');  
     }
     
 

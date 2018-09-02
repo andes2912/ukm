@@ -1,6 +1,6 @@
-@extends('admin.template')
+@extends('bem.template')
 	@section('title')
-		Halaman Admin - Bahasa
+		Halaman BEM - Dcfc
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman UKM Bahasa</span>
+						<span>Halaman UKM Dcfc</span>
 					</h1>
 					
 				</div>
@@ -22,6 +22,7 @@
 	@endsection
 
 	@section('isi')
+	
 	<div class="row">					
 		<div class="col-md-12">
 			<article class="widget">
@@ -50,11 +51,11 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Bahasa [ Pengajuan ]</h3>
-					<a href="{{route('admin.UkmBahasa.pengajuanBhs')}}" button class="btn blue">Detail</a>
-					<a href="{{url('admin/UkmBahasa/validasi')}}" button class="btn inverse blue">Lihat Validasi</a> 									
+						<a href=" {{url('bem/bahasa/pengajuan')}} " button class="btn blue">Detail</a>
+						<a href=" {{Route('validasidcfc.index')}} " button class="btn inverse blue">Lihat Validasi</a> 
 				</div>
 				<div class="widget__config">
-					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
+					<a href=""><i class="pe-7s-back"></i></a>
 				</div>
 				
 			</header>
@@ -72,21 +73,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($InputBahasa as $InputBahasa)
+					@foreach($indexdcfc as $indexdcfc)
 					<tr class="spacer"></tr>
 					<tr class="spacer">
 
 						<td>
-							<p class="post_info"> {{$InputBahasa->id}} </p>
+							<p class="post_info"> {{$indexdcfc->id}} </p>
 						</td>
 						<td>
-							<p class="post__info">{{ $InputBahasa->title }}</p>
+							<p class="post__info">{{ $indexdcfc->title }}</p>
 						</td>
 						<td>
-							<p class="post__date">{{ $InputBahasa->created_at }}</p>
+							<p class="post__date">{{ $indexdcfc->created_at }}</p>
 						</td>
 						<td>
-							<p class="post__info">{{ $InputBahasa->created_at->diffForHumans() }}</p>
+							<p class="post__info">{{ $indexdcfc->created_at->diffForHumans() }}</p>
 						</td>
 						
 						<div class="dropdown">
@@ -95,8 +96,8 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $InputBahasa->id) }}">Lihat</a></li>									
-									<li><a href="{{route ('validasi.edit', $InputBahasa->id)}}">Validasi</a></li>
+									<li><a href="">Lihat</a></li>									
+									<li><a href=" {{route('validasidcfc.edit', $indexdcfc->id )}} ">Validasi</a></li>
 									
 								</ul>
 							</td>

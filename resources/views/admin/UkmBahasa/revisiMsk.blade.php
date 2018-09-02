@@ -27,8 +27,8 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Keluar UKM Bahasa [ Revisi ]</h3>
-					<a href="{{route('admin.UkmBahasa.revisiMsk')}}" button class="btn inverse blue">Lihat Revisi Masuk</a> 
+					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Masuk UKM Bahasa [ Revisi ]</h3>
+					<a href="{{route('admin.UkmBahasa.revisi')}}" button class="btn inverse blue">Lihat Revisi Keluar</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -49,22 +49,22 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($BahasaValidasi2 as $BahasaValidasi2)
+					@foreach($revisiMsk as $revisiMsk)
 					<tr class="spacer"></tr>
 					<tr class="spacer">
 
 						<td>
-							<p class="post_info"> {{$BahasaValidasi2->id}} </p>
+							<p class="post_info"> {{$revisiMsk->id}} </p>
 						</td>
 						<td>
-							<p >{{ $BahasaValidasi2->title }}</p>
+							<p >{{ $revisiMsk->title }}</p>
 													<p class="post__info"> Pengirim : {{ Auth::user()->name}}</p>
 						</td>
 						<td>
 							<p class="post__date">{{ $BahasaValidasi2->created_at }}</p>
 						</td>
 						<td>
-							<p class="post__info">{{ $BahasaValidasi2->created_at->diffForHumans() }}</p>
+							<p class="post__info">{{ $revisiMsk->created_at->diffForHumans() }}</p>
 						</td>
 						
 						<div class="dropdown">
@@ -73,8 +73,8 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $BahasaValidasi2->id) }}">Lihat</a></li>									
-									<li><form action="{{ route('validasi.destroy', $BahasaValidasi2->id)}}" method="POST">
+									<li><a href="{{ route('bahasa.unduh', $revisiMsk->id) }}">Lihat</a></li>									
+									<li><form action="{{ route('validasi.destroy', $revisiMsk->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
 										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>										 								

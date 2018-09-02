@@ -1,6 +1,6 @@
-@extends('bahasa.template')
+@extends('dcfc.template')
 	@section('title')
-		Halaman UKM Bahasa
+		Halaman DCFC
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Input Proposal UKM Bahasa</span>
+						<span>Dashboard Input Proposal UKM DCFC</span>
 					</h1>
 					
 				</div>
@@ -19,8 +19,7 @@
 	@endsection
 
     @section('isi')
-        
-        <div class="col-md-8">
+       <div class="col-md-8">
             <article class="widget widget__form">
                 <header class="widget__header">
                     <div class="widget__title">
@@ -31,14 +30,14 @@
                         <a href="#"><i class="pe-7s-close"></i></a>
                     </div>
                 </header>
-            <form action="{{ route('proposal.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('proposaldcfc.store', $inputKmh->id) }}" method="POST" enctype="multipart/form-data">
                    {{ csrf_field() }}
                 <div class="widget__content">
                     
                     <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
                     </label>
-                    <input type="text" name="title" class="stacked-input" id="input-1" placeholder="Judul Proposal" required>
+                    <input type="text" name="title" class="stacked-input" value=" {{$inputKmh->title}} " id="input-1" placeholder="Judul Proposal" required>
                     
                    <label for="input-1" class="stacked-label">
                         <i class="pe-7f-pen"></i>
@@ -55,7 +54,7 @@
 
                     <input type="text" class="stacked-input" id="input-1" placeholder="Ditujukan Untuk" disabled>
                         <select class="btn btn-block white dropdown-toggle" type="button" name="user">
-                            <option value="BEM">Badan Eksekutif Mahasiswa</option>
+                            <option value="KMH">Kemahasiswaan</option>
                         </select>
 
                     <label class="full-label">

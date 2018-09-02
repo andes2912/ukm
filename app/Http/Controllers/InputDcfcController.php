@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 use App\Model\InputDcfc;
-use Illuminate\Support\Facades\Input;
+use App\Model\BemDcfc;
+use App\Model\KmhDcfc;
+use Illuminate\Http\Request;
 
 class InputDcfcController extends Controller
 {
@@ -17,7 +17,6 @@ class InputDcfcController extends Controller
     {
         $this->middleware('auth:dcfc');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +24,8 @@ class InputDcfcController extends Controller
      */
     public function index()
     {
-        $InputDcfc = InputDcfc::orderBy('id','DESC')->get();
-        return view('dcfc.index', compact('InputDcfc'));
+        // $inputdcfc = InputDcfc::all();
+        // return view('dcfc.index',compact('inputdcfc'));
     }
 
     /**
@@ -36,7 +35,20 @@ class InputDcfcController extends Controller
      */
     public function create()
     {
-        return view('dcfc.input');
+        $inputdcfcBem = InputDcfc::all();
+        return view('dcfc.inputbem',compact('inputdcfcBem'));
+    }
+
+    public function createKmh()
+    {
+        $inputdcfcBemAcc = InputDcfc::all();
+        return view('dcfc.inputKmh',compact('inputdcfcBemAcc'));
+    }
+
+    public function createValKmh()
+    {
+        $inputdcfcValKmh = InputDcfc::all();
+        return view('dcfc.inputKmhVal',compact('inputdcfcValKmh'));
     }
 
     /**
@@ -47,18 +59,22 @@ class InputDcfcController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $this->validate($request, [      
         'title' => 'nullable|max:100',
-        'file' => 'required|file|max:2000'
+        'user' => 'required|min:2',
+        'status' => 'required|min:2',
             ]);
 
         $uploadedFile = $request->file('file');        
         $path = $uploadedFile->store('public/files');
         $InputDcfc = InputDcfc::create([
-        'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
-        'filename' => $path        
+        'title' => $uploadedFile->getClientOriginalName(),
+        'user' => $request->user,
+        'status' => $request->status,
+        'filename' => $path
     ]);
-       return redirect()->route('inputdcfc.index');
+
+        return redirect()->route('dcfc.home');
     }
 
     /**
@@ -80,7 +96,20 @@ class InputDcfcController extends Controller
      */
     public function edit($id)
     {
-        //
+        $InputBemVal = BemDcfc::findOrFail($id);
+        return view('dcfc.InputBemVal',compact('InputBemVal'));
+    }
+
+    public function editKmh($id)
+    {
+        $inputKmh = BemDcfc::findOrFail($id);
+        return view('dcfc.inputKmh',compact('inputKmh'));
+    }
+
+     public function editValKmh($id)
+    {
+        $inputKmhVal = KmhDcfc::findOrFail($id);
+        return view('dcfc.inputKmhVal',compact('inputKmhVal'));
     }
 
     /**

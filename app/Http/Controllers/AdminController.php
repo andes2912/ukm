@@ -36,29 +36,51 @@ class AdminController extends Controller
         return view('admin.UkmBahasa.bahasa', compact('InputBahasa','BahasaValidasi2'));
     }
 
+    public function ArsipBhs()
+    {
+        $disetujui = BahasaValidasi::where('status','Disetujui')->LIMIT('3')->orderby('id','Desc')->get();
+        $direvisi = BahasaValidasi::where('status','Direvisi')->LIMIT('3')->orderby('id','Desc')->get();
+        $menunggu = BahasaValidasi::where('status','Menunggu')->LIMIT('3')->orderby('id','Desc')->get();
+        return view('admin.UkmBahasa.arsipbhs',compact('disetujui','direvisi','menunggu'));
+    }
+
+    public function Pengajuan()
+    {
+        $pengajuanbhs = InputBahasa::where('status','Baru')->where('user','KMH')->Limit('5')->orderby('id','Desc')->get();
+        return view('admin.UkmBahasa.pengajuanBhs',compact('pengajuanbhs'));
+    }
+
+    public function Disetujui()
+    {
+        $disetujui = BahasaValidasi::where('status','Disetujui')->orderby('id','Desc')->get();
+        return view('admin.UkmBahasa.disetujui',compact('disetujui'));
+    }
+
     public function Revisi()
     {
         $BahasaValidasi2 = BahasaValidasi::Where('status','Revisi')->OrderBy('id','desc')->get();
         return view('admin.UkmBahasa.revisi', compact('BahasaValidasi2'));
     }
 
-    // public function UkmBahasaValidasi() 
-    // {
-    //     $InputBahasas = InputBahasa::orderBy('id','DESC')->get();       
-    //     return view('admin.UkmBahasa.bahasavalidasi', compact('InputBahasas'));       
-    // }
+    public function RevisiMsk()
+    {
+        $revisiMsk = InputBahasa::where('status','Revisi')->where('user','KMH')->orderby('id','desc')->get();
+        return view('admin.UkmBahasa.revisiMsk',compact('revisiMsk'));
+    }
+
+    public function Menunggu()
+    {
+        $menunggu = BahasaValidasi::where('status','Menunggu')->orderby('id','DESC')->get();
+        return view('admin.UkmBahasa.menunggu',compact('menunggu'));
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // UKM DCFC
-    public function UkmDcfc()
+    public function indexDcfc()
     {           
-        $InputDcfc = InputDcfc::orderBy('id','DESC')->get();
-        return view('admin.UkmDcfc.dcfc', compact('InputDcfc'));
+        $indexDcfc = InputDcfc::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderBy('id','DESC')->get();
+        return view('admin.UkmDcfc.indexDcfc', compact('indexDcfc'));
     }
 
-    public function UkmDcfcValidasi() 
-    {
-        $InputDcfc = InputDcfc::orderBy('id','DESC')->get();       
-        return view('admin.UkmDcfc.dcfc', compact('InputDcfc'));       
-    }
 }

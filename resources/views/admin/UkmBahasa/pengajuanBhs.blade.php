@@ -27,8 +27,9 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Keluar UKM Bahasa [ Revisi ]</h3>
-					<a href="{{route('admin.UkmBahasa.revisiMsk')}}" button class="btn inverse blue">Lihat Revisi Masuk</a> 
+					<i class="pe-7s-menu"></i><h3>Daftar Proposal UKM Bahasa [ Pengajuan ]</h3>
+					<a href="{{url('admin/UkmBahasa/validasi')}}" button class="btn inverse blue">Lihat Validasi</a> 
+					{{-- <a href="{{route('inputvalidasi.edit',$InputBahasa1)}}" button class="btn inverse red">Validasi</a> --}}
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -42,29 +43,29 @@
 				<thead>
 					<tr>
 						<th>ID</th>						
-						<th >Judul Proposal Revisi</th>
+						<th >Judul Proposal </th>
 						<th>Tanggal Dikirim</th>	
 						<th>Time</th>									
 						<th width-"170">Action</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($BahasaValidasi2 as $BahasaValidasi2)
+					@foreach($pengajuanbhs as $pengajuanbhs)
 					<tr class="spacer"></tr>
 					<tr class="spacer">
 
 						<td>
-							<p class="post_info"> {{$BahasaValidasi2->id}} </p>
+							<p class="post_info"> {{$pengajuanbhs->id}} </p>
 						</td>
 						<td>
-							<p >{{ $BahasaValidasi2->title }}</p>
-													<p class="post__info"> Pengirim : {{ Auth::user()->name}}</p>
+							<p >{{ $pengajuanbhs->title }}</p>
+								<p class="post__info"> Pengirim : Bahasa</p>
 						</td>
 						<td>
-							<p class="post__date">{{ $BahasaValidasi2->created_at }}</p>
+							<p class="post__date">{{ $pengajuanbhs->created_at }}</p>
 						</td>
 						<td>
-							<p class="post__info">{{ $BahasaValidasi2->created_at->diffForHumans() }}</p>
+							<p class="post__info">{{ $pengajuanbhs->created_at->diffForHumans() }}</p>
 						</td>
 						
 						<div class="dropdown">
@@ -73,13 +74,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $BahasaValidasi2->id) }}">Lihat</a></li>									
-									<li><form action="{{ route('validasi.destroy', $BahasaValidasi2->id)}}" method="POST">
-									{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>										 								
-									</form>
-								</li>
+									<li><a href="{{ route('bahasa.unduh', $pengajuanbhs->id) }}">Lihat</a></li>									
 								</ul>
 							</td>
 						</div>

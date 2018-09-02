@@ -117,7 +117,7 @@ Website: http://www.seantheme.com/color-admin-v4.0/frontend/one-page-parallax/
 /* 1.1 Reset and Overrides */
 
 body {
-    background: #fff;
+    background: rgba(69, 94, 209, 0.534);
     font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #707478;
     font-size: 13px;
@@ -192,13 +192,15 @@ body.page-navbar-fixed-top-sm {
 .header.navbar {
     border-bottom: none;
     -webkit-transition: all .2s linear;
+    background: url(./images/bg-content-cover.png);
     -moz-transition: all .2s linear;
     transition: all .2s linear;
 }
 .header.navbar .navbar-nav > li > a {
     font-size: 12px;
     line-height: 20px;
-    color: #2d353c;
+    /* background-color: #008a8a; */
+    color: #008a8a;
     font-weight: 600;
     padding: 25px 15px;
 }
@@ -213,7 +215,7 @@ body.page-navbar-fixed-top-sm {
 
 .header .navbar-brand {
     padding: 25px 15px;
-    height: auto;
+    height: 30px;
 }
 .header .navbar-brand img {
 	display: block;
@@ -234,7 +236,7 @@ body.page-navbar-fixed-top-sm {
 .brand-logo + .brand-text {
     margin-left: 42px;
     display: block;
-    color: #2d353c;
+    color: #0c76d3;
     font-size: 20px;
     line-height: 20px;
     display: block;
@@ -262,15 +264,15 @@ body.page-navbar-fixed-top-sm {
 /* 2.5 Navbar Transparent & Inverse Setting  */
 
 .header.navbar.navbar-transparent {
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(59, 75, 212, 0.37);
 }
 .header.navbar.navbar-transparent .navbar-nav > li > a,
 .header.navbar.navbar-inverse .navbar-nav > li > a {
-    color: #8F8E8E;
+    color: rgba(252, 252, 252, 0.534);
 }
 .header.navbar.navbar-transparent .brand-text,
 .header.navbar.navbar-inverse .brand-text {
-    color: #fff;
+    color: rgba(47, 91, 214, 0.808);
 }
 .navbar-transparent .navbar-toggle,
 .navbar-inverse .navbar-toggle {
@@ -287,7 +289,7 @@ body.page-navbar-fixed-top-sm {
 .header.navbar.navbar-small {
     border-bottom: none;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.753);
 }
 .header.navbar.navbar-small .navbar-brand,
 .header.navbar.navbar-small .navbar-nav > li > a {
@@ -298,7 +300,7 @@ body.page-navbar-fixed-top-sm {
 }
 .header.navbar.navbar-transparent.navbar-small .navbar-nav > li > a,
 .header.navbar.navbar-transparent.navbar-small .brand-logo + .brand-text {
-    color: #2d353c;
+    color: #1e83db;
 }
 .navbar-small .navbar-toggle {
     border-color: #ddd;
@@ -317,7 +319,7 @@ body.page-navbar-fixed-top-sm {
     display: block;
 }
 .navbar-nav .dropdown-menu {
-    background: #333;
+    background: rgb(51, 51, 51);
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -394,7 +396,7 @@ body.page-navbar-fixed-top-sm {
 }
 .content.has-bg .content-bg:before {
     content: '';
-    background: url(images/bg-content-cover.png);
+    /* background: url(./images/bg-content-cover.png); */
     position: absolute;
     left: 0;
     right: 0;
@@ -408,7 +410,7 @@ body.page-navbar-fixed-top-sm {
     color: #fff;
 }
 .content.has-bg .container .content-desc {
-    color: rgba(255,255,255,0.6);
+    color: rgba(19, 102, 197, 0.6);
 }
 .content.has-bg h1,
 .content.has-bg h2,
@@ -939,8 +941,8 @@ body.page-navbar-fixed-top-sm {
 /* 13.1 Footer Element Setting */
 
 .footer {
-    padding: 60px 0;
-    background: #242a30;
+    padding: 10px;
+    background: url(./images/blur.jpg);
     text-align: center;
     box-shadow: inset 0 100px 80px -80px rgba(0,0,0,0.7);
     -webkit-box-shadow: inset 0 100px 80px -80px rgba(0,0,0,0.7);

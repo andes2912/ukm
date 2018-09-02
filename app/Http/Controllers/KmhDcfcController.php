@@ -3,25 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use App\Model\BemBahasa;
-use App\Model\InputBahasa;
-use App\Model\BahasaValidasi;
-use File;
-use Illuminate\Support\Facades\Storage;
-
-class BemBahasaController extends Controller
+use App\Model\KmhDcfc;
+use App\Model\InputDcfc;
+class KmhDcfcController extends Controller
 {
-            /**
+    /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth:bem');
+        $this->middleware('auth:admin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -29,13 +24,11 @@ class BemBahasaController extends Controller
      */
     public function index()
     {
-        $InputBhsMasuk = InputBahasa::Where('status','Baru')->OrderBy('id','Desc')->get();
-        $InputBhsRev = InputBahasa::where('status','Revisi')->orderBy('id', 'Desc')->get();
-        $BemBahasaAcc = BemBahasa::where('status','Disetujui')->orderBy('id', 'Desc')->get();
-        $BemBahasaRev = BemBahasa::where('status','Revisi')->orderBy('id', 'Desc')->get();
-        $BemBahasaDelay = BemBahasa::where('status','Menunggu')->orderBy('id', 'Desc')->get();
-
-        return view('bem.bahasa.validasi', compact( 'InputBhsMasuk','InputBhsRev','BemBahasaMasuk', 'BemBahasaRev','BemBahasaAcc','BemBahasaDelay'));
+        $KmhDcfcAcc = KmhDcfc::where('status','Disetujui')->Limit('5')->orderby('id','Desc')->get();
+        $KmhDcfcRev = KmhDcfc::where('status','Revisi')->Limit('5')->orderby('id','Desc')->get();
+        $KmhDcfcDelay = KmhDcfc::where('status','Menunggu')->Limit('5')->orderby('id','Desc')->get();
+        $KmhDcfcRevMasuk = InputDcfc::where('status','Revisi')->where('user','KMH')->Limit('5')->orderby('id','Desc')->get();
+        return view('admin.UkmDcfc.dcfcvalidasi', compact('KmhDcfcAcc','KmhDcfcRev','KmhDcfcDelay','KmhDcfcRevMasuk'));
     }
 
     /**
@@ -45,8 +38,7 @@ class BemBahasaController extends Controller
      */
     public function create()
     {
-        // $InputBahasa = InputBahasa::all();
-        // return view('bem.bahasa.InputValBhs', compact('InputBahasa'));
+        //
     }
 
     /**
@@ -57,19 +49,21 @@ class BemBahasaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [      
+        $this->validate($request, [
         'title' => 'nullable|max:100',
-        'status' => 'required|min:2',
-            ]);
+        'status' => 'required|min:3',
+        'file' => 'required|file|max:2000'
+            ]);   
 
         $uploadedFile = $request->file('file');        
         $path = $uploadedFile->store('public/validasi');
-        $BemBahasa = BemBahasa::create([
+        $KmhDcfc = KmhDcfc::create([
         'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
         'status' => $request->status,
         'filename' => $path
     ]);
-        return redirect()->route('bahasavalidasi.index');
+
+            return redirect()->route('validasikmh.index');
     }
 
     /**
@@ -91,8 +85,8 @@ class BemBahasaController extends Controller
      */
     public function edit($id)
     {
-        $InputBahasa = InputBahasa::findOrFail($id);
-        return view('bem.bahasa.InputValBhs', compact('InputBahasa'));
+        $kmhdcfc = InputDcfc::findOrFail($id);
+        return view('admin.UkmDcfc.editKmh',compact('kmhdcfc'));
     }
 
     /**
@@ -115,20 +109,6 @@ class BemBahasaController extends Controller
      */
     public function destroy($id)
     {
-        $BemBahasa = BemBahasa::findOrFail($id);
-        Storage::delete($BemBahasa->filename);
-        $BemBahasa->delete();
-        
-        return redirect()->route('bem.Bahasa.arsipBhs');
-    }
-
-      public function unduhBem(BemBahasa $unduhBem)
-    {
-        return Storage::download($unduhBem->filename, $unduhBem->title);
-    }
-
-       public function unduhBhs(InputBahasa $unduhBhs)
-    {
-        return Storage::download($unduhBhs->filename, $unduhBhs->title);
+        //
     }
 }

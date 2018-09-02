@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\BemDcfc;
+use App\Model\KmhDcfc;
+use App\Model\InputDcfc;
 class DcfcController extends Controller
 {
      /**
@@ -24,5 +26,33 @@ class DcfcController extends Controller
     public function index()
     {
         return view('dcfc.home');
+    }
+
+    public function ValidasiBem()
+    {
+        $BemDcfcAcc = BemDcfc::where('status','Disetujui')->LIMIT('5')->orderby('id','Desc')->get();
+        $BemDcfcRev = BemDcfc::where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        $BemDcfcDelay = BemDcfc::where('status','Menunggu')->LIMIT('5')->orderby('id','Desc')->get();
+        $DcfcRevKeluar = InputDcfc::where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        return view('dcfc.ValidasiBem',compact('BemDcfcAcc','BemDcfcRev','BemDcfcDelay','DcfcRevKeluar'));
+    }
+
+    public function ValidasiKmh()
+    {
+        $KmhDcfcAcc = KmhDcfc::where('status','Disetujui')->LIMIT('5')->orderby('id','Desc')->get();
+        $KmhDcfcRev = KmhDcfc::where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        $KmhDcfcDelay = KmhDcfc::where('status','Menunggu')->LIMIT('5')->orderby('id','Desc')->get();
+        $DcfcRevKeluar = InputDcfc::where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        return view('dcfc.ValidasiKmh',compact('KmhDcfcAcc','KmhDcfcRev','KmhDcfcDelay','DcfcRevKeluar'));
+    }
+
+    public function ArsipDcfc()
+    {
+        $ArsipDcfcBem = InputDcfc::where('status','Baru')->where('user','BEM')->LIMIT('5')->orderby('id','Desc')->get();
+        $ArsipDcfcKmh = InputDcfc::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderby('id','Desc')->get();
+        $ArsipDcfcRevMskBem = BemDcfc::where('status','Revisi')->orderby('id','Desc')->LIMIT('5')->get();
+        $ArsipDcfcRevMskKmh = KmhDcfc::where('status','Revisi')->orderby('id','Desc')->LIMIT('5')->get();
+        return view('dcfc.arsip',compact('ArsipDcfcBem','ArsipDcfcKmh','ArsipDcfcRevMskBem','ArsipDcfcRevMskKmh'));
+          
     }
 }

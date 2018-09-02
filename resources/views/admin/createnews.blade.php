@@ -43,14 +43,13 @@
         
         <div class="col-md-12">
             <article class="widget widget__form">
-                <header class="widget__header">
+                <header class="widget__header one-btn">
                     <div class="widget__title">
                         <i class="pe-7s-menu"></i><h3>Tulis Berita</h3>
-                    <a href="{{route('news.index')}}" title="Lihat Berita"><i class="pe-7s-look"></i></a>
+                    
                     </div>
                     <div class="widget__config">
-                        <a href="#"><i class="pe-7f-refresh"></i></a>
-                        <a href="#"><i class="pe-7s-close"></i></a>
+                        <a href="#" title="Lihat Berita" onclick="window.location.href = '{{route('news.index')}}'"><i class="pe-7s-look"></i></a>
                     </div>
                 </header>
             <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">

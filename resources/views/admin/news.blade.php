@@ -24,10 +24,10 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title">
 						<i class="pe-7s-display2"></i><h3>News Update [Telah Terbit]</h3>
-						<a href="{{ route('news.create')}}" onclick="true" title="Buat Berita Baru"><i class="pe-7s-plus"></i></a>
+						
 					</div>
 					<div class="widget__config ">						
-						<a href="{{ route('news.create')}}" onclick="true" title="Buat Berita Baru"><i class="pe-7s-close"></i></a>					
+						<a href="#" title="Buat Berita" onclick="window.location.href = '{{route('news.create')}}'"><i class="pe-7s-plus"></i></a>					
 					</div>
 				</header>
 							

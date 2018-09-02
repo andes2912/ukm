@@ -1,6 +1,6 @@
-@extends('bahasa.template')
+@extends('dcfc.template')
 	@section('title')
-		Halaman UKM Bahasa
+		Halaman UKM Dcfc
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Input Proposal UKM Bahasa</span>
+						<span>Halaman Input Proposal UKM Dcfc</span>
 					</h1>
 					
 				</div>
@@ -31,7 +31,7 @@
                         <a href="#"><i class="pe-7s-close"></i></a>
                     </div>
                 </header>
-            <form action="{{ route('proposal.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('proposaldcfc.store') }}" method="POST" enctype="multipart/form-data">
                    {{ csrf_field() }}
                 <div class="widget__content">
                     
