@@ -28,7 +28,7 @@
 					
 					</div>
 					<div class="widget__config true">
-						<a href=" {{route('bahasa.all')}} " ><i class="pe-7s-close"></i></a>
+						<a href=" {{route('bahasa.arsip')}} " ><i class="pe-7s-close"></i></a>
 					</div>
 				</header>
 							

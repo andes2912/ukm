@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">
+                    <a href="" class="navbar-brand">
                         <span class="brand-logo"></span>
                         <span class="brand-text">
                             <span class="text-theme">E-Prop</span>
@@ -47,8 +47,7 @@
                 <!-- begin navbar-collapse -->
                 <div class="collapse navbar-collapse" id="header-navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#contact" data-click="scroll-to-target">Dasboard</a></li>
-                        <li><a href="#contact" data-click="scroll-to-target">Blog</a></li>
+                        <li><a href="" data-click="scroll-to-target">Dasboard</a></li>
                         <li class="active dropdown">
                             <a href="" data-click="scroll-to-target" data-toggle="dropdown">UKM Darmajaya
                                 <b class="caret"></b>
@@ -59,9 +58,6 @@
                                 </li>
                                 <li>
                                     <a href="{{route('dcfc.login')}}">UKM DCFC</a>
-                                </li>
-                                <li>
-                                    <a href="">UKM Assalam</a>
                                 </li>
                             </ul>
                         </li>
@@ -83,7 +79,7 @@
             <!-- begin container -->
             <div class="container home-content">
                 <h1>Welcome to E-Prop</h1>
-                <h3>Pengajuan Proposal Unit Kegiatan Mahasiswa Berbasis Digital</h3>
+                <h3>Sistem Pengajuan Proposal Unit Kegiatan Mahasiswa Berbasis Digital</h3>
                 <h5>
                     Kini mengajukan proposal untuk kegiatan UKM sangat mudah dan cepat dengan bantuan sistem
                     pengelolaan pengajuan ini atau E-Prop. <br> Dengan interface yang mudah dan simple serta kemudahan

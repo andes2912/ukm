@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 use App\Model\InputDcfc;
 use App\Model\BemDcfc;
 use App\Model\KmhDcfc;
@@ -132,6 +133,23 @@ class InputDcfcController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $InputDcfc = InputDcfc::findOrFail($id);
+        Storage::delete($InputDcfc->filename);
+        $InputDcfc->delete();
+        return redirect()->route('dcfc.arsip');
+    }
+
+// Controller Download
+
+    // BEM
+    public function unduhBemDcfc(BemDcfc $unduhBemDcfc)
+    {
+        return Storage::download($unduhBemDcfc->filename, $unduhBemDcfc->title);
+    }
+
+    // KMH
+    public function unduhKmhDcfc(KmhDcfc $unduhKmhDcfc)
+    {
+        return Storage::download($unduhKmhDcfc->filename, $unduhKmhDcfc->title);
     }
 }

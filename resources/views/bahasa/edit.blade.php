@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Input Validasi Proposal</span>
+						<span>Halaman Input Revisi Proposal</span>
 					</h1>
 					
 				</div>
@@ -23,31 +23,6 @@
 
     @section('isi')
 
-	<div class="col-md-12">
-            <article class="widget">
-                <header class="widget__header one-btn">
-                    <div class="widget__title">
-                        <i class="pe-7f-menu pe-rotate-90"></i><h3>Pemberitahuan</h3>
-                    </div>
-                    <div class="widget__config">
-                        <a href="#"><i class="pe-7f-refresh"></i></a>
-                    </div>
-                </header>
-                
-                <div class="widget__content widget__grid filled pad20">
-                    <p><b><h2><center><u> Mohon Untuk Dibaca </u> </center></h2></b><br>
-					<h5>Pastikan data yang divalidasi sudah memenuhi standarisasi peraturan pengajuan Proposal
-						program kerja yang ditentukan oleh institusi. <br><br>
-						Mohon untuk menghapus proposal masih dalam tabel 'revisi' apabila proposal tersebut sudah
-						di validasi (diterima). <br><br>
-						<u style="float:right">IBI DARMAJAYA</u>	
-					</h5>	
-				</p>		
-                </div> <!-- /widget__content -->
-
-            </article><!-- /widget -->
-        </div>
-        
         <div class="col-md-8">
             <article class="widget widget__form">
                 <header class="widget__header one-btn">
@@ -97,4 +72,29 @@
                 </form>
             </article>
         </div>
+
+        <div class="col-md-4">
+		<article class="widget">
+			<header class="widget__header one-btn">
+				<div class="widget__title">
+					<i class="pe-7f-menu pe-rotate-90"></i><h3>Pemberitahuan</h3>
+				</div>
+				<div class="widget__config">
+					<a href="#"><i class="pe-7f-refresh"></i></a>
+				</div>
+			</header>
+			
+			<div class="widget__content widget__grid filled pad20">
+				<p><b><h2><center><u> Mohon Untuk Dibaca </u> </center></h2></b><br>
+					<h5>Pastikan proposal yang diinput untuk diajukan kepada BEM sudah benar dan sesuai dengan
+                        perarutan yang berlaku. <br><br>
+						Mohon untuk mengecek nya terlebih dahulu sebelum proposal diinputkan. <br><br><br><br><br><br>
+						
+						<u style="float:right">BEM - IIB DARMAJAYA</u>	
+					</h5>	
+				</p>			
+			</div> <!-- /widget__content -->
+
+		</article><!-- /widget -->
+	</div>
     @endsection

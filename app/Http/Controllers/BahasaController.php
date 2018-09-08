@@ -39,7 +39,7 @@ class BahasaController extends Controller
         return view('bahasa.validasi', compact('BahasaValidasi','EditValKmh','BahasaValidasi3','InputBhsRev'));
     }
 
-    public function validasiBem()
+     public function validasiBem()
     {
         $validasiBemRev = InputBahasa::Where('user','BEM')->Where('status','Revisi')->LIMIT('5')->get();
         $InputValidasiBemRev = BemBahasa::Where('status','Revisi')->LIMIT('5')->get();
@@ -48,12 +48,13 @@ class BahasaController extends Controller
         return view('bahasa.validasiBem', compact('validasiBemRev','InputValidasiBemRev', 'InputValidasiBemAcc','InputValidasiBemDelay'));
     }
 
-    public function all()
+    public function arsip()
     {
         $InputBahasaBemNew = InputBahasa::Where('user','BEM')->Where('status','Baru')->orderby('id','DESC')->LIMIT('3')->get();
         $InputBahasaKmhNew = InputBahasa::where('user','KMH')->where('status','Baru')->orderBy('id','Desc')->LIMIT('3')->get();
-        $InputBahasaRev = InputBahasa::Where('status','Revisi')->orderby('id','DESC')->LIMIT('3')->get();
-        return view('bahasa.all', compact('InputBahasaBemNew','InputBahasaRev','InputBahasaKmhNew'));
+        $InputBahasaRevBem = InputBahasa::Where('user','BEM')->where('status','Revisi')->orderby('id','DESC')->LIMIT('3')->get();
+        $InputBahasaRevKmh = InputBahasa::Where('user','KMH')->where('status','Revisi')->orderby('id','DESC')->LIMIT('3')->get();
+        return view('bahasa.arsip', compact('InputBahasaBemNew','InputBahasaKmhNew','InputBahasaRevBem','InputBahasaRevKmh'));
     }
 
 
@@ -77,5 +78,4 @@ class BahasaController extends Controller
         $allKmh = InputBahasa::Where('status','Baru')->where('user','KMH')->orderBy('id','Desc')->get();
         return view('bahasa.allkmh', compact('allKmh'));
     }    
-
 }

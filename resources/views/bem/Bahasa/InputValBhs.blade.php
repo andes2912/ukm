@@ -24,7 +24,7 @@
             <article class="widget widget__form">
                 <header class="widget__header">
                     <div class="widget__title">
-                        <i class="pe-7s-menu"></i><h3>Kirim Proposal</h3>
+                        <i class="pe-7s-menu"></i><h3>Kirim Proposal Untuk Bahasa</h3>
                     </div>
                     <div class="widget__config">
                         <a href="#"><i class="pe-7f-refresh"></i></a>

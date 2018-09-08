@@ -27,10 +27,10 @@
         <article class="widget widget__login">
             <header class="widget__header one-btn">
                 <div class="widget__title">
-                    <div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div> Sign in UKM Bahasa
+                    <div class="main-logo"> <!--<img src="{{asset('asset/img/logo.png')}}">--></div> Sign in UKM Bahasa
                 </div>
                 <div class="widget__config">
-                    <a href="#" onclick="window.location.href = '{{url('')}}'"><i class="pe-7s-help1"></i></a>
+                    <a href="#" title="Kembali" onclick="window.location.href = '{{url('')}}'"><i class="pe-7s-back" ></i></a>
                 </div>
             </header>
             <form class="form-horizontal" method="POST" action="{{ route('bahasa.submit.login') }}">

@@ -29,7 +29,7 @@
 		
 		<ul class="profile"> 
 			<li>
-			<img src="{{asset('asset/img/logo.png')}}">
+			{{-- <img src="{{asset('asset/img/logo.png')}}"> --}}
 			</li>
 			<li>
 				<a href="{{ route('logout') }}"
@@ -54,7 +54,7 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
+				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>
 			</div>
 		</div>
 		
@@ -68,7 +68,7 @@
 			
 			<div class="user-info">
 					<figure class="rounded-image profile__img">
-						<img class="media-object" src="{{asset('asset/img/bahasa.png')}}">
+						<img class="media-object" src="{{asset('asset/img/bem.jpg')}}">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
 					<h3 class="user-info__role">Admin</h3>
@@ -107,12 +107,12 @@
 						</ul>
 					</li>
 					
-					<li>
+					{{-- <li>
 						<a class="main-nav__link" href="tables.html">
 							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
 							Galery
 						</a>
-					</li>
+					</li> --}}
 			</ul> <!-- /main-nav -->
 			
 		</aside> <!-- /sidebar -->

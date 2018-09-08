@@ -24,7 +24,7 @@
 				<article class="widget">
 					<header class="widget__header one-btn">
 						<div class="widget__title">
-							<i class="pe-7f-note"></i><h3>Validasi Proposal</h3>
+							<i class="pe-7f-note"></i><h3>Validasi Proposal dari [ BKP ]</h3>
 						</div>
 						<div class="widget__config">
 							<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -143,7 +143,7 @@
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href="{{route('bahasa.all')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bahasa.allkmh')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href="{{route('bahasa.arsip')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bahasa.allkmh')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

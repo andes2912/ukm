@@ -29,7 +29,7 @@
 		
 		<ul class="profile"> 
 			<li>
-			<img src="{{asset('asset/img/logo.png')}}">
+			{{-- <img src="{{asset('asset/img/logo.png')}}"> --}}
 			</li>
 			<li>
 				<a href="{{ route('logout') }}"
@@ -53,22 +53,13 @@
 		</div>
 		
 		<div class="main-brand">
-			<div class="main-brand__container">
-				
-				{{-- <div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>								 --}}
-				<label class="swtc swtc--dark"></label> 
-				<a href="#"><button class="btn blue">
-					Notifikasi
-					<span class="badge badge--blue">3</span>
-				</button></a>
-				
+			<div class="main-brand__container">			
+				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>								
 			</div>
 		</div>
 
-		
 	</header>
 	<!-- /top-bar -->
-
 
 	<div class="wrapper">
 

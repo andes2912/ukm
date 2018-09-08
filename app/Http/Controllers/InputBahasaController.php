@@ -28,8 +28,8 @@ class InputBahasaController extends Controller
      */
     public function index()
     {
-        $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->LIMIT('5')->get();
-        $BemValidasi = BahasaValidasi::WHERE('status','Disetujui')->orderby('id','DESC')->LIMIT('5')->get();        
+        $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->LIMIT('5')->orderby('id','DESC')->LIMIT('5')->get();
+        $BemValidasi = BemBahasa::WHERE('status','Disetujui')->LIMIT('5')->orderby('id','DESC')->LIMIT('5')->get();        
         return view('bahasa.index', compact('BahasaValidasi','BemValidasi'));
     }
 
@@ -79,7 +79,7 @@ class InputBahasaController extends Controller
         'filename' => $path
     ]);
 
-        return redirect()->route('bahasa.all');
+        return redirect()->route('bahasa.arsip');
     }
 
     /**
@@ -140,9 +140,12 @@ class InputBahasaController extends Controller
         $InputBahasa = InputBahasa::findOrFail($id);
         Storage::delete($InputBahasa->filename);
         $InputBahasa->delete();
-        return redirect()->route('bahasa.all');
+        return redirect()->route('bahasa.arsip');
     }
-    // Download file 
+
+
+
+    // Download file //
  
 // Unduh BEM
    public function unduhBem(BemBahasa $unduhBem)

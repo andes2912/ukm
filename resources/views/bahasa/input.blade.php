@@ -24,7 +24,7 @@
             <article class="widget widget__form">
                 <header class="widget__header">
                     <div class="widget__title">
-                        <i class="pe-7s-menu"></i><h3>Kirim Proposal</h3>
+                        <i class="pe-7s-menu"></i><h3>Kirim Proposal Untuk BEM</h3>
                     </div>
                     <div class="widget__config">
                         <a href="#"><i class="pe-7f-refresh"></i></a>
@@ -81,12 +81,11 @@
 			
 			<div class="widget__content widget__grid filled pad20">
 				<p><b><h2><center><u> Mohon Untuk Dibaca </u> </center></h2></b><br>
-					<h5>Pastikan data yang divalidasi sudah memenuhi standarisasi peraturan pengajuan Proposal
-						program kerja yang ditentukan oleh institusi. <br><br>
-						Mohon untuk menghapus proposal masih dalam tabel 'revisi' apabila proposal tersebut sudah
-						di validasi (diterima). <br><br><br><br><br><br>
+					<h5>Pastikan proposal yang diinput untuk diajukan kepada BEM sudah benar dan sesuai dengan
+                        perarutan yang berlaku. <br><br>
+						Mohon untuk mengecek nya terlebih dahulu sebelum proposal diinputkan. <br><br><br><br><br><br>
 						
-						<u style="float:right">IBI DARMAJAYA</u>	
+						<u style="float:right">BEM - IIB DARMAJAYA</u>	
 					</h5>	
 				</p>			
 			</div> <!-- /widget__content -->

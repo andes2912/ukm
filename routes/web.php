@@ -73,21 +73,28 @@ Route::group(['prefix' => 'bem'], function(){
 
 // Halaman Route UKM Bahasa
 Route::group(['prefix' => 'bahasa'], function() {  
-    Route::get('/', 'BahasaController@index')->name('bahasa.home');
+    // Login
     Route::get('/login', 'AuthBahasa\LoginController@ShowLoginForm')->name('bahasa.login');
     Route::post('/login', 'AuthBahasa\LoginController@Login')->name('bahasa.submit.login');
     Route::get('/logout','AuthBahasa\LoginController@logoutBahasa')->name('logout.bahasa');
 
+    // Dashboard
+    Route::get('/', 'BahasaController@index')->name('bahasa.home');
+
+    // Input Proposal
     Route::Resource('/proposal','InputBahasaController');
-    Route::get('/all','BahasaController@all')->name('bahasa.all');
+
     Route::get('/revisibhs','BahasaController@RevisiBhs')->name('bahasa.revisiBhs');
     Route::get('proposal/{bahasa}/download', 'InputBahasaController@download')->name('bahasa.download');
     Route::get('proposal/{validasi}/unduh','InputBahasaController@unduh')->name('unduh.download');
     Route::get('validasi/{BahasaValidasi}/unduhvalidasi','InputBahasaController@unduhvalidasi')->name('unduhvalidasi.download');
     Route::get('validasibahasa/create','BahasaController@inputvalidasi')->name('validasibahasa.inputvalidasi');
-   
+    
+    // Arsip
+    Route::get('/arsip','BahasaController@arsip')->name('bahasa.arsip');
+
     // BEM
-    Route::get('validasi/bem{unduhBem}/unduhBem','InputBahasaController@unduhBem')->name('unduhBem.download');
+    Route::get('validasi/{unduhBem}/unduhBem','InputBahasaController@unduhBem')->name('unduhBem.download');
     Route::get('/validasi/Bem', 'BahasaController@validasiBem')->name('bahasa.validasiBem');
     Route::get('/allbem','BahasaController@allBem')->name('bahasa.allbem');
 
@@ -121,9 +128,11 @@ Route::group(['prefix' => 'dcfc'], function() {
 
     // BEM
     Route::get('/validasibem','DcfcController@ValidasiBem')->name('dcfc.ValidasiBem');
+    Route::get('/validasibem/{unduhBemDcfc}/unduhBemDcfc', 'InputDcfcController@unduhBemDcfc')->name('unduhBemDcfc.download');
 
     //KMH
     Route::get('/validasikmh','DcfcController@validasiKmh')->name('dcfc.validasiKmh');
+    Route::get('/validasikmh/{unduhKmhDcfc}/unduhKmhDcfc','InputDcfcController@unduhKmhDcfc')->name('unduhKmhDcfc.download');
 });
 
 

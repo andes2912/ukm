@@ -52,7 +52,7 @@
 						</figure> --}}
 						<div class="media-body">
 							<h4 class="media-heading message__heading"> {{$BemDcfcAcc->title}} <span>{{ $BemDcfcAcc->created_at->diffForHumans() }}</span> </h4> <hr>
-							<p class="message__msg"><span>Pengirim : BEM </span> | <span> Tanggal :{{ $BemDcfcAcc->created_at }}</span></p>
+							<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $BemDcfcAcc->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">

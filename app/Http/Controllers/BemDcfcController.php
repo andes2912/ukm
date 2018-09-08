@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Model\InputDcfc;
 use App\Model\BemDcfc;
@@ -110,6 +110,9 @@ class BemDcfcController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $BemDcfc = BemDcfc::findOrFail($id);
+        Storage::delete($BemDcfc->filename);
+        $BemDcfc->delete();
+        return redirect()->route('dcfc.arsip');
     }
 }

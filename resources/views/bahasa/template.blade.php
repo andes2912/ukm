@@ -29,7 +29,7 @@
 		
 		<ul class="profile"> 
 			<li>
-			<img src="{{asset('asset/img/logo.png')}}">
+			{{-- <img src="{{asset('asset/img/logodj.png')}}"> --}}
 			</li>
 			<li>
 				<a href="{{ route('logout') }}"
@@ -54,7 +54,7 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
+				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>
 			</div>
 		</div>
 		
@@ -106,8 +106,8 @@
 							Arsip Proposal <span class="badge badge--line badge--blue">2</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href="{{route('proposal.index')}}"><span>Sudah Di Validasi</span></a></li>
-							<li><a href="{{route('bahasa.all')}}"><span>Index Proposal</span></a></li>
+							<li><a href="{{route('bahasa.arsip')}}"><span>Index Proposal</span></a></li>
+							<li ><a href="{{route('proposal.index')}}"><span>Sudah Di Validasi</span></a></li>							
 						</ul>
 					</li>
 					

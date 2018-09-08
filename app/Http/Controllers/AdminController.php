@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Model\InputBahasa;
 use App\Model\BahasaValidasi;
 use App\Model\InputDcfc;
-
+use App\Model\News;
 class AdminController extends Controller
 {
     /**
@@ -25,7 +25,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $news = News::orderby('id','desc')->get();
+        return view('admin.home',compact('news'));
     }
 
     // UKM BAHASA
@@ -39,7 +40,7 @@ class AdminController extends Controller
     public function ArsipBhs()
     {
         $disetujui = BahasaValidasi::where('status','Disetujui')->LIMIT('3')->orderby('id','Desc')->get();
-        $direvisi = BahasaValidasi::where('status','Direvisi')->LIMIT('3')->orderby('id','Desc')->get();
+        $direvisi = BahasaValidasi::where('status','Revisi')->LIMIT('3')->orderby('id','Desc')->get();
         $menunggu = BahasaValidasi::where('status','Menunggu')->LIMIT('3')->orderby('id','Desc')->get();
         return view('admin.UkmBahasa.arsipbhs',compact('disetujui','direvisi','menunggu'));
     }
