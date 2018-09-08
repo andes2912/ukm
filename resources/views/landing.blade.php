@@ -85,7 +85,7 @@
                     pengelolaan pengajuan ini atau E-Prop. <br> Dengan interface yang mudah dan simple serta kemudahan
                     dalam pengoprasian berbasis Website.
                 </h5>
-                <a href="#" class="btn btn-theme">Pelajari Lebih Lanjut</a> <br />
+                {{-- <a href="#" class="btn btn-theme">Pelajari Lebih Lanjut</a> <br /> --}}
                 <br />
                
             </div>
