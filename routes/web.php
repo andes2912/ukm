@@ -69,6 +69,9 @@ Route::group(['prefix' => 'bem'], function(){
     // Halaman Route BEM - UKM Dcfc
     Route::get('/dcfc','BEMController@indexdcfc')->name('bem.dcfc.index');
     Route::Resource('/dcfc/validasidcfc','BemDcfcController');
+
+    // Halaman Route BEM - Musik
+    Route::get('/musik','BemController@indexMusik')->name('bem.musik.index');
 });
 
 // Halaman Route UKM Bahasa
@@ -133,6 +136,29 @@ Route::group(['prefix' => 'dcfc'], function() {
     //KMH
     Route::get('/validasikmh','DcfcController@validasiKmh')->name('dcfc.validasiKmh');
     Route::get('/validasikmh/{unduhKmhDcfc}/unduhKmhDcfc','InputDcfcController@unduhKmhDcfc')->name('unduhKmhDcfc.download');
+});
+
+// Halaman Route UKM Psdj
+Route::group(['prefix' => 'psdj'], function(){
+    // Login
+    Route::get('/login','AuthPsdj\LoginController@ShowLoginForm')->name('psdj.login');
+    Route::post('/login','AuthPsdj\LoginController@Login')->name('psdj.submit.login');
+
+    Route::get('/', 'PsdjController@index')->name('psdj.home');
+});
+
+
+// Halaman Route UKM Musik
+Route::group(['prefix' => 'musik'], function(){
+    // login 
+    Route::get('/login','AuthMusik\LoginController@ShowLoginForm')->name('musik.login');
+    Route::post('/login','AuthMusik\LoginController@Login')->name('musik.submit.login');
+
+    Route::get('/','MusikController@index')->name('musik.home');
+
+    // Controller Input BEM
+    Route::Resource('/proposalmusik','InputMusikController');
+    Route::get('/validasibem','MusikController@validasiBem')->name('musik.validasibem');
 });
 
 

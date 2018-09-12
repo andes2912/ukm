@@ -25,8 +25,7 @@ class InputDcfcController extends Controller
      */
     public function index()
     {
-        // $inputdcfc = InputDcfc::all();
-        // return view('dcfc.index',compact('inputdcfc'));
+        // 
     }
 
     /**

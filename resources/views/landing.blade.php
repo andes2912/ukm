@@ -37,11 +37,13 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="" class="navbar-brand">
-                        <span class="brand-logo"></span>
+                        <img src="landing/img/logo.png" width="120px" height="80px" />
                         <span class="brand-text">
-                            <span class="text-theme">E-Prop</span>
+                             {{-- <img src="public/landing/img/logoweb.png" width="83px" height="24px"> --}}
                         </span>
+                       
                     </a>
+                    
                 </div>
                 <!-- end navbar-header -->
                 <!-- begin navbar-collapse -->

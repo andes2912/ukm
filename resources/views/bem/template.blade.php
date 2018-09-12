@@ -93,6 +93,7 @@
 						<ul class="main-nav__submenu">
 							<li ><a href=" {{url('bem/bahasa')}} "><span>UKM Bahasa</span></a></li>
 							<li ><a href=" {{route('bem.dcfc.index')}} "><span>UKM Dcfc</span></a></li>
+							<li ><a href=" {{route('bem.musik.index')}} "><span>UKM Musik</span></a></li>
 						</ul>
 					</li>
 					<li class="main-nav--collapsible">

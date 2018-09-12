@@ -76,6 +76,26 @@ return [
             'provider' => 'dcfcs',
         ],
 
+        'psdj' => [
+            'driver' => 'session',
+            'provider' => 'psdjs',
+        ],
+
+        'api-psdj' => [
+            'driver' => 'token',
+            'provider' => 'psdjs',
+        ],
+
+        'musik' => [
+            'driver' => 'session',
+            'provider' => 'musiks',
+        ],
+
+        'api-musik' => [
+            'driver' => 'token',
+            'provider' => 'musiks',
+        ],
+
         'bem' => [
             'driver' => 'session',
             'provider' => 'bems',
@@ -121,6 +141,14 @@ return [
         'dcfcs' => [
             'driver' => 'eloquent',
             'model' => App\Model\Dcfc::class,
+        ],
+        'psdjs' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Psdj::class,
+        ],
+        'musiks' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Musik::class,
         ],
          'bems' => [
             'driver' => 'eloquent',
@@ -169,6 +197,16 @@ return [
         ],
         'dcfcs' => [
             'provider' => 'dcfcs',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'psdjs' => [
+            'provider' => 'psdjs',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'musiks' => [
+            'provider' => 'musiks',
             'table' => 'password_resets',
             'expire' => 15,
         ],

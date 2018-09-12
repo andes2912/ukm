@@ -29,18 +29,7 @@
 		
 		<ul class="profile"> 
 			<li>
-			<img src="{{asset('landing/img/logo.png')}}" width="120px" height="70px">
-			</li>
-			<li>
-				<a href="{{ route('logout') }}"
-					onclick="event.preventDefault();
-					document.getElementById('logout-form').submit();" onclick="return true;" class="btn-circle btn-sm">
-					<i class="pe-7f-power"></i>
-				</a>
-
-				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-					{{ csrf_field() }}
-				</form>
+			<img src="{{asset('asset/img/logo.png')}}">
 			</li>
 		</ul>
 
@@ -54,7 +43,9 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>
+				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
+				<input type="checkbox" id="s-logo" class="sw" />
+				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
 			</div>
 		</div>
 		
@@ -68,9 +59,9 @@
 			
 			<div class="user-info">
 					<figure class="rounded-image profile__img">
-						<img class="media-object" src="{{asset('asset/img/bahasa.png')}}">
+						<img class="media-object" src="{{asset('asset/img/profile.jpg')}}">
 					</figure>
-					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
+					{{-- <h2 class="user-info__name">{{Auth::user()->name}}</h2> --}}
 					<ul class="user-info__numbers">
 						
 					</ul>
@@ -78,14 +69,15 @@
 
 			<ul class="main-nav">
 				<li class="main-nav--active">
-						<a class="main-nav__link" href="{{route('bahasa.home')}}">
+						<a class="main-nav__link" href="">
 							<span class="main-nav__icon"><i class="pe-7f-home"></i></span>
 							Dashboard
 						</a>
 					</li>
+
 					<li>
-						<a class="main-nav__link" href="{{ route('proposal.create') }}">
-							<span class="main-nav__icon"><i class="pe-7f-pen"></i></span>
+						<a class="main-nav__link" href=" {{route('proposalmusik.create')}} ">
+							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
 							Input Proposal
 						</a>
 					</li>
@@ -93,23 +85,25 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
-							Report Validasi <span class="badge badge--line badge--blue">2</span>
+							Report Validasi <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li><a href="{{url('bahasa/validasi/Bem')}}"><span>Badan Eksekutif [BEM]</span></a></li>
-							<li><a href="{{url('bahasa/validasi')}}"><span>Kemahasiswaan</span></a></li>
+							<li ><a href=" {{route('musik.validasibem')}} "><span> Badan Eksekutif [BEM] </span></a></li>
+							<li><a href="  "><span>Kemahasiswaan</span></a></li>
 						</ul>
 					</li>
+
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
-							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
-							Arsip Proposal <span class="badge badge--line badge--blue">2</span>
+							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
+							Arsip Proposal<span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li><a href="{{route('bahasa.arsip')}}"><span>Index Proposal</span></a></li>
-							<li ><a href="{{route('proposal.index')}}"><span>Sudah Di Validasi</span></a></li>							
+							<li ><a href="  "><span> Index Proposal  </span></a></li>
+							<li><a href="  "><span>Sudah Di Validasi</span></a></li>
 						</ul>
 					</li>
+					
 					
 			</ul> <!-- /main-nav -->
 			
@@ -124,13 +118,11 @@
                     @yield('isi')
 				</div> <!-- /row -->
 
-			<footer class="footer-brand">
-				<img src="{{ asset('asset/img/logo_trim.png')}}">
-				<p>© 2018 IBI Darmajaya.</p>
-				<p>	<span> <a href=""> About </a> </span> | 
-					<span> <a href=""> Hak Cipta</a></span>
-				</p> <hr>
 
+
+			<footer class="footer-brand">
+				<img src="img/logo_trim.png">
+				<p>© 2014 Glazzed. All rights reserved</p>
 			</footer>
 
 

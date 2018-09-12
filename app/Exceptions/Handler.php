@@ -85,8 +85,12 @@ class Handler extends ExceptionHandler
                 $login = 'bem.login';
                 break;
             
-            default:
-                $login = 'login';
+            case 'psdj':
+                $login = 'psdj.login';
+                break;
+
+            case 'musik':
+                $login = 'musik.login';
                 break;
                 
         }
