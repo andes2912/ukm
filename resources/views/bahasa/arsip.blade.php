@@ -25,8 +25,8 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
 						<i class="pe-7s-menu"></i><h3> Daftar Arsip Pengajuan Proposal UKM Bahasa [ BEM ]</h3>
-						<a href="{{ route ('bahasa.validasiBem')}}" class="btn blue btn-primary">Validasi BEM</a>
 						<a href="{{ route ('bahasa.allbem')}}" class="btn blue btn-primary">Detail</a>
+						<a href="{{ route ('bahasa.revisiBem')}}" class="btn yellow btn-primary">Revisi</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -66,18 +66,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('bahasa.download', $InputBahasaBemNew->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('proposal.destroy', $InputBahasaBemNew->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href="{{ route('bahasa.download', $InputBahasaBemNew->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							
@@ -98,8 +87,8 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
 						<i class="pe-7s-menu"></i><h3> Daftar Arsip Pengajuan Proposal UKM Bahasa [ KMH ]</h3>
-						<a href="{{ route ('bahasa.validasi')}}" class="btn blue btn-primary"> Validasi KMH</a>
 						<a href="{{ route ('bahasa.allkmh')}}" class="btn blue btn-primary">Detail</a>
+						<a href="{{ route ('bahasa.revisiKmh')}}" class="btn yellow btn-primary">Revisi</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -139,18 +128,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('bahasa.download', $InputBahasaKmh->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('proposal.destroy', $InputBahasaKmh->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href="{{ route('bahasa.download', $InputBahasaKmh->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							
@@ -164,7 +142,7 @@
 			</article><!-- /widget -->
 		</div>
 
-		<div class="col-md-12">
+		{{-- <div class="col-md-12">
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title">
@@ -306,5 +284,5 @@
 				</div> <!-- /widget__content -->
 
 			</article><!-- /widget -->
-		</div>
+		</div> --}}
     @endsection

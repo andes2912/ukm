@@ -96,7 +96,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="">Lihat</a></li>									
+									<li><a href=" {{route('unduhBhs.download', $InputBahasa->id)}} ">Lihat</a></li>									
 									<li><a href=" {{route('bahasavalidasi.edit', $InputBahasa->id )}} ">Validasi</a></li>
 									
 								</ul>

@@ -69,18 +69,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBem.download', $revisiBhsMasuk->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('proposal.destroy', $revisiBhsMasuk->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href="{{ route('unduhBhs.download', $revisiBhsMasuk->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							

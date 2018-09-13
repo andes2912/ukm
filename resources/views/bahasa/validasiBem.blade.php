@@ -51,8 +51,8 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$InputValidasiBemAcc->title}} <span>{{ $InputValidasiBemAcc->created_at->diffForHumans() }}</span> </h4> <hr>
-							<p class="message__msg"><span>Pengirim : BEM </span> | <span> Tanggal :{{ $InputValidasiBemAcc->created_at }}</span></p>
+							<h4 class="media-heading message__heading"> {{$InputValidasiBemAcc->title}}</h4> <span style="color:coral;">{{ $InputValidasiBemAcc->created_at->diffForHumans() }}</span> <hr>
+							<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $InputValidasiBemAcc->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -76,8 +76,8 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$InputValidasiBemRev->title}} <span>{{ $InputValidasiBemRev->created_at->diffForHumans() }}</span></h4> <hr>
-						<p class="message__msg"><span>Pengirim : BEM </span> | <span> Tanggal :{{ $InputValidasiBemRev->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$InputValidasiBemRev->title}}</h4> <span style="color:coral;">{{ $InputValidasiBemRev->created_at->diffForHumans() }}</span><hr>
+						<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $InputValidasiBemRev->created_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -139,7 +139,7 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $validasiBemRev as $validasiBemRev )
 							<h3> {{$validasiBemRev->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$validasiBemRev->created_at}} | {{$validasiBemRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$validasiBemRev->created_at}} | {{$validasiBemRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						

@@ -66,15 +66,8 @@
 								<p class="post__info">{{ $PengajuanBhs->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
-							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBhs.download', $PengajuanBhs->id) }}" > <span>Lihat</span></a></button></li>
-								</ul>
-							</td>
+							<td>	
+								<a href="{{ route('unduhBhs.download', $PengajuanBhs->id) }}" class="btn red"> <span>Lihat</span></a>
 						</div>
 							
 						</tr>

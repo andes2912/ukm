@@ -25,10 +25,10 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
 						<i class="pe-7s-menu"></i><h3>Daftar Pengajuan Proposal Kepada [ Badan Eksekutif Mahasiswa ]</h3>
-						<a href="{{ route ('bahasa.validasiBem')}}" class="btn blue btn-primary">Lihat Validasi BEM</a>
+						
 					</div>
 					<div class="widget__config">
-						<a href="#"><i class="pe-7f-refresh"></i></a>
+						<a href="Kembali" onclick="window.location.href=' {{route('bahasa.arsip')}} '"><i class="pe-7f-back"></i></a>
 					</div>
 					
 				</header>

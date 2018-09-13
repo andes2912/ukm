@@ -59,10 +59,16 @@ class BahasaController extends Controller
 
 
         // Validasi revisi bahasa
-    public function revisiBhs()
+    public function revisiBhsBem()
     {
-        $RevisiBhs = InputBahasa::WHERE('status','revisi')->orderBy('id','Desc')->get();
-        return view('bahasa.revisiBhs', compact('RevisiBhs'));
+        $RevisiBem = InputBahasa::WHERE('status','revisi')->where('user','BEM')->orderBy('id','Desc')->get();
+        return view('bahasa.revisiBem', compact('RevisiBem'));
+    }
+
+    public function revisiBhsKmh()
+    {
+        $RevisiKmh = InputBahasa::WHERE('status','revisi')->where('user','KMH')->orderBy('id','Desc')->get();
+        return view('bahasa.revisiKmh', compact('RevisiKmh'));
     }
 
         // Pengajuan untuk BEM
@@ -78,4 +84,24 @@ class BahasaController extends Controller
         $allKmh = InputBahasa::Where('status','Baru')->where('user','KMH')->orderBy('id','Desc')->get();
         return view('bahasa.allkmh', compact('allKmh'));
     }    
+
+    // pengajuan Bahasa
+    public function disetujuiBahasa()
+    {
+        $disetujuiBem = BemBahasa::where('status','Disetujui')->Limit('5')->orderby('id','desc')->get();
+        $disetujuiKmh = BahasaValidasi::where('status','Disetujui')->Limit('5')->orderby('id','desc')->get();
+        return view('bahasa.disetujui', compact('disetujuiBem','disetujuiKmh'));
+    }
+
+    public function disetujuiBem()
+    {
+        $disetujuiBemAll = BemBahasa::where('status','Disetujui')->orderby('id','Desc')->get();
+        return view('bahasa.disetujuiBem', compact('disetujuiBemAll'));
+    }
+
+     public function disetujuiKmh()
+    {
+        $disetujuiKmhAll = BahasaValidasi::where('status','Disetujui')->orderby('id','Desc')->get();
+        return view('bahasa.disetujuiKmh', compact('disetujuiKmhAll'));
+    }
 }

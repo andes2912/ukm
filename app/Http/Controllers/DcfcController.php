@@ -55,4 +55,47 @@ class DcfcController extends Controller
         return view('dcfc.arsip',compact('ArsipDcfcBem','ArsipDcfcKmh','ArsipDcfcRevMskBem','ArsipDcfcRevMskKmh'));
           
     }
+
+    public function ArsipDcfcAcc()
+    {
+        $disetujuiBem = BemDcfc::where('status','Disetujui')->Limit('5')->orderby('id','desc')->get();
+        $disetujuiKmh = KmhDcfc::where('status','Disetujui')->Limit('5')->orderby('id','desc')->get();
+        return view('dcfc.disetujui',compact('disetujuiBem','disetujuiKmh'));
+    }
+
+    public function ArsipDcfcAccBem()
+    {
+        $disetujuiBemAll = BemDcfc::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('dcfc.disetujuiBem',compact('disetujuiBemAll'));
+    }
+
+    public function ArsipDcfcAccKmh()
+    {
+        $disetujuiKmhAll = KmhDcfc::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('dcfc.disetujuiKmh',compact('disetujuiKmhAll'));
+    }
+
+    public function ArsipDcfcSendBem()
+    {
+        $pengajuanBem = InputDcfc::where('status','Baru')->where('user','BEM')->orderby('id','desc')->get();
+        return view('dcfc.pengajuanBem',compact('pengajuanBem'));
+    }
+
+    public function ArsipDcfcSendKmh()
+    {
+        $pengajuanKmh = InputDcfc::where('status','Baru')->where('user','KMH')->orderby('id','desc')->get();
+        return view('dcfc.pengajuanKmh',compact('pengajuanKmh'));
+    }
+
+    public function ArsipDcfcRevBem()
+    {
+        $RevisiBem = InputDcfc::where('status','Revisi')->where('user','BEM')->orderby('id','desc')->get();
+        return view('dcfc.revisiBem',compact('RevisiBem'));
+    }
+
+    public function ArsipDcfcRevKmh()
+    {
+        $RevisiKmh = InputDcfc::where('status','Revisi')->where('user','Kmh')->orderby('id','desc')->get();
+        return view('dcfc.revisiKmh',compact('RevisiKmh'));
+    }
 }

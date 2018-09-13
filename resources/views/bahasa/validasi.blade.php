@@ -47,12 +47,9 @@
 					<div class="tabs__content--1">
 					@foreach($BahasaValidasi as $BahasaValidasi)
 					<div class="media message">
-						{{-- <figure class="pull-left rounded-image message__img">
-							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						</figure> --}}
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}} <br> <span>{{ $BahasaValidasi->created_at->diffForHumans() }}</span></h4> <hr>
-							<p class="message__msg"><span>Dikirim : Admin</span> | <span> Tanggal :{{ $BahasaValidasi->created_at }}</span></p>
+							<h4 class="media-heading message__heading"> {{$BahasaValidasi->title}}</h4> <span style="color:coral;"> <h5> {{ $BahasaValidasi->created_at->diffForHumans() }}</h5></span><hr>
+							<p class="message__msg"><span style="color:dodgerblue">Dikirim : Admin</span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $BahasaValidasi->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -75,8 +72,8 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$EditValKmh->title}} <br> <span>{{ $EditValKmh->created_at->diffForHumans() }}</span></h4> <hr>
-						<p class="message__msg"><span>Dikirim : Admin </span> | <span> Tanggal :{{ $EditValKmh->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$EditValKmh->title}}</h4> <span style="color:coral;"> <h5> {{ $EditValKmh->created_at->diffForHumans() }}</h5></span><hr>
+						<p class="message__msg"><span style="color:dodgerblue">Dikirim : Admin </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $EditValKmh->created_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -100,7 +97,7 @@
 						</figure> --}}
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $BahasaValidasi3->title }}</h4>
-						<p class="message__msg"><span>{{ $BahasaValidasi3->created_at->diffForHumans() }}</span> | <span>{{ $BahasaValidasi3->created_at }}</span></p>
+						<p class="message__msg"><span style="color:darkorange; font:bold;">{{ $BahasaValidasi3->created_at->diffForHumans() }}</span> | <span style="color:darkorange; font:bold;">{{ $BahasaValidasi3->created_at }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o6" checked>
 						
 						<div class="message__controls--cont">
@@ -136,7 +133,7 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $InputBhsRev as $InputBhsRev )
 							<h3> {{$InputBhsRev->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$InputBhsRev->created_at}} | {{$InputBhsRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$InputBhsRev->created_at}} | {{$InputBhsRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						

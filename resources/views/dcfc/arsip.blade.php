@@ -46,7 +46,8 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title">
 						<i class="pe-7s-menu"></i><h3>Daftar Arsip Pengajuan Proposal UKM Dcfc [ BEM ]</h3>
-						<a href=" {{route('bem.bahasa.approveBhs')}} " class="btn blue btn-primary">Detail</a>
+						<a href=" {{route('dcfc.pengajuanBem')}} " class="btn blue btn-primary">Detail</a>
+						<a href=" {{route('dcfc.revisiBem')}}" class="btn yellow">Revisi</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -87,18 +88,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBem.download', $ArsipDcfcBem->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('proposaldcfc.destroy', $ArsipDcfcBem->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href=" {{route('unduhDcfc.download', $ArsipDcfcBem->id)}}" class="btn red">Lihat</a>
 							</td>
 						</div>
 							
@@ -119,7 +109,8 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
 						<i class="pe-7s-menu"></i><h3>Daftar Arsip Pengajuan Proposal UKM Dcfc [ KMH ]</h3>
-						<a href=" {{route('bem.bahasa.revisiBhs')}} " class="btn blue btn-primary">Detail</a>
+						<a href=" {{route('dcfc.pengajuanKmh')}} " class="btn blue btn-primary">Detail</a>
+						<a href=" {{route('dcfc.revisiKmh')}}" class="btn yellow">Revisi</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -159,18 +150,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBem.download', $ArsipDcfcKmh->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('proposaldcfc.destroy', $ArsipDcfcKmh->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href=" {{route('unduhDcfc.download', $ArsipDcfcKmh->id)}}" class="btn red">Lihat</a>
 							</td>
 						</div>
 							
@@ -184,15 +164,15 @@
 			</article><!-- /widget -->
 		</div>
 		
-	<div class="col-md-12">
+	{{-- <div class="col-md-12">
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
 						<i class="pe-7s-menu"></i><h3>Daftar Arsip Revisi Proposal UKM Bahasa [ BEM ]</h3>
-						<a href="" class="btn blue btn-primary">Detail</a>
+						<a href=" {{route('dcfc.revisiBem')}} " class="btn blue btn-primary">Detail</a>
 					</div>
 					<div class="widget__config">
-						<a href="#"><i class="pe-7f-refresh"></i></a>
+						<a href="#" onclick="window.location.href='#'" ><i class="pe-7f-back"></i></a>
 					</div>
 					
 				</header>
@@ -229,18 +209,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBemDcfc.download', $ArsipDcfcRevMskBem->id) }}" > <span>Lihat</span></a></button></li>
-									{{-- <li><form action="{{ route('proposaldcfc.destroy', $ArsipDcfcRevMskBem->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li> --}}
-								</ul>
+								<a href=" {{route('unduhBemDcfc.download', $ArsipDcfcRevMskBem->id)}} " class="btn red">Lihat</a>
 							</td>
 						</div>
 							
@@ -302,18 +271,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhKmhDcfc.download', $ArsipDcfcRevMskKmh->id) }}" > <span>Lihat</span></a></button></li>
-									{{-- <li><form action="{{ route('proposaldcfc.destroy', $ArsipDcfcRevMskKmh->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li> --}}
-								</ul>
+								<a href="{{ route('unduhKmhDcfc.download', $ArsipDcfcRevMskKmh->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							
@@ -327,5 +285,5 @@
 				</div> <!-- /widget__content -->
 
 			</article><!-- /widget -->
-		</div>
+		</div> --}}
     @endsection

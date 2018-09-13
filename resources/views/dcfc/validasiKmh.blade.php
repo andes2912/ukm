@@ -51,14 +51,14 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$KmhDcfcAcc->title}} <span>{{ $KmhDcfcAcc->created_at->diffForHumans() }}</span> </h4> <hr>
-							<p class="message__msg"><span>Pengirim : KMH </span> | <span> Tanggal :{{ $KmhDcfcAcc->created_at }}</span></p>
+							<h4 class="media-heading message__heading"> {{$KmhDcfcAcc->title}}</h4> <span style="color:coral;"> <h5> {{ $KmhDcfcAcc->created_at->diffForHumans() }}</h5></span> <hr>
+							<p class="message__msg"><span style="color:darkorange; font:bold;">Pengirim : KMH </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $KmhDcfcAcc->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return true;" title="Proposal Sudah di Validasi" ><i class="pe-7s-check"></i><span>Sudah di Validasi</span></a></li>
 								<li><a href=" {{ route('bahasa.inputKmh', $KmhDcfcAcc->id)}} " onclick="return true;" title="Kirim ke Kemahasiswaan" ><i class="pe-7s-back"></i><span>Kirim</span></a></li>
-								<li><a href=" {{ route('unduhBem.download', $KmhDcfcAcc->id) }}" title="Download file {{ $KmhDcfcAcc->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
+								<li><a href=" {{ route('unduhKmhDcfc.download', $KmhDcfcAcc->id) }}" title="Download file {{ $KmhDcfcAcc->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
 			
 								
 							</ul>
@@ -76,13 +76,13 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$KmhDcfcRev->title}} <span>{{ $KmhDcfcRev->created_at->diffForHumans() }}</span></h4> <hr>
-						<p class="message__msg"><span>Pengirim : KMH </span> | <span> Tanggal :{{ $KmhDcfcRev->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$KmhDcfcRev->title}}</h4> <span style="color:coral;"> <h5> {{ $KmhDcfcRev->created_at->diffForHumans() }}</h5></span> <hr>
+						<p class="message__msg"><span style="color:darkorange; font:bold;">Pengirim : KMH </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $KmhDcfcRev->created_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('dcfc.inputKmhVal',$KmhDcfcRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Revisi</span></a></li>
-								<li><a href="{{ route('unduhBem.download', $KmhDcfcRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhKmhDcfc.download', $KmhDcfcRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 
@@ -139,14 +139,14 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $DcfcRevKeluar as $DcfcRevKeluar )
 							<h3> {{$DcfcRevKeluar->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$DcfcRevKeluar->created_at}} | {{$DcfcRevKeluar->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$DcfcRevKeluar->created_at}} | {{$DcfcRevKeluar->created_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href="{{route('admin.UkmBahasa.bahasa')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href="{{route('dcfc.arsip')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('dcfc.revisiKmh')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

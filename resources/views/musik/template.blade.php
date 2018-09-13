@@ -61,7 +61,7 @@
 					<figure class="rounded-image profile__img">
 						<img class="media-object" src="{{asset('asset/img/profile.jpg')}}">
 					</figure>
-					{{-- <h2 class="user-info__name">{{Auth::user()->name}}</h2> --}}
+					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
 					<ul class="user-info__numbers">
 						
 					</ul>
@@ -69,7 +69,7 @@
 
 			<ul class="main-nav">
 				<li class="main-nav--active">
-						<a class="main-nav__link" href="">
+						<a class="main-nav__link" href=" {{route('musik.home')}} ">
 							<span class="main-nav__icon"><i class="pe-7f-home"></i></span>
 							Dashboard
 						</a>

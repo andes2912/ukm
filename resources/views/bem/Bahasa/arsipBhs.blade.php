@@ -87,18 +87,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBem.download', $ArsipBhsAcc->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('bahasavalidasi.destroy', $ArsipBhsAcc->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href="{{ route('unduhBem.download', $ArsipBhsAcc->id) }}" class="btn red"> <span>Lihat</span></a>			
 							</td>
 						</div>
 							
@@ -159,18 +148,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBem.download', $ArsipBhsRev->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('bahasavalidasi.destroy', $ArsipBhsRev->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href="{{ route('unduhBem.download', $ArsipBhsRev->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							
@@ -231,18 +209,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<button class="btn btn-block blue dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><button type="submit" class="btn btn-block red dropdown-toggle">
-										<a href="{{ route('unduhBem.download', $ArsipBhsDelay->id) }}" > <span>Lihat</span></a></button></li>
-									<li><form action="{{ route('proposal.destroy', $ArsipBhsDelay->id)}}" method="POST">
-										{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-block green dropdown-toggle"><span>Hapus</span></button>
-									</form></li>
-								</ul>
+								<a href="{{ route('unduhBem.download', $ArsipBhsDelay->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							

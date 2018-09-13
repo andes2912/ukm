@@ -151,4 +151,15 @@ class InputDcfcController extends Controller
     {
         return Storage::download($unduhKmhDcfc->filename, $unduhKmhDcfc->title);
     }
+
+  // DCFC
+    public function unduhDcfc(InputDcfc $unduhDcfc)
+    {
+        return Storage::download($unduhDcfc->filename, $unduhDcfc->title);
+    }
+
+    public function unduhDcfcKmh(InputDcfc $unduhDcfcKmh)
+    {
+        return Storage::download($unduhDcfcKmh->filename, $unduhDcfcKmh->title);
+    }
 }

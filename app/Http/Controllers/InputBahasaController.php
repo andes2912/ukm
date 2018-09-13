@@ -28,9 +28,9 @@ class InputBahasaController extends Controller
      */
     public function index()
     {
-        $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->LIMIT('5')->orderby('id','DESC')->LIMIT('5')->get();
-        $BemValidasi = BemBahasa::WHERE('status','Disetujui')->LIMIT('5')->orderby('id','DESC')->LIMIT('5')->get();        
-        return view('bahasa.index', compact('BahasaValidasi','BemValidasi'));
+        // $BahasaValidasi = BahasaValidasi::WHERE('status','Disetujui')->LIMIT('5')->orderby('id','DESC')->LIMIT('5')->get();
+        // $BemValidasi = BemBahasa::WHERE('status','Disetujui')->LIMIT('5')->orderby('id','DESC')->LIMIT('5')->get();        
+        // return view('bahasa.index', compact('BahasaValidasi','BemValidasi'));
     }
 
     /**

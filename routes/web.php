@@ -99,6 +99,12 @@ Route::group(['prefix' => 'bahasa'], function() {
     
     // Arsip
     Route::get('/arsip','BahasaController@arsip')->name('bahasa.arsip');
+    Route::get('/arsip/revisiBem','BahasaController@revisiBhsBem')->name('bahasa.revisiBem');
+    Route::get('/arsip/revisiKmh','BahasaController@revisiBhsKmh')->name('bahasa.revisiKmh');
+
+    Route::get('/arsip/disetujui', 'BahasaController@disetujuiBahasa')->name('bahasa.disetujui');
+    Route::get('/arsip/disetujuibem','BahasaController@disetujuiBem')->name('bahasa.disetujuiBem');
+    Route::get('/arsip/disetujuikmh','BahasaController@disetujuiKmh')->name('bahasa.disetujuiKmh');
 
     // BEM
     Route::get('validasi/{unduhBem}/unduhBem','InputBahasaController@unduhBem')->name('unduhBem.download');
@@ -122,12 +128,23 @@ Route::group(['prefix' => 'dcfc'], function() {
     Route::post('/login', 'AuthDcfc\LoginController@Login')->name('dcfc.submit.login');
     Route::get('admin/logout','AuthAdmin\LoginController@logoutAdmin')->name('admin.logout');
 
-    //Controller
+    //Controller Home
     Route::get('/', 'DcfcController@index')->name('dcfc.home');
+    // Controller Arsip
     Route::get('/arsip','DcfcController@ArsipDcfc')->name('dcfc.arsip');
+    Route::get('/arsip/disetujui','DcfcController@ArsipDcfcAcc')->name('dcfc.disetujui');
+    Route::get('/arsip/disetujuiBem','DcfcController@ArsipDcfcAccBem')->name('dcfc.disetujuiBem');
+    Route::get('/arsip/disetujuiKmh','DcfcController@ArsipDcfcAccKmh')->name('dcfc.disetujuiKmh');
+
+    Route::get('/arsip/pengajuanbem','DcfcController@ArsipDcfcSendBem')->name('dcfc.pengajuanBem');
+    Route::get('/arsip/pengajuankmh','DcfcController@ArsipDcfcSendKmh')->name('dcfc.pengajuanKmh');
+
+    Route::get('/arsip/revisibem','DcfcController@ArsipDcfcRevBem')->name('dcfc.revisiBem');
+    Route::get('/arsip/revisikmh','DcfcController@ArsipDcfcRevKmh')->name('dcfc.revisiKmh');
 
     //Controller Input
     Route::Resource('/proposaldcfc', 'InputDcfcController');
+    Route::get('/arsip/pengajuanbem/{unduhDcfc}/unduhDcfc','InputDcfcController@unduhDcfc')->name('unduhDcfc.download');
     Route::get('/proposaldcfc/kmh/{id}','InputDcfcController@createKmh')->name('dcfc.inputKmh');
     Route::get('/proposaldcfc/kmh/{id}','InputDcfcController@editKmh')->name('dcfc.inputKmh');
     Route::get('/proposaldcfc/kmhval/{id}','InputDcfcController@createValKmh')->name('dcfc.inputKmhVal');

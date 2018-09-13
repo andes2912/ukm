@@ -43,7 +43,7 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
+				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>
 				<input type="checkbox" id="s-logo" class="sw" />
 				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
 			</div>
@@ -100,7 +100,7 @@
 						</a>
 						<ul class="main-nav__submenu">
 							<li ><a href=" {{route('dcfc.arsip')}} "><span> Index Proposal  </span></a></li>
-							<li><a href=" {{route('dcfc.validasiKmh')}} "><span>Sudah Di Validasi</span></a></li>
+							<li><a href=" {{route('dcfc.disetujui')}} "><span>Sudah Di Validasi</span></a></li>
 						</ul>
 					</li>
 					

@@ -56,12 +56,12 @@
 						</figure> --}}
 						<div class="media-body">
 							<h4 class="media-heading message__heading"> {{$BemBahasaAcc->title}}</h4> <hr>
-							<p class="message__msg"><span> Tanggal : {{ $BemBahasaAcc->created_at }} </span></p>
+							<p class="message__msg"><i class="pe-7s-clock"></i> <span style="color:coral;">{{ $BemBahasaAcc->created_at->diffForHumans() }}</span> | <span style="color:darkorange; font:bold;"> Tanggal : {{ $BemBahasaAcc->created_at }} </span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('unduhBem.download', $BemBahasaAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('unduhBem.download', $BemBahasaAcc->id) }}" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 
 							</ul>
 						</div> 
@@ -77,8 +77,8 @@
 						<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">				
 					</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$InputBhsRev->title}} </h4> <hr>
-						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $InputBhsRev->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputBhsRev->created_at->diffForHumans() }}</span></p>
+						<h4 class="media-heading message__heading">{{$InputBhsRev->title}} </h4><span style="color:coral;">{{ $InputBhsRev->created_at->diffForHumans() }}</span> <hr>
+						<p class="message__msg"><span style="color:dodgerblue">Pengirim  : Bahasa</span> | <span style="color:darkorange; font:bold;"> Tanggal : {{ $InputBhsRev->created_at}}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -140,14 +140,14 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $BemBahasaRev as $BemBahasaRev )
 							<h3> {{$BemBahasaRev->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BemBahasaRev->created_at}} | {{$BemBahasaRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$BemBahasaRev->created_at}} | {{$BemBahasaRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href=" {{url('bem/bahasa/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer" > <a href=" {{url('bem/bahasa/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>
