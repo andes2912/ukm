@@ -43,8 +43,7 @@ class BahasaValidasiController extends Controller
      */
     public function create()
     {
-        // $BahasaValidasi = BahasaValidasi::WHERE('status','menunggu')->get();
-        // return view('admin.UkmBahasa.edit', compact('BahasaValidasi'));
+        //
     }
 
     /**

@@ -3,21 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\InputMusik;
-use App\Model\BemMusik;
 use App\Model\KmhMusik;
-class MusikController extends Controller
+use App\Model\InputMusik;
+
+class KmhMusikController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth:musik');
+        $this->middleware('auth:admin');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +24,7 @@ class MusikController extends Controller
      */
     public function index()
     {
-        return view('musik.home');
+        // return view('admin.UkmMusik.index');
     }
 
     /**
@@ -35,7 +34,7 @@ class MusikController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -46,7 +45,21 @@ class MusikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:3',
+        'file' => 'required|file|max:2000'
+            ]);   
+
+        $uploadedFile = $request->file('file');        
+        $path = $uploadedFile->store('public/validasi');
+        $KmhMusik = KmhMusik::create([
+        'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
+        'status' => $request->status,
+        'filename' => $path
+        ]);
+
+        return redirect()->route('validasikmhMusik.indexMusik');
     }
 
     /**
@@ -68,7 +81,8 @@ class MusikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $EditMusik = InputMusik::findOrFail($id);
+        return view('admin.UkmMusik.editMusik', compact('EditMusik'));
     }
 
     /**
@@ -92,24 +106,5 @@ class MusikController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function ValidasiBem()
-    {
-        $BemMusikAcc    = BemMusik::where('status','Disetujui')->LIMIT('5')->orderBy('id','Desc')->get();
-        $BemMusikRev    = BemMusik::where('status','Revisi')->LIMIT('5')->orderBy('id','Desc')->get();
-        $BemMusikDelay  = BemMusik::where('status','Menunggu')->LIMIT('5')->orderBy('id','Desc')->get();
-        $InputMusikSend = InputMusik::where('user','BEM')->where('status','Revisi')->Limit('5')->orderBy('id','Desc')->get();
-        return view('musik.validasiBem', compact('BemMusikAcc','BemMusikRev','BemMusikDelay','InputMusikSend'));
-    }
-
-    public function validasikmh()
-    {
-        $KmhMusikAcc = KmhMusik::where('status','Disetujui')->LIMIT('5')->orderBy('id','Desc')->get();
-        $KmhMusikRev = KmhMusik::where('status','Revisi')->LIMIT('5')->orderBy('id','Desc')->get();
-        $KmhMusikDelay = KmhMusik::where('status','Menunggu')->LIMIT('5')->orderBy('id','Desc')->get();
-        $KmhMusikSend = InputMusik::where('status','Revisi')->where('user','KMH')->LIMIT('5')->orderBy('id','Desc')->get();
-
-        return view('musik.validasiKmh', compact('KmhMusikAcc','KmhMusikRev','KmhMusikDelay','KmhMusikSend'));
     }
 }

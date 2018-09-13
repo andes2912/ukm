@@ -1,6 +1,6 @@
-@extends('bem.template')
+@extends('admin.template')
 	@section('title')
-		Halaman BEM - Musik
+		Halaman Admin - Musik
 	@endsection
 
 	@section('topbar')
@@ -22,7 +22,6 @@
 	@endsection
 
 	@section('isi')
-	
 	<div class="row">					
 		<div class="col-md-12">
 			<article class="widget">
@@ -50,12 +49,12 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Proposal UKM Bahasa [ Pengajuan ]</h3>
-						<a href=" " button class="btn blue">Detail</a>
-						<a href=" {{route('validasimusik.index')}} " button class="btn inverse blue">Lihat Validasi</a> 
+					<i class="pe-7s-menu"></i><h3>Proposal UKM Dcfc [ Pengajuan ]</h3>
+					<a href="" button class="btn blue">Detail</a>
+					<a href="" button class="btn inverse blue">Lihat Validasi</a> 									
 				</div>
 				<div class="widget__config">
-					<a href=""><i class="pe-7s-back"></i></a>
+					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
 				</div>
 				
 			</header>
@@ -73,21 +72,21 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($indexmusik as $indexmusik)
+					@foreach($indexMusik as $indexMusik)
 					<tr class="spacer"></tr>
 					<tr class="spacer">
 
 						<td>
-							<p class="post_info"> {{$indexmusik->id}} </p>
+							<p class="post_info"> {{$indexMusik->id}} </p>
 						</td>
 						<td>
-							<p class="post__info">{{ $indexmusik->title }}</p>
+							<p class="post__info">{{ $indexMusik->title }}</p>
 						</td>
 						<td>
-							<p class="post__date">{{ $indexmusik->created_at }}</p>
+							<p class="post__date">{{ $indexMusik->created_at }}</p>
 						</td>
 						<td>
-							<p class="post__info">{{ $indexmusik->created_at->diffForHumans() }}</p>
+							<p class="post__info">{{ $indexMusik->created_at->diffForHumans() }}</p>
 						</td>
 						
 						<div class="dropdown">
@@ -96,8 +95,8 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href=" {{route('unduhBemMusik.download',$indexmusik->id)}} ">Lihat</a></li>									
-									<li><a href=" {{route('validasimusik.edit', $indexmusik->id )}} ">Validasi</a></li>
+									<li><a href="{{ route('bahasa.unduh', $indexMusik->id) }}">Lihat</a></li>									
+									<li><a href="{{route ('validasikmhMusik.edit', $indexMusik->id)}}">Validasi</a></li>
 									
 								</ul>
 							</td>

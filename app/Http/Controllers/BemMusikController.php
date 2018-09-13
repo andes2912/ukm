@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\InputMusik;
+use App\Model\BemMusik;
 class BemMusikController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:bem');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +23,11 @@ class BemMusikController extends Controller
      */
     public function index()
     {
-        //
+        $BemMusikAcc = BemMusik::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('5')->get();
+        $BemMusikRev = BemMusik::where('status','Revisi')->orderBy('id','Desc')->LIMIT('5')->get();
+        $BemMusikDelay = BemMusik::where('status','Menunggu')->orderBy('id','Desc')->LIMIT('5')->get();
+        $BemMusikMasuk = InputMusik::where('status','Revisi')->orderBy('id','Desc')->LIMIT('5')->get();
+        return view('bem.musik.validasimusik',compact('BemMusikAcc','BemMusikRev','BemMusikDelay','BemMusikMasuk'));
     }
 
     /**
@@ -34,7 +48,20 @@ class BemMusikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'nullable|max:100',
+            'status' => 'required|min:2',
+        ]);
+
+        $uploadFile = $request->file('file');
+        $path = $uploadFile->store('public/validasi');
+        $BemMusik = BemMusik::create([
+            'title' => $request->title ?? $uploadFile->GetClientOriginalName(),
+            'status' => $request->status,
+            'filename' => $path
+        ]);
+
+        return redirect()->route('bem.musik.index');
     }
 
     /**
@@ -56,7 +83,8 @@ class BemMusikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $InputMusik = InputMusik::findOrFail($id);
+        return view('bem.musik.inputValMusik',compact('InputMusik'));
     }
 
     /**

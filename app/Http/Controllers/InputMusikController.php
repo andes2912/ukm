@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\InputMusik;
+use App\Model\BemMusik;
+use App\Model\KmhMusik;
+use Storage;
 class InputMusikController extends Controller
 {
     /**
@@ -36,6 +39,12 @@ class InputMusikController extends Controller
         return view('musik.inputBem', compact('inputmusikBem'));
     }
 
+    public function createKmh()
+    {
+        $inputMusikKmh = InputMusik::all();
+        return view('musik.inputKmh',compact('inputMusikKmh'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -52,7 +61,7 @@ class InputMusikController extends Controller
     
         $uploadFile = $request->file('file');
         $path       = $uploadFile->store('public/files');
-        $inputmusik = InputMusik::create([
+        $inputMusik = InputMusik::create([
             'title' => $uploadFile->getClientOriginalName(),
             'user'  => $request->user,
             'status'=> $request->status,
@@ -81,7 +90,14 @@ class InputMusikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $InputRevBem = BemMusik::findOrFail($id);
+        return view('musik.inputBemRev', compact('InputRevBem'));
+    }
+
+    public function editKmh($id)
+    {
+        $inputKmh = BemMusik::findOrFail($id);
+        return view('musik.inputKmh', compact('inputKmh'));
     }
 
     /**
@@ -105,5 +121,13 @@ class InputMusikController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+// Controller Download
+
+    // BEM
+    public function unduhBemMusik(BemMusik $unduhBemMusik)
+    {
+        return Storage::download($unduhBemMusik->filename, $unduhBemMusik->title);
     }
 }

@@ -88,8 +88,8 @@
 							Report Validasi <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href=" {{route('musik.validasibem')}} "><span> Badan Eksekutif [BEM] </span></a></li>
-							<li><a href="  "><span>Kemahasiswaan</span></a></li>
+							<li><a href=" {{route('musik.validasibem')}} "><span> Badan Eksekutif [BEM] </span></a></li>
+							<li><a href=" {{route('musik.validasikmh')}} "><span>Kemahasiswaan</span></a></li>
 						</ul>
 					</li>
 

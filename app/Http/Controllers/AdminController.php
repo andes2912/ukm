@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Model\InputBahasa;
 use App\Model\BahasaValidasi;
 use App\Model\InputDcfc;
+use App\Model\InputMusik;
 use App\Model\News;
 class AdminController extends Controller
 {
@@ -82,6 +83,14 @@ class AdminController extends Controller
     {           
         $indexDcfc = InputDcfc::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderBy('id','DESC')->get();
         return view('admin.UkmDcfc.indexDcfc', compact('indexDcfc'));
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // UKM Musik
+    public function indexMusik()
+    {           
+        $indexMusik = InputMusik::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderBy('id','DESC')->get();
+        return view('admin.UkmMusik.indexMusik', compact('indexMusik'));
     }
 
 }

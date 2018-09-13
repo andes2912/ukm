@@ -52,7 +52,7 @@ class BemDcfcController extends Controller
      */
     public function store(Request $request)
     {
-         $this->validate($request, [      
+        $this->validate($request, [      
         'title' => 'nullable|max:100',
         'status' => 'required|min:2',
             ]);

@@ -41,9 +41,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('UkmBahasa/{bahasa}/unduh','BahasaValidasiController@unduh')->name('bahasa.unduh');    
 
     //Halaman Route Admin - UKM Dcfc
-    Route::get('/UkmDcfc','AdminController@indexDcfc')->name('admin.UkmDcfc.indexDcfc');
-    
+    Route::get('/UkmDcfc','AdminController@indexDcfc')->name('admin.UkmDcfc.indexDcfc'); 
     Route::Resource('/UkmDcfc/validasikmh','KmhDcfcController');
+
+    // Halaman Route Admin - UKM Musik
+    Route::get('/UkmMusik','AdminController@indexMusik')->name('admin.UkmMusik.indexMusik');
+    Route::Resource('/UkmMusik/validasikmhMusik','KmhMusikController');
 });
 
 
@@ -72,6 +75,7 @@ Route::group(['prefix' => 'bem'], function(){
 
     // Halaman Route BEM - Musik
     Route::get('/musik','BemController@indexMusik')->name('bem.musik.index');
+    Route::Resource('/musik/validasimusik','BemMusikController');
 });
 
 // Halaman Route UKM Bahasa
@@ -156,9 +160,15 @@ Route::group(['prefix' => 'musik'], function(){
 
     Route::get('/','MusikController@index')->name('musik.home');
 
-    // Controller Input BEM
+    // Controller  BEM
     Route::Resource('/proposalmusik','InputMusikController');
     Route::get('/validasibem','MusikController@validasiBem')->name('musik.validasibem');
+    Route::get('/validasibem/{unduhBemMusik}/unduhBemMusik','InputMusikController@unduhBemMusik')->name('unduhBemMusik.download');
+    
+    // Controller KMH
+    Route::get('/validasikmh','MusikController@validasikmh')->name('musik.validasikmh');
+    Route::get('/proposalmusik/kmh/{id}','InputMusikController@createKmh')->name('musik.inputKmh');
+    Route::get('/proposalmusik/kmh/{id}','InputMusikController@editKmh')->name('musik.inputKmh');
 });
 
 

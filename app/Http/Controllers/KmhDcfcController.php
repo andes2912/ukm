@@ -63,7 +63,7 @@ class KmhDcfcController extends Controller
         'filename' => $path
     ]);
 
-            return redirect()->route('validasikmh.index');
+            return redirect()->route('validasikmhDcfc.index');
     }
 
     /**
