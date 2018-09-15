@@ -51,14 +51,14 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 						<div class="media-body">
-							<h4 class="media-heading message__heading"> {{$BemMusikAcc->title}} <span>{{ $BemMusikAcc->created_at->diffForHumans() }}</span> </h4> <hr>
+							<h4 class="media-heading message__heading"> {{$BemMusikAcc->title}}</h4> <span style="color:coral;">{{ $BemMusikAcc->created_at->diffForHumans() }}</span> <hr>
 							<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $BemMusikAcc->created_at }}</span></p>
 							<input type="checkbox" class="msg-o" id="msg-o1" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return true;" title="Proposal Sudah di Validasi" ><i class="pe-7s-check"></i><span>Sudah di Validasi</span></a></li>
 								<li><a href=" {{ route('musik.inputKmh',$BemMusikAcc->id)}} " onclick="return true;" title="Kirim ke Kemahasiswaan" ><i class="pe-7s-back"></i><span>Kirim</span></a></li>
-								<li><a href=" {{ route('unduhBem.download', $BemMusikAcc->id) }}" title="Download file {{ $BemMusikAcc->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
+								<li><a href=" {{ route('unduhBemMusik.download', $BemMusikAcc->id) }}" title="Download file {{ $BemMusikAcc->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
 			
 								
 							</ul>
@@ -76,13 +76,13 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$BemMusikRev->title}} <span>{{ $BemMusikRev->created_at->diffForHumans() }}</span></h4> <hr>
-						<p class="message__msg"><span>Pengirim : BEM </span> | <span> Tanggal :{{ $BemMusikRev->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$BemMusikRev->title}}</h4> <span style="color:coral;">{{ $BemMusikRev->created_at->diffForHumans() }}</span><hr>
+						<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $BemMusikRev->created_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('proposalmusik.edit',$BemMusikRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Revisi</span></a></li>
-								<li><a href="{{ route('unduhBem.download', $BemMusikRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhBemMusik.download', $BemMusikRev->id) }}" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 
@@ -139,7 +139,7 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $InputMusikSend as $InputMusikSend )
 							<h3> {{$InputMusikSend->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$InputMusikSend->created_at}} | {{$InputMusikSend->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$InputMusikSend->created_at}} | {{$InputMusikSend->created_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						

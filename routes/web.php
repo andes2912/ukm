@@ -186,6 +186,21 @@ Route::group(['prefix' => 'musik'], function(){
     Route::get('/validasikmh','MusikController@validasikmh')->name('musik.validasikmh');
     Route::get('/proposalmusik/kmh/{id}','InputMusikController@createKmh')->name('musik.inputKmh');
     Route::get('/proposalmusik/kmh/{id}','InputMusikController@editKmh')->name('musik.inputKmh');
+
+    Route::get('/proposalmusik/kmhval/{id}','InputMusikController@createKmhRev')->name('musik.inputKmhRev');
+    Route::get('/proposalmusik/kmhval/{id}','InputMusikController@editKmhRev')->name('musik.inputKmhRev');
+    Route::get('/validasikmh/{unduhKmhMusik}/unduhKmhMusik','InputMusikController@unduhKmhMusik')->name('unduhKmhMusik.download');
+
+    // Arsip
+    Route::get('/arsip/{unduhMusik}/unduhMusik','InputMusikController@unduhMusik')->name('unduhMusik.download');
+    Route::get('/arsip/pengajuan','MusikController@arsip')->name('musik.arsip');
+    Route::get('/arsip/pengajuan/bem','MusikController@pengajuanBem')->name('musik.pengajuanBem');
+    Route::get('/arsip/pengajuan/kmh','MusikController@pengajuanKmh')->name('musik.pengajuanKmh');
+    Route::get('/arsip/revisi/bem','MusikController@revisiBem')->name('musik.revisiBem');
+    Route::get('/arsip/revisi/kmh','MusikController@revisiKmh')->name('musik.revisiKmh');
+
+    Route::get('/arsip/disetujui', 'MusikController@disetujui')->name('musik.disetujui');
+    Route::get('/arsip/disetujui/bem', 'MusikController@disetujuiBem')->name('musik.disetujuiBem');
 });
 
 

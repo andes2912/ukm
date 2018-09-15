@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\BemDcfc;
 use App\Model\KmhDcfc;
 use App\Model\InputDcfc;
+use App\Model\News;
 class DcfcController extends Controller
 {
      /**
@@ -25,7 +26,8 @@ class DcfcController extends Controller
      */
     public function index()
     {
-        return view('dcfc.home');
+        $news = News::orderby('id','desc')->get();
+        return view('dcfc.home', compact('news'));
     }
 
     public function ValidasiBem()

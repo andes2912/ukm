@@ -22,13 +22,13 @@
     @section('isi')
         <div class="col-md-12">
 			<article class="widget">
-				<header class="widget__header">
+				<header class="widget__header one-btn">
 					<div class="widget__title">
 						<i class="pe-7s-menu"></i><h3>News Update</h3>
+					
 					</div>
-					<div class="widget__config">
-						<a href="#"><i class="pe-7f-refresh"></i></a>
-						<a href="#"><i class="pe-7s-close"></i></a>
+					<div class="widget__config true">
+						<a href=" {{route('bahasa.arsip')}} " ><i class="pe-7s-close"></i></a>
 					</div>
 				</header>
 							
@@ -37,39 +37,39 @@
 					<table class="table table-striped media-table">
 						<thead>
 							<tr>
-								<th width="270">Post Description</th>
-								<th width="120">Date</th>
-								<th>Post Info</th>
-								<th>Action</th>
+								<th width="120">Title</th>
+								<th width="570">Description</th>
+								<th width="470">Diterbitkan</th>
+								
 							</tr>
 						</thead>
+						@foreach($news as $news)
 						<tbody>
 							<tr class="spacer"></tr>
 							<tr>
 								<td>
 									<div class="media">
 										<figure class="pull-left post__img">
-											<img class="media-object" src="img/post1.jpg" alt="user">
-										</figure>
+												<img class="media-object" src="{{asset('asset/img/admin1.jpg')}}" alt="user">
+											</figure>
 										<div class="media-body post_desc">
-											<h3>Gravity Psd B-Cards</h3>
-											<p>A classic approach...</p>
+											
+											<h3>{{$news->title}}</h3>
+											<span>by : Admin</span> | {{$news->created_at}}
 										</div>
 									</div>
 								</td>
-									<td>
-										<p class="post__date">26 Feb, 2014 <br>15:20</p>
-									</td>
-									<td>
-										<p class="post__info">A classic approach to our gravity series of psd business cards mockup which can be used for both vertical...</p>
-									</td>
-									<td>
-										<a href="#" onclick="return false;" class="post__del"><i class="pe-7f-close"></i></a>
-									</td>
+								<td>
+									<p class="post__date">{{$news->description}}</p>
+								</td>
+								<td>
+									<p class="post__info">{{$news->created_at->diffForHumans()}}</p>
+								</td>
+								
 							</tr>
 							<tr class="spacer"></tr>
 
-						</tbody>
+						</tbody> @endforeach
 					</table>
 				</div> <!-- /widget__content -->
 			</article><!-- /widget -->

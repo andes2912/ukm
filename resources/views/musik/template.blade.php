@@ -29,7 +29,7 @@
 		
 		<ul class="profile"> 
 			<li>
-			<img src="{{asset('asset/img/logo.png')}}">
+			<img src="{{asset('landing/img/logo.png')}}" width="120px" height="70px">
 			</li>
 		</ul>
 
@@ -43,9 +43,9 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
+				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>
 				<input type="checkbox" id="s-logo" class="sw" />
-				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
+				
 			</div>
 		</div>
 		
@@ -77,7 +77,7 @@
 
 					<li>
 						<a class="main-nav__link" href=" {{route('proposalmusik.create')}} ">
-							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
+							<span class="main-nav__icon"><i class="pe-7f-pen"></i></span>
 							Input Proposal
 						</a>
 					</li>
@@ -95,11 +95,11 @@
 
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
-							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
+							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
 							Arsip Proposal<span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href="  "><span> Index Proposal  </span></a></li>
+							<li ><a href=" {{route('musik.arsip')}} "><span> Index Proposal  </span></a></li>
 							<li><a href="  "><span>Sudah Di Validasi</span></a></li>
 						</ul>
 					</li>
@@ -121,8 +121,7 @@
 
 
 			<footer class="footer-brand">
-				<img src="img/logo_trim.png">
-				<p>© 2014 Glazzed. All rights reserved</p>
+				<img src="{{asset('landing/img/logo.png')}}" width="120px" height="50px">
 			</footer>
 
 

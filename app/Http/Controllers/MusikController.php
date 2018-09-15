@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\InputMusik;
 use App\Model\BemMusik;
 use App\Model\KmhMusik;
+use App\Model\News;
+
 class MusikController extends Controller
 {
      /**
@@ -25,7 +27,8 @@ class MusikController extends Controller
      */
     public function index()
     {
-        return view('musik.home');
+        $news = News::orderBy('id','DESC')->get();
+        return view('musik.home', compact('news'));
     }
 
     /**
@@ -111,5 +114,50 @@ class MusikController extends Controller
         $KmhMusikSend = InputMusik::where('status','Revisi')->where('user','KMH')->LIMIT('5')->orderBy('id','Desc')->get();
 
         return view('musik.validasiKmh', compact('KmhMusikAcc','KmhMusikRev','KmhMusikDelay','KmhMusikSend'));
+    }
+
+// Controller Arsip
+    public function arsip()
+    {
+        $arsipBem = InputMusik::where('status','Baru')->where('user','BEM')->LIMIT('5')->orderby('id','desc')->get();
+        $arsipKmh = InputMusik::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderby('id','desc')->get();
+        return view('musik.arsip', compact('arsipBem','arsipKmh'));
+    }
+
+    public function pengajuanBem()
+    {
+        $pengajuanBem = InputMusik::where('status','Baru')->where('user','BEM')->orderby('id','desc')->get();
+        return view('musik.pengajuanBem', compact('pengajuanBem'));
+    }
+
+    public function pengajuanKmh()
+    {
+        $pengajuanKmh = InputMusik::where('status','Baru')->where('user','KMH')->orderby('id','desc')->get();
+        return view('musik.pengajuanKmh', compact('pengajuanKmh'));
+    }
+
+    public function revisiBem()
+    {
+        $revisiBem = InputMusik::where('status','Revisi')->where('user','BEM')->orderby('id','desc')->get();
+        return view('musik.revisiBem', compact('revisiBem'));
+    }
+
+    public function revisiKmh()
+    {
+        $revisiKmh = InputMusik::where('status','Revisi')->where('user','KMH')->orderby('id','desc')->get();
+        return view('musik.revisiKmh', compact('revisiKmh'));
+    }
+
+    public function disetujui()
+    {
+        $disetujuiBem = BemMusik::where('status','Disetujui')->LIMIT('5')->orderby('id','desc')->get();
+        $disetujuiKmh = KmhMusik::where('status','Disetujui')->LIMIT('5')->orderby('id','desc')->get();
+        return view('musik.disetujui', compact('disetujuiBem','disetujuiKmh'));
+    }
+
+    public function disetujuiBem()
+    {
+        $disetujuiBem = BemMusik::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('musik.disetujuiBem', compact('disetujuiBem'));
     }
 }

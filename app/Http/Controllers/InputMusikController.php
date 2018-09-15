@@ -45,6 +45,12 @@ class InputMusikController extends Controller
         return view('musik.inputKmh',compact('inputMusikKmh'));
     }
 
+    public function createKmhRev()
+    {
+        $inputMusikKmhRev = InputMusik::all();
+        return view('musik.inputKmhRev', compact('inputMusikKmhRev'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -100,6 +106,12 @@ class InputMusikController extends Controller
         return view('musik.inputKmh', compact('inputKmh'));
     }
 
+    public function editKmhRev($id)
+    {
+        $inputKmhRev = BemMusik::findorfail($id);
+        return view ('musik.inputKmhRev', compact('inputKmhRev'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -125,9 +137,20 @@ class InputMusikController extends Controller
 
 // Controller Download
 
+    public function unduhMusik(InputMusik $unduhMusik)
+    {
+        return Storage::download($unduhMusik->filename, $unduhMusik->title);
+    }
+
     // BEM
     public function unduhBemMusik(BemMusik $unduhBemMusik)
     {
         return Storage::download($unduhBemMusik->filename, $unduhBemMusik->title);
+    }
+
+    // KMH
+    public function unduhKmhMusik(KmhMusik $unduhKmhMusik)
+    {
+        return Storage::download($unduhKmhMusik->filename, $unduhKmhMusik->title);
     }
 }
