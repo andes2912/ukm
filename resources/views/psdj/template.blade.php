@@ -29,7 +29,18 @@
 		
 		<ul class="profile"> 
 			<li>
-			<img src="{{asset('asset/img/logo.png')}}">
+			<img src="{{asset('landing/img/logo.png')}}" width="120px" height="70px">
+			</li>
+			<li>
+				<a href="{{ route('psdj.logout') }}"
+					onclick="event.preventDefault();
+					document.getElementById('logout-form').submit();" onclick="return true;" class="btn-circle btn-sm">
+					<i class="pe-7f-power"></i>
+				</a>
+
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					{{ csrf_field() }}
+				</form>
 			</li>
 		</ul>
 
@@ -43,9 +54,9 @@
 		
 		<div class="main-brand">
 			<div class="main-brand__container">
-				<div class="main-logo"><img src="{{asset('asset/img/logo.png')}}"></div>
+				<div class="main-logo"><img src="{{asset('asset/img/logodj.png')}}"></div>
 				<input type="checkbox" id="s-logo" class="sw" />
-				<label class="swtc swtc--dark swtc--header" for="s-logo"></label> 
+				
 			</div>
 		</div>
 		
@@ -76,7 +87,7 @@
 					</li>
 
 					<li>
-						<a class="main-nav__link" href="  ">
+						<a class="main-nav__link" href=" {{route('proposalpsdj.create')}} ">
 							<span class="main-nav__icon"><i class="pe-7f-folder"></i></span>
 							Input Proposal
 						</a>
@@ -88,8 +99,8 @@
 							Report Validasi <span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href="  "><span> Badan Eksekutif [BEM] </span></a></li>
-							<li><a href="  "><span>Kemahasiswaan</span></a></li>
+							<li ><a href=" {{route('psdj.validasiBem')}} "><span> Badan Eksekutif [BEM] </span></a></li>
+							<li><a href=" {{route('psdj.validasiKmh')}} "><span>Kemahasiswaan</span></a></li>
 						</ul>
 					</li>
 

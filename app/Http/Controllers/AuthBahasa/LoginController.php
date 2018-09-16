@@ -66,7 +66,8 @@ class LoginController extends Controller
      */
     public function logoutBahasa()
     {
-        Auth::guard('bahasa')->logout;
-        return redirect('/bahasa');
+        Session::flush();
+        Auth::guard('bahasa')->logout();
+        return redirect('/');
     }
 }

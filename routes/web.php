@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.home');
     Route::get('/login', 'AuthAdmin\LoginController@ShowLoginForm')->name('admin.login');
     Route::post('/login', 'AuthAdmin\LoginController@Login')->name('admin.submit.login');
+    Route::get('/logout','AuthAdmin\LoginController@logoutAdmin')->name('admin.logout');
         
     //Halaman Route Admin-News
     Route::resource('/news','NewsController');
@@ -47,7 +48,11 @@ Route::group(['prefix' => 'admin'], function() {
     // Halaman Route Admin - UKM Musik
     Route::get('/UkmMusik','AdminController@indexMusik')->name('admin.UkmMusik.indexMusik');
     Route::Resource('/UkmMusik/validasikmhMusik','KmhMusikController');
-});
+
+    // Halaman Route Admin - Psdj
+    Route::get('/UkmPsdj','AdminController@indexPsdj')->name('admin.UkmPsdj.indexPsdj');
+    Route::Resource('/UkmPsdj/validasikmhPsdj','KmhPsdjController');
+;});
 
 
 // Halaman Route BEM
@@ -55,6 +60,7 @@ Route::group(['prefix' => 'bem'], function(){
     Route::get('/','BEMController@index')->name('bem.home');
     Route::get('/login','AuthBem\LoginController@ShowLoginForm')->name('bem.login');
     Route::post('/login','AuthBem\LoginController@Login')->name('bem.submit.login');
+    Route::get('/logout','AuthBem\LoginController@logoutBem')->name('bem.logout');
 
     // Halaman Route BEM - UKM Bahasa
     Route::get('/bahasa','BEMController@Bahasa')->name('bem.Bahasa.bahasa');
@@ -76,6 +82,10 @@ Route::group(['prefix' => 'bem'], function(){
     // Halaman Route BEM - Musik
     Route::get('/musik','BemController@indexMusik')->name('bem.musik.index');
     Route::Resource('/musik/validasimusik','BemMusikController');
+
+    //  Halaman Route BEM - Psdj
+    Route::get('/psdj', 'BemController@indexPsdj')->name('bem.psdj.index');
+    Route::Resource('/psdj/validasipsdj','BemPsdjController');
 });
 
 // Halaman Route UKM Bahasa
@@ -126,7 +136,7 @@ Route::group(['prefix' => 'dcfc'], function() {
     //lOGIN
     Route::get('/login', 'AuthDcfc\LoginController@ShowLoginForm')->name('dcfc.login');
     Route::post('/login', 'AuthDcfc\LoginController@Login')->name('dcfc.submit.login');
-    Route::get('admin/logout','AuthAdmin\LoginController@logoutAdmin')->name('admin.logout');
+    Route::get('/logout','AuthAdmin\LoginController@logoutAdmin')->name('dcfc.logout');
 
     //Controller Home
     Route::get('/', 'DcfcController@index')->name('dcfc.home');
@@ -164,8 +174,20 @@ Route::group(['prefix' => 'psdj'], function(){
     // Login
     Route::get('/login','AuthPsdj\LoginController@ShowLoginForm')->name('psdj.login');
     Route::post('/login','AuthPsdj\LoginController@Login')->name('psdj.submit.login');
+    Route::get('/logout','AuthPsdj\LoginController@logoutPsdj')->name('psdj.logout');
 
     Route::get('/', 'PsdjController@index')->name('psdj.home');
+    Route::get('/validasibem','PsdjController@validasiBem')->name('psdj.validasiBem');
+    Route::get('/validasikmh','PsdjController@validasiKmh')->name('psdj.validasiKmh');
+
+    // Halaman route input Bem
+    Route::Resource('proposalpsdj','InputPsdjController');
+
+    // Halaman route KMH
+    Route::get('/proposalpsdj/kmh/{id}','InputPsdjController@createKmh')->name('psdj.inputKmh');
+    Route::get('/proposalpsdj/kmh/{id}','InputPsdjController@editKmh')->name('psdj.inputKmh');
+    Route::get('/proposalpsdj/kmhrev/{id}','InputPsdjController@createKmhRev')->name('psdj.inputKmhRev');
+    Route::get('/proposalpsdj/kmhrev/{id}','InputPsdjController@editKmhRev')->name('psdj.inputKmhRev');
 });
 
 

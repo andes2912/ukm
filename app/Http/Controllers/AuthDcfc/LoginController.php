@@ -55,5 +55,11 @@ class LoginController extends Controller
         }
 	
 	        return redirect()->back()->withInput($request->only('email', 'password'));
-	}
+    }
+    
+    public function logoutDcfc()
+    {
+        Auth::guard('dcfc')->logout;
+        return redirect('/');
+    }
 }

@@ -58,15 +58,9 @@ class LoginController extends Controller
     }
     
     
-    /**
-     * Log the user out of the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function logoutBahasa()
+   public function logoutBem()
     {
         Auth::guard('bem')->logout;
-        return redirect('/bem');
+        return redirect('/');
     }
 }

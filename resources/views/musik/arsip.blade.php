@@ -109,8 +109,8 @@
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
 						<i class="pe-7s-menu"></i><h3>Daftar Arsip Pengajuan Proposal UKM Musik [ KMH ]</h3>
-						<a href=" {{route('dcfc.pengajuanKmh')}} " class="btn blue btn-primary">Detail</a>
-						<a href=" {{route('dcfc.revisiKmh')}}" class="btn yellow">Revisi</a>
+						<a href=" {{route('musik.pengajuanKmh')}} " class="btn blue btn-primary">Detail</a>
+						<a href=" {{route('musik.revisiKmh')}}" class="btn yellow">Revisi</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>

@@ -93,6 +93,7 @@
 							<li><a href="{{route('admin.UkmBahasa.bahasa')}}"><span>UKM Bahasa</span></a></li>
 							<li><a href="{{route('admin.UkmDcfc.indexDcfc')}}"><span>UKM DCFC</span></a></li>
 							<li><a href="{{route('admin.UkmMusik.indexMusik')}}"><span>UKM Musik</span></a></li>
+							<li><a href="{{route('admin.UkmPsdj.indexPsdj')}}"><span>UKM Psdj</span></a></li>
 						</ul>
 					</li>
 					

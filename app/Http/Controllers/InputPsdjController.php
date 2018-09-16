@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\InputMusik;
-use App\Model\BemMusik;
-use App\Model\KmhMusik;
-use Storage;
-class InputMusikController extends Controller
+use App\Model\InputPsdj;
+use App\Model\BemPsdj;
+use App\Model\KmhPsdj;
+
+class InputPsdjController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,7 +16,7 @@ class InputMusikController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:musik');
+        $this->middleware('auth:psdj');
     }
     /**
      * Display a listing of the resource.
@@ -35,20 +35,20 @@ class InputMusikController extends Controller
      */
     public function create()
     {
-        $inputmusikBem = InputMusik::all();
-        return view('musik.inputBem', compact('inputmusikBem'));
+        $inputBem = InputPsdj::all();
+        return view('psdj.inputBem', compact('inputBem'));
     }
 
     public function createKmh()
     {
-        $inputMusikKmh = InputMusik::all();
-        return view('musik.inputKmh',compact('inputMusikKmh'));
+        $inputKmh = InputPsdj::all();
+        return view('psdj.inputKmh',compact('inputKmh'));
     }
 
-    public function createKmhRev()
+    public function creatKmhRev()
     {
-        $inputMusikKmhRev = InputMusik::all();
-        return view('musik.inputKmhRev', compact('inputMusikKmhRev'));
+        $inputKmhRev = InputPsdj::all();
+        return view('psdj.inputKmhRev', compact('inputKmhRev'));
     }
 
     /**
@@ -59,22 +59,22 @@ class InputMusikController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'title'     => 'nullable|max:100',
-            'user'      =>  'required|min:2',
-            'status'    =>  'required|min:2',
+        $this->validate($request, [
+            'title' => 'nullable|max:100',
+            'user'  => 'required|min:2',
+            'status'=> 'required|min:2'
         ]);
-    
+
         $uploadFile = $request->file('file');
         $path       = $uploadFile->store('public/files');
-        $inputMusik = InputMusik::create([
+        $inputPsdj  = InputPsdj::create([
             'title' => $uploadFile->getClientOriginalName(),
             'user'  => $request->user,
             'status'=> $request->status,
-            'filename'=> $path
+            'filename' => $path        
         ]);
-    
-        return redirect()->route('musik.home');
+
+        return redirect()->route('psdj.home');
     }
 
     /**
@@ -96,20 +96,20 @@ class InputMusikController extends Controller
      */
     public function edit($id)
     {
-        $InputRevBem = BemMusik::findOrFail($id);
-        return view('musik.inputBemRev', compact('InputRevBem'));
+        $InputBemRev = BemPsdj::findorfail($id);
+        return view('psdj.inputBemRev', compact('InputBemRev'));
     }
 
     public function editKmh($id)
     {
-        $inputKmh = BemMusik::findOrFail($id);
-        return view('musik.inputKmh', compact('inputKmh'));
+        $inputKmh = BemPsdj::findorfail($id);
+        return view('psdj.inputKmh', compact('inputKmh'));
     }
 
     public function editKmhRev($id)
     {
-        $inputKmhRev = KmhMusik::findorfail($id);
-        return view ('musik.inputKmhRev', compact('inputKmhRev'));
+        $inputKmhRev = KmhPsdj::findorfail($id);
+        return view('psdj.inputKmhRev', compact('inputKmhRev'));
     }
 
     /**
@@ -133,24 +133,5 @@ class InputMusikController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-// Controller Download
-
-    public function unduhMusik(InputMusik $unduhMusik)
-    {
-        return Storage::download($unduhMusik->filename, $unduhMusik->title);
-    }
-
-    // BEM
-    public function unduhBemMusik(BemMusik $unduhBemMusik)
-    {
-        return Storage::download($unduhBemMusik->filename, $unduhBemMusik->title);
-    }
-
-    // KMH
-    public function unduhKmhMusik(KmhMusik $unduhKmhMusik)
-    {
-        return Storage::download($unduhKmhMusik->filename, $unduhKmhMusik->title);
     }
 }

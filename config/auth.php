@@ -181,39 +181,39 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 10,
         ],
 
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 10,
         ],
 
         'bahasas' => [
             'provider' => 'bahasas',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 10,
         ],
         'dcfcs' => [
             'provider' => 'dcfcs',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 10,
         ],
         'psdjs' => [
             'provider' => 'psdjs',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 10,
         ],
         'musiks' => [
             'provider' => 'musiks',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 10,
         ],
         'bems' => [
             'provider' => 'bems',
             'table' => 'password_resets',
-            'expire' => 15,
+            'expire' => 10,
         ],
     ],
 

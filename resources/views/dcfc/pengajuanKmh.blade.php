@@ -65,7 +65,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href=" {{route('unduhKmhDcfc.download', $pengajuanKmh->id)}} " class="btn blue" >Lihat</a>
+								<a href=" {{route('unduhDcfc.download', $pengajuanKmh->id)}} " class="btn blue" >Lihat</a>
 							</td>
 						</div>
 							

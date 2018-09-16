@@ -7,6 +7,7 @@ use App\Model\News;
 use App\Model\InputBahasa;
 use App\Model\InputDcfc;
 use App\Model\InputMusik;
+use App\Model\InputPsdj;
 use App\Model\BahasaValidasi;
 use App\Model\BemBahasa;
 class BEMController extends Controller
@@ -148,12 +149,21 @@ class BEMController extends Controller
     }
 
 
-     ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
     /// Khusus Controller UKM Musik ///
 
     public function indexMusik()
     {
         $indexmusik = InputMusik::where('status','Baru')->where('user','BEM')->orderby('id','Desc')->get();
         return view('bem.musik.index',compact('indexmusik'));
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Khusus Controller UKM Musik ///
+
+    public function indexPsdj()
+    {
+        $indexPsdj = InputPsdj::where('status','Baru')->where('user','BEM')->orderby('id','Desc')->get();
+        return view('bem.psdj.index',compact('indexPsdj'));
     }
 }

@@ -32,7 +32,7 @@
 			<img src="{{asset('landing/img/logo.png')}}" width="120px" height="70px">
 			</li>
 			<li>
-				<a href="{{ route('logout') }}"
+				<a href="{{ route('logout.bahasa') }}"
 					onclick="event.preventDefault();
 					document.getElementById('logout-form').submit();" onclick="return true;" class="btn-circle btn-sm">
 					<i class="pe-7f-power"></i>
@@ -107,7 +107,7 @@
 						</a>
 						<ul class="main-nav__submenu">
 							<li><a href="{{route('bahasa.arsip')}}"><span>Index Proposal</span></a></li>
-							<li ><a href="{{route('proposal.index')}}"><span>Sudah Di Validasi</span></a></li>							
+							<li ><a href="{{route('bahasa.disetujui')}}"><span>Sudah Di Validasi</span></a></li>							
 						</ul>
 					</li>
 					

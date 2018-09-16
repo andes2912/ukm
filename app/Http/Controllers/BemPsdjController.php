@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\News;
 use App\Model\InputPsdj;
 use App\Model\BemPsdj;
-use App\Model\KmhPsdj;
 
-class PsdjController extends Controller
+class BemPsdjController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -17,7 +15,7 @@ class PsdjController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:psdj');
+        $this->middleware('auth:bem');
     }
     /**
      * Display a listing of the resource.
@@ -26,8 +24,11 @@ class PsdjController extends Controller
      */
     public function index()
     {
-        $news = News::orderby('id','Desc')->get();
-        return view('psdj.home', compact('news'));
+        $BemPsdjAcc = BemPsdj::where('status','Disetujui')->Limit('5')->orderby('id','desc')->get();
+        $BemPsdjRev = BemPsdj::where('status','Revisi')->Limit('5')->orderby('id','desc')->get();
+        $BemPsdjDelay = BemPsdj::where('status','Menunggu')->Limit('5')->orderby('id','desc')->get();
+        $BemPsdjRevIn = InputPsdj::where('status','Revisi')->Limit('5')->orderby('id','desc')->get();
+        return view('bem.psdj.validasipsdj', compact('BemPsdjAcc','BemPsdjRev','BemPsdjDelay','BemPsdjRevIn'));
     }
 
     /**
@@ -37,7 +38,7 @@ class PsdjController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -48,7 +49,20 @@ class PsdjController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'nullable|max:100',
+            'status' => 'required|min:2',
+        ]);
+
+        $uploadFile = $request->file('file');
+        $path = $uploadFile->store('public/validasi');
+        $BemPsdj = BemPsdj::create([
+            'title' => $request->title ?? $uploadFile->GetClientOriginalName(),
+            'status' => $request->status,
+            'filename' => $path
+        ]);
+
+        return redirect()->route('bem.psdj.index');
     }
 
     /**
@@ -70,7 +84,8 @@ class PsdjController extends Controller
      */
     public function edit($id)
     {
-        //
+        $BemPsdjEdit = InputPsdj::findorfail($id);
+        return view('bem.psdj.InputValPsdj', compact('BemPsdjEdit'));
     }
 
     /**
@@ -94,25 +109,5 @@ class PsdjController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    // Controller Validasi BEM
-    public function validasiBem()
-    {
-        $PsdjBemAcc = BemPsdj::where('status','Disetujui')->Limit('5')->orderby('id','Desc')->get();
-        $PsdjBemRev = BemPsdj::where('status','Revisi')->Limit('5')->orderby('id','Desc')->get();
-        $PsdjBemDelay = BemPsdj::where('status','Menunggu')->Limit('5')->orderby('id','Desc')->get();
-        $PsdjBemRevSend = InputPsdj::where('status','Revisi')->Limit('5')->orderby('id','Desc')->get();
-        return view('psdj.validasiBem', compact('PsdjBemAcc','PsdjBemRev','PsdjBemDelay','PsdjBemRevSend'));
-    }
-
-    // Controller Validasi KMH
-    public function validasiKmh()
-    {
-        $PsdjKmhAcc = KmhPsdj::where('status','Disetujui')->Limit('5')->orderby('id','Desc')->get();
-        $PsdjKmhRev = KmhPsdj::where('status','Revisi')->Limit('5')->orderby('id','Desc')->get();
-        $PsdjKmhDelay = KmhPsdj::where('status','Menunggu')->Limit('5')->orderby('id','Desc')->get();
-        $PsdjKmhRevSend = InputPsdj::where('status','Revisi')->Limit('5')->orderby('id','Desc')->get();
-        return view('psdj.validasiKmh', compact('PsdjKmhAcc','PsdjKmhRev','PsdjKmhDelay','PsdjKmhRevSend'));
     }
 }

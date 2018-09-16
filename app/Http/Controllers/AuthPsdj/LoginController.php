@@ -55,5 +55,12 @@ class LoginController extends Controller
         }
 	
 	        return redirect()->back()->withInput($request->only('email', 'password'));
-	}
+    }
+    
+    public function logoutPsdj()
+    {
+        Session::flush();
+        Auth::guard('psdj')->logout();
+        return redirect('/');
+    }
 }
