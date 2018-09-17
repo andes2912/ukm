@@ -55,5 +55,11 @@ class LoginController extends Controller
         }
 	
 	        return redirect()->back()->withInput($request->only('email', 'password'));
-	}
+    }
+    
+    public function logoutMusik()
+    {
+        Auth::guard('musik')->logout;
+        return redirect('/');
+    }
 }

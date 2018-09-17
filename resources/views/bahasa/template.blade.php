@@ -68,7 +68,7 @@
 			
 			<div class="user-info">
 					<figure class="rounded-image profile__img">
-						<img class="media-object" src="{{asset('asset/img/bahasa.png')}}">
+						<img class="media-object" src="{{asset('asset/img/logoUkm/bahasa.png')}}" width="120px" height="120px">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
 					<ul class="user-info__numbers">
@@ -125,12 +125,7 @@
 				</div> <!-- /row -->
 
 			<footer class="footer-brand">
-				<img src="{{ asset('asset/img/logo_trim.png')}}">
-				<p>© 2018 IBI Darmajaya.</p>
-				<p>	<span> <a href=""> About </a> </span> | 
-					<span> <a href=""> Hak Cipta</a></span>
-				</p> <hr>
-
+				<img src="{{asset('landing/img/logo.png')}}" width="120px" height="50px">
 			</footer>
 
 

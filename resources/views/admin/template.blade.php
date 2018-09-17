@@ -29,7 +29,7 @@
 		
 		<ul class="profile"> 
 			<li>
-			{{-- <img src="{{asset('asset/img/logo.png')}}"> --}}
+			<img src="{{asset('landing/img/logo.png')}}" width="120px" height="70px">
 			</li>
 			<li>
 				<a href="{{ route('logout') }}"
@@ -67,7 +67,7 @@
 			
 			<div class="user-info">
 					<figure class="rounded-image profile__img">
-						<img class="media-object" src="{{ asset('asset/img/admin.jpg')}}" alt="user">
+						<img class="media-object" src="{{asset('asset/img/logoUkm/darmajaya.png')}}" width="120px" height="120px" alt="user">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name }}</h2>
 					<h3 class="user-info__role">Admin</h3>
@@ -128,12 +128,8 @@
 				</div> <!-- /row -->
 
 		<footer class="footer-brand">
-				<img src="{{ asset('asset/img/logo_trim.png')}}">
-				<p>© 2018 IBI Darmajaya</p> <hr>
-				<p>	<span> <a href=""> About </a> </span> | 
-					<span> <a href=""> Hak Cipta</a></span>
-				</p> <hr>
-		</footer>
+				<img src="{{asset('landing/img/logo.png')}}" width="120px" height="50px">
+			</footer>
 		 <!-- /content -->
 
 	</div>

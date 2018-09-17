@@ -31,6 +31,17 @@
 			<li>
 			<img src="{{asset('landing/img/logo.png')}}" width="120px" height="70px">
 			</li>
+			<li>
+				<a href="{{ route('dcfc.logout') }}"
+					onclick="event.preventDefault();
+					document.getElementById('logout-form').submit();" onclick="return true;" class="btn-circle btn-sm">
+					<i class="pe-7f-power"></i>
+				</a>
+
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					{{ csrf_field() }}
+				</form>
+			</li>
 		</ul>
 
 		<div class="main-search">
@@ -59,7 +70,7 @@
 			
 			<div class="user-info">
 					<figure class="rounded-image profile__img">
-						<img class="media-object" src="{{asset('asset/img/profile.jpg')}}">
+						<img class="media-object" src="{{asset('asset/img/logoUkm/dcfc.jpg')}}" width="120px" height="120px">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
 					<ul class="user-info__numbers">
@@ -121,8 +132,7 @@
 
 
 			<footer class="footer-brand">
-				<img src="img/logo_trim.png">
-				<p>© 2014 Glazzed. All rights reserved</p>
+				<img src="{{asset('landing/img/logo.png')}}" width="120px" height="50px">
 			</footer>
 
 

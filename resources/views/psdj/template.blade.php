@@ -70,7 +70,7 @@
 			
 			<div class="user-info">
 					<figure class="rounded-image profile__img">
-						<img class="media-object" src="{{asset('asset/img/profile.jpg')}}">
+						<img class="media-object" src="{{asset('asset/img/logoUkm/psdj.jpg')}}" width="120px" height="120px">
 					</figure>
 					<h2 class="user-info__name">{{Auth::user()->name}}</h2>
 					<ul class="user-info__numbers">
@@ -132,8 +132,7 @@
 
 
 			<footer class="footer-brand">
-				<img src="img/logo_trim.png">
-				<p>© 2014 Glazzed. All rights reserved</p>
+				<img src="{{asset('landing/img/logo.png')}}" width="120px" height="50px">
 			</footer>
 
 

@@ -172,7 +172,7 @@ Route::group(['prefix' => 'dcfc'], function() {
     //lOGIN
     Route::get('/login', 'AuthDcfc\LoginController@ShowLoginForm')->name('dcfc.login');
     Route::post('/login', 'AuthDcfc\LoginController@Login')->name('dcfc.submit.login');
-    Route::get('/logout','AuthAdmin\LoginController@logoutAdmin')->name('dcfc.logout');
+    Route::get('/logout','AuthDcfc\LoginController@logoutAdmin')->name('dcfc.logout');
 
     //Controller Home
     Route::get('/', 'DcfcController@index')->name('dcfc.home');
@@ -249,6 +249,7 @@ Route::group(['prefix' => 'musik'], function(){
     // login 
     Route::get('/login','AuthMusik\LoginController@ShowLoginForm')->name('musik.login');
     Route::post('/login','AuthMusik\LoginController@Login')->name('musik.submit.login');
+    Route::get('/logout','AuthMusik\LoginController@logoutAdmin')->name('musik.logout');
 
     Route::get('/','MusikController@index')->name('musik.home');
 
