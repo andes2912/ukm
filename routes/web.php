@@ -44,14 +44,29 @@ Route::group(['prefix' => 'admin'], function() {
     //Halaman Route Admin - UKM Dcfc
     Route::get('/UkmDcfc','AdminController@indexDcfc')->name('admin.UkmDcfc.indexDcfc'); 
     Route::Resource('/UkmDcfc/validasikmh','KmhDcfcController');
+    Route::get('/UkmDfc/pengajuan','AdminController@pengajuanDcfc')->name('admin.UkmDcfc.pengajuanDcfc');
+    Route::get('/UkmDcfc/revisimasuk','AdminController@revisimasuk')->name('admin.UkmDcfc.revisiMasuk');
+    Route::get('/UkmDcfc/revisikeluar','AdminController@revisikeluar')->name('admin.UkmDcfc.revisiKeluar');
+
+    Route::get('/UkmDcfc/{unduhDcfcKmh}/unduh','KmhDcfcController@unduhDcfcKmh')->name('unduhDcfcKmh.download');
+    Route::get('/UkmDcfc/validasikmh/{DownloadKmhDcfc}/download', 'KmhDcfcController@DownloadKmhDcfc')->name('DownloadKmhDcfc.download');
 
     // Halaman Route Admin - UKM Musik
     Route::get('/UkmMusik','AdminController@indexMusik')->name('admin.UkmMusik.indexMusik');
     Route::Resource('/UkmMusik/validasikmhMusik','KmhMusikController');
+    Route::get('/UkmMusik/pengajuan','AdminController@pengajuanmusik')->name('admin.UkmMusik.pengajuanMusik');
+    Route::get('/UkmMusik/revisikeluar','AdminController@revisiKeluarMusik')->name('admin.UkmMusik.revisiKeluar');
+    Route::get('/UkmMusik/revisimasuk','AdminController@revisiMasukMusik')->name('admin.UkmMusik.revisiMasuk');
+
+    Route::get('/UkmMusik/{KmhMusikIn}/downloadIn','KmhMusikController@KmhMusikIn')->name('KmhMusikIn.download');
+    Route::get('/UkmMusik/validasikmhMusik/{KmhMusikOut}/downloadOut','KmhMusikController@KmhMusikOut')->name('KmhMusikOut.download');
 
     // Halaman Route Admin - Psdj
     Route::get('/UkmPsdj','AdminController@indexPsdj')->name('admin.UkmPsdj.indexPsdj');
     Route::Resource('/UkmPsdj/validasikmhPsdj','KmhPsdjController');
+
+    // Route::get('/psdj/{unduhPsdj}/download','InputPsdjController@unduhPsdj')->name('unduhPsdj.download');
+    // Route::get('/psdj/')
 ;});
 
 
@@ -78,10 +93,22 @@ Route::group(['prefix' => 'bem'], function(){
     // Halaman Route BEM - UKM Dcfc
     Route::get('/dcfc','BEMController@indexdcfc')->name('bem.dcfc.index');
     Route::Resource('/dcfc/validasidcfc','BemDcfcController');
+    Route::get('/dcfc/pengajuan','BemController@pengajuanDcfc')->name('bem.dcfc.pengajuanDcfc');
+    Route::get('/dcfc/revisimasuk','BemController@RevisiDcfcMasuk')->name('bem.dcfc.revisiDcfcMasuk');
+    Route::get('/dcfc/revisikeluar','BemController@RevisiDcfcSend')->name('bem.dcfc.revisiDcfcSend');
+
+    Route::get('/dcfc/{unduhDcfc}/unduhDcfc','BemDcfcController@unduhDcfc')->name('unduhDcfc.download');
+    Route::get('/dcfc/{unduhBemDcfc}/unduhBemDcfc','BemDcfcController@unduhBemDcfc')->name('unduhBemDcfc.download');
 
     // Halaman Route BEM - Musik
     Route::get('/musik','BemController@indexMusik')->name('bem.musik.index');
     Route::Resource('/musik/validasimusik','BemMusikController');
+    Route::get('/musik/pengajuan','BemController@pengajuanMusik')->name('bem.musik.pengajuanMusik');
+    Route::get('/musik/revisimasuk','BemController@revisiMasuk')->name('bem.musik.revisiMusikMasuk');
+    Route::get('/musik/revisikeluar','BemController@revisikeluar')->name('bem.musik.revisiMusikSend');
+
+    Route::get('/musik/{DownloadMusikBem}/download','BemMusikController@DownloadMusikBem')->name('DownloadMusikBem.download');
+    Route::get('/musik/{DownloadMusikIn}/downloadfile','BemMusikController@DownloadMusikIn')->name('DownloadMusikIn.download');
 
     //  Halaman Route BEM - Psdj
     Route::get('/psdj', 'BemController@indexPsdj')->name('bem.psdj.index');
@@ -176,18 +203,35 @@ Route::group(['prefix' => 'psdj'], function(){
     Route::post('/login','AuthPsdj\LoginController@Login')->name('psdj.submit.login');
     Route::get('/logout','AuthPsdj\LoginController@logoutPsdj')->name('psdj.logout');
 
+    // Route Arsip
+    Route::get('/arsip','PsdjController@arsip')->name('psdj.arsip');
+    Route::get('/arsip/pengajuanbem','PsdjController@pengajuanBem')->name('psdj.pengajuanBem');
+    Route::get('/arsip/pengajuankmh','PsdjController@pengajuanKmh')->name('psdj.pengajuanKmh');
+
     Route::get('/', 'PsdjController@index')->name('psdj.home');
     Route::get('/validasibem','PsdjController@validasiBem')->name('psdj.validasiBem');
     Route::get('/validasikmh','PsdjController@validasiKmh')->name('psdj.validasiKmh');
 
+    // Route Revisi
+    Route::get('/arsip/revisibem','PsdjController@revisiBem')->name('psdj.revisiBem');
+    Route::get('/arsip/revisikmh','PsdjController@revisiKmh')->name('psdj.revisiKmh');
+
+    // Route Arsip Validasi
+    Route::get('arsip/disetujui','PsdjController@disetujui')->name('psdj.disetujui');
+    Route::get('arsip/disetujuibem','PsdjController@accBem')->name('psdj.disetujuiBem');
+    Route::get('arsip/disetujuikmh','PsdjController@accKmh')->name('psdj.disetujuiKmh');
+    
     // Halaman route input Bem
     Route::Resource('proposalpsdj','InputPsdjController');
+    Route::get('/{unduhPsdj}/download','InputPsdjController@unduhPsdj')->name('unduhPsdj.download');
+    Route::get('/{unduhPsdjIn}/downloadIn','InputPsdjController@unduhPsdjIn')->name('unduhPsdjIn.download');
 
-    // Halaman route KMH
+    // Halaman route input KMH
     Route::get('/proposalpsdj/kmh/{id}','InputPsdjController@createKmh')->name('psdj.inputKmh');
     Route::get('/proposalpsdj/kmh/{id}','InputPsdjController@editKmh')->name('psdj.inputKmh');
     Route::get('/proposalpsdj/kmhrev/{id}','InputPsdjController@createKmhRev')->name('psdj.inputKmhRev');
     Route::get('/proposalpsdj/kmhrev/{id}','InputPsdjController@editKmhRev')->name('psdj.inputKmhRev');
+    Route::get('kmh/{unduhPsdjKmh}','InputPsdjController@unduhPsdjKmh')->name('unduhPsdjKmh.download');
 });
 
 
@@ -215,7 +259,7 @@ Route::group(['prefix' => 'musik'], function(){
 
     // Arsip
     Route::get('/arsip/{unduhMusik}/unduhMusik','InputMusikController@unduhMusik')->name('unduhMusik.download');
-    Route::get('/arsip/pengajuan','MusikController@arsip')->name('musik.arsip');
+    Route::get('/arsip','MusikController@arsip')->name('musik.arsip');
     Route::get('/arsip/pengajuan/bem','MusikController@pengajuanBem')->name('musik.pengajuanBem');
     Route::get('/arsip/pengajuan/kmh','MusikController@pengajuanKmh')->name('musik.pengajuanKmh');
     Route::get('/arsip/revisi/bem','MusikController@revisiBem')->name('musik.revisiBem');
@@ -223,6 +267,7 @@ Route::group(['prefix' => 'musik'], function(){
 
     Route::get('/arsip/disetujui', 'MusikController@disetujui')->name('musik.disetujui');
     Route::get('/arsip/disetujui/bem', 'MusikController@disetujuiBem')->name('musik.disetujuiBem');
+    Route::get('/arsip/disetujui/kmh', 'MusikController@disetujuiKmh')->name('musik.disetujuiKmh');
 });
 
 

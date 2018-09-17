@@ -58,7 +58,7 @@
 							<ul class="message__controls">
 								<li><a href="#" onclick="return true;" title="Proposal Sudah di Validasi" ><i class="pe-7s-check"></i><span>Sudah di Validasi</span></a></li>
 								<li><a href=" {{ route('psdj.inputKmh',$PsdjBemAcc->id)}} " onclick="return true;" title="Kirim ke Kemahasiswaan" ><i class="pe-7s-back"></i><span>Kirim</span></a></li>
-								<li><a href=" {{ route('unduhBemMusik.download', $PsdjBemAcc->id) }}" title="Download file {{ $PsdjBemAcc->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
+								<li><a href=" {{ route('unduhPsdjIn.download', $PsdjBemAcc->id) }}" title="Download file {{ $PsdjBemAcc->title }}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Cetak</span></a></li>
 			
 								
 							</ul>
@@ -82,7 +82,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('proposalpsdj.edit',$PsdjBemRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Revisi</span></a></li>
-								<li><a href="{{ route('unduhBemMusik.download', $PsdjBemRev->id) }}" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhPsdjIn.download', $PsdjBemRev->id) }}" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 
@@ -146,7 +146,7 @@
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href="{{route('musik.arsip')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('musik.revisiBem')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href="{{route('psdj.arsip')}}"><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('musik.revisiBem')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

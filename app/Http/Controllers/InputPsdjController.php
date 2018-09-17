@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\InputPsdj;
 use App\Model\BemPsdj;
 use App\Model\KmhPsdj;
+use Storage;
 
 class InputPsdjController extends Controller
 {
@@ -133,5 +134,20 @@ class InputPsdjController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function unduhPsdj(InputPsdj $unduhPsdj)
+    {
+        return Storage::download($unduhPsdj->filename, $unduhPsdj->title);
+    }
+
+    public function unduhPsdjIn(BemPsdj $unduhPsdjIn)
+    {
+        return storage::download($unduhPsdjIn->filename, $unduhPsdjIn->title);
+    }
+
+    public function unduhPsdjKmh(KmhPsdj $unduhPsdjKmh)
+    {
+        return storage::download($unduhPsdjKmh->filename, $unduhPsdjKmh->title);
     }
 }

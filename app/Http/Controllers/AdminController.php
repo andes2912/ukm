@@ -5,8 +5,10 @@ use Illuminate\Http\Request;
 use App\Model\InputBahasa;
 use App\Model\BahasaValidasi;
 use App\Model\InputDcfc;
+use App\Model\KmhDcfc;
 use App\Model\InputMusik;
 use App\Model\InputPsdj;
+use App\Model\KmhMusik;
 use App\Model\News;
 
 class AdminController extends Controller
@@ -87,12 +89,48 @@ class AdminController extends Controller
         return view('admin.UkmDcfc.indexDcfc', compact('indexDcfc'));
     }
 
+    public function pengajuanDcfc()
+    {
+        $pengajuanDcfc = InputDcfc::where('user','KMH')->where('status','Baru')->LIMIT('5')->orderby('id','desc')->get();
+        return view('admin.UkmDcfc.pengajuanDcfc', compact('pengajuanDcfc'));
+    }
+
+    public function revisiMasuk()
+    {
+        $revisimasuk = InputDcfc::where('user','KMH')->where('status','Revisi')->LIMIT('5')->orderby('id','DESC')->get();
+        return view('admin.UkmDcfc.revisiMasuk', compact('revisimasuk'));
+    }
+
+    public function revisiKeluar()
+    {
+        $revisikeluar = KmhDcfc::where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        return view('admin.UkmDcfc.revisiKeluar', compact('revisikeluar'));
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // UKM Musik
     public function indexMusik()
     {           
         $indexMusik = InputMusik::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderBy('id','DESC')->get();
         return view('admin.UkmMusik.indexMusik', compact('indexMusik'));
+    }
+
+    public function pengajuanmusik()
+    {
+        $pengajuanmusik = InputMusik::where('user','KMH')->where('status','Baru')->LIMIT('5')->orderby('id','desc')->get();
+        return view('admin.UkmMusik.pengajuanMusik', compact('pengajuanmusik'));
+    }
+
+    public function revisiKeluarMusik()
+    {
+        $revisiKeluarMusik = KmhMusik::where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        return view('admin.UkmMusik.revisiKeluar', compact('revisiKeluarMusik'));
+    }
+
+    public function revisiMasukMusik()
+    {
+        $revisiMasukMusik = InputMusik::where('user','KMH')->where('status','Revisi')->LIMIT('5')->orderby('id','Desc')->get();
+        return view('admin.UkmMusik.revisiMasuk', compact('revisiMasukMusik'));
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

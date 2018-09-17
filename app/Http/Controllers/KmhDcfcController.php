@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\KmhDcfc;
 use App\Model\InputDcfc;
+use Storage;
 class KmhDcfcController extends Controller
 {
     /**
@@ -110,5 +111,15 @@ class KmhDcfcController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function unduhDcfcKmh(InputDcfc $unduhDcfcKmh)
+    {
+       return storage::download($unduhDcfcKmh->filename, $unduhDcfcKmh->title);
+    }
+
+    public function DownloadKmhDcfc(KmhDcfc $DownloadKmhDcfc)
+    {
+        return storage::download($DownloadKmhDcfc->filename, $DownloadKmhDcfc->title);
     }
 }

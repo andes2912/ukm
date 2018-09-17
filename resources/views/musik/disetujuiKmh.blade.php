@@ -44,27 +44,27 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($disetujuiBem as $disetujuiBem)
+						@foreach($disetujuiKmh as $disetujuiKmh)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
 								<div class="post_info ">
-									<h3>{{ $disetujuiBem->id }}</h3>													
+									<h3>{{ $disetujuiKmh->id }}</h3>													
 								</div>							
 							</td>
 							<td>
-								<p class="post__info">{{ $disetujuiBem->title }}</p>
+								<p class="post__info">{{ $disetujuiKmh->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $disetujuiBem->created_at }}</p>
+								<p class="post__date">{{ $disetujuiKmh->created_at }}</p>
 							</td>
 
 							<td>
-								<p class="post__info">{{ $disetujuiBem->created_at->diffForHumans() }}</p>
+								<p class="post__info">{{ $disetujuiKmh->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href=" {{route('unduhBemMusik.download', $disetujuiBem->id)}} " class="btn blue" >Lihat</a>
+								<a href=" {{route('unduhKmhMusik.download', $disetujuiKmh->id)}} " class="btn blue" >Lihat</a>
 							</td>
 						</div>
 							

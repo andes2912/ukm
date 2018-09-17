@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\InputMusik;
 use App\Model\BemMusik;
+use Storage;
+
 class BemMusikController extends Controller
 {
     /**
@@ -108,5 +110,15 @@ class BemMusikController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function DownloadMusikBem(BemMusik $DownloadMusikBem)
+    {
+        return Storage::Download($DownloadMusikBem->filename, $DownloadMusikBem->title);
+    }
+
+    public function DownloadMusikIn(InputMusik $DownloadMusikIn)
+    {
+        return Storage::download($DownloadMusikIn->filename, $DownloadMusikIn->title);
     }
 }

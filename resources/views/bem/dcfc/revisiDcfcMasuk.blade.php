@@ -1,6 +1,6 @@
-@extends('musik.template')
+@extends('bem.template')
 	@section('title')
-		Halaman UKM Musik
+		Halaman UKM Dcfc
 	@endsection
 
 	@section('topbar')
@@ -11,22 +11,23 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Arsip Proposal UKM Musik</span>
+						<span>Halaman Data Proposal UKM Dcfc</span>
 					</h1>
 					
 				</div>
 				
 	@endsection
 
-	@section('isi')
+    @section('isi')
         <div class="col-md-12">
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title">
-						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Disetujui UKM Musik [ BEM ]</h3>
+						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Masuk UKM Dcfc [ Revisi ]</h3>
+						<a href=" {{route('bem.dcfc.revisiDcfcSend')}} " class="btn blue">Lihat Revisi Keluar</a>
 					</div>
 					<div class="widget__config">
-						<a href="#"><i class="pe-7f-refresh"></i></a>
+						<a href="#" title="Kembali" onclick="window.location.href =''" ><i class="pe-7s-back"></i></a>
 					</div>
 					
 				</header>
@@ -37,34 +38,38 @@
 					<thead>
 						<tr>
 							<th >ID</th>
-							<th >Judul Proposal</th>
+							<th >Judul Proposal Revisi</th>
 							<th >Tanggal Dibuat</th>	
+							<th> Ditujukan</th>
 							<th width="170">Time</th>									
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($disetujuiBem as $disetujuiBem)
+						@foreach($RevisiDcfcMasuk as $RevisiDcfcMasuk)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
-								<div class="post_info ">
-									<h3>{{ $disetujuiBem->id }}</h3>													
-								</div>							
+									<div class="post_info ">
+										<h3>{{ $RevisiDcfcMasuk->id }}</h3>													
+									</div>
+							
 							</td>
 							<td>
-								<p class="post__info">{{ $disetujuiBem->title }}</p>
+								<p class="post__info">{{ $RevisiDcfcMasuk->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $disetujuiBem->created_at }}</p>
+								<p class="post__date">{{ $RevisiDcfcMasuk->created_at }}</p>
 							</td>
-
 							<td>
-								<p class="post__info">{{ $disetujuiBem->created_at->diffForHumans() }}</p>
+								<p class="post_date"> {{ $RevisiDcfcMasuk->user }} </p>
+							</td>
+							<td>
+								<p class="post__info">{{ $RevisiDcfcMasuk->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href=" {{route('unduhBemMusik.download', $disetujuiBem->id)}} " class="btn blue" >Lihat</a>
+								<a href="{{ route('unduhDcfc.download', $RevisiDcfcMasuk->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							
@@ -72,10 +77,12 @@
 							@endforeach
 					</tbody>
 					</table>
+					
 
+					
 				</div> <!-- /widget__content -->
 
 			</article><!-- /widget -->
-		</div>			
-		
+		</div>
+
     @endsection

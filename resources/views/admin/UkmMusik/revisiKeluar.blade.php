@@ -1,6 +1,6 @@
 @extends('admin.template')
 	@section('title')
-		Halaman Admin - Bahasa
+		Halaman Admin - Musik
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman UKM Bahasa</span>
+						<span>Halaman UKM Musik</span>
 					</h1>
 					
 				</div>
@@ -27,11 +27,11 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Keluar UKM Bahasa [ Revisi ]</h3>
-					<a href="{{route('admin.UkmBahasa.revisiMsk')}}" button class="btn inverse blue">Lihat Revisi Masuk</a> 
+					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Keluar UKM Musik [ Revisi ]</h3>
+					<a href=" {{route('admin.UkmMusik.revisiMasuk')}} " button class="btn inverse blue">Lihat Revisi Masuk</a> 
 				</div>
 				<div class="widget__config">
-					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
+					<a href="kembali" onclick="window.location.href=' {{route('validasikmhMusik.index')}}'"><i class="pe-7s-back"></i></a>
 				</div>
 				
 			</header>
@@ -49,27 +49,27 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($BahasaValidasi2 as $BahasaValidasi2)
+					@foreach($revisiKeluarMusik as $revisiKeluarMusik)
 					<tr class="spacer"></tr>
 					<tr class="spacer">
 
 						<td>
-							<p class="post_info"> {{$BahasaValidasi2->id}} </p>
+							<p class="post_info"> {{$revisiKeluarMusik->id}} </p>
 						</td>
 						<td>
-							<p >{{ $BahasaValidasi2->title }}</p>
+							<p >{{ $revisiKeluarMusik->title }}</p>
 													<p class="post__info"> Pengirim : {{ Auth::user()->name}}</p>
 						</td>
 						<td>
-							<p class="post__date">{{ $BahasaValidasi2->created_at }}</p>
+							<p class="post__date">{{ $revisiKeluarMusik->created_at }}</p>
 						</td>
 						<td>
-							<p class="post__info">{{ $BahasaValidasi2->created_at->diffForHumans() }}</p>
+							<p class="post__info">{{ $revisiKeluarMusik->created_at->diffForHumans() }}</p>
 						</td>
 						
 						<div class="dropdown">
 							<td>
-								<a href="{{ route('validasi.download', $BahasaValidasi2->id) }}" class="btn red">Lihat</a>								
+								<a href="{{ route('KmhMusikOut.download', $revisiKeluarMusik->id) }}" class="btn red">Lihat</a>								
 							</td>
 						</div>
 					</tr>

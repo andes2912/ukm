@@ -50,8 +50,8 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Dcfc [ Pengajuan ]</h3>
-					<a href="{{route('admin.UkmBahasa.pengajuanBhs')}}" button class="btn blue">Detail</a>
-					<a href="{{url('admin/UkmBahasa/validasi')}}" button class="btn inverse blue">Lihat Validasi</a> 									
+					<a href="{{route('admin.UkmDcfc.pengajuanDcfc')}}" button class="btn blue">Detail</a>
+					<a href="{{url('admin/UkmDcfc/validasikmh')}}" button class="btn inverse blue">Lihat Validasi</a> 									
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -95,7 +95,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $indexDcfc->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('unduhDcfcKmh.download', $indexDcfc->id) }}">Lihat</a></li>									
 									<li><a href="{{route ('validasikmh.edit', $indexDcfc->id)}}">Validasi</a></li>
 									
 								</ul>

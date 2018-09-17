@@ -61,7 +61,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('unduhBem.download', $BemMusikAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('DownloadMusikBem.download', $BemMusikAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 
 							</ul>
 						</div> 
@@ -78,12 +78,12 @@
 					</figure> --}}
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{$BemMusikMasuk->title}} </h4> <hr>
-						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $BemMusikMasuk->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $BemMusikMasuk->created_at->diffForHumans() }}</span></p>
+						<p class="message__msg"><span>Pengirim  : UKM Musik</span> | <span> Tanggal : {{ $BemMusikMasuk->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $BemMusikMasuk->created_at->diffForHumans() }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('validasimusik.edit', $BemMusikMasuk->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
-								<li><a href="{{ route('unduhBhs.download', $BemMusikMasuk->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('DownloadMusikIn.download', $BemMusikMasuk->id) }}" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 
@@ -147,7 +147,7 @@
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href=" {{url('bem/bahasa/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href=" {{url('bem/musik/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.musik.revisiMusikMasuk')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

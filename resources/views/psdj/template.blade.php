@@ -110,8 +110,8 @@
 							Arsip Proposal<span class="badge badge--line badge--blue">3</span>
 						</a>
 						<ul class="main-nav__submenu">
-							<li ><a href="  "><span> Index Proposal  </span></a></li>
-							<li><a href="  "><span>Sudah Di Validasi</span></a></li>
+							<li ><a href=" {{route('psdj.arsip')}} "><span> Index Proposal  </span></a></li>
+							<li><a href=" {{route('psdj.disetujui')}} "><span>Sudah Di Validasi</span></a></li>
 						</ul>
 					</li>
 					

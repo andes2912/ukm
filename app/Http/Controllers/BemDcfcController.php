@@ -115,4 +115,14 @@ class BemDcfcController extends Controller
         $BemDcfc->delete();
         return redirect()->route('dcfc.arsip');
     }
+
+       public function unduhDcfc(InputDcfc $unduhDcfc)
+    {
+        return Storage::download($unduhDcfc->filename, $unduhDcfc->title);
+    }
+
+       public function unduhBemDcfc(BemDcfc $unduhBemDcfc)
+    {
+        return Storage::download($unduhBemDcfc->filename, $unduhBemDcfc->title);
+    }
 }

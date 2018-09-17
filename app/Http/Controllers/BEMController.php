@@ -10,6 +10,9 @@ use App\Model\InputMusik;
 use App\Model\InputPsdj;
 use App\Model\BahasaValidasi;
 use App\Model\BemBahasa;
+use App\Model\BemDcfc;
+use App\Model\BemMusik;
+
 class BEMController extends Controller
 {
         /**
@@ -148,6 +151,25 @@ class BEMController extends Controller
         return view('bem.dcfc.index',compact('indexdcfc'));
     }
 
+    public function pengajuanDcfc()
+    {
+        $pengajuanDcfc = InputDcfc::where('status','Baru')->where('user','BEM')->LIMIT('5')->orderby('id','DESC')->get();
+        return view('bem.dcfc.pengajuanDcfc', compact('pengajuanDcfc'));
+    }
+
+    public function RevisiDcfcMasuk()
+    {
+        $RevisiDcfcMasuk = InputDcfc::where('user','BEM')->where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        return view('bem.dcfc.revisiDcfcMasuk', compact('RevisiDcfcMasuk'));
+        
+    }
+
+    public function RevisiDcfcSend()
+    {
+         $RevisiDcfcSend = BemDcfc::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+         return view('bem.dcfc.revisiDcfcSend',compact('RevisiDcfcSend'));
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     /// Khusus Controller UKM Musik ///
@@ -158,12 +180,36 @@ class BEMController extends Controller
         return view('bem.musik.index',compact('indexmusik'));
     }
 
+    public function pengajuanMusik()
+    {
+        $pengajuanmusik = InputMusik::where('user','BEM')->where('status','Baru')->LIMIT('5')->orderby('id','Desc')->get();
+        return view('bem.musik.pengajuanMusik', compact('pengajuanmusik'));
+    }
+
+    public function revisiMasuk()
+    {
+        $revisimasuk = InputMusik::where('user','BEM')->where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        return view('bem.musik.revisiMusikMasuk', compact('revisimasuk'));
+    }
+
+    public function revisiKeluar()
+    {
+        $revisikeluar = BemMusik::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        return view('bem.musik.revisiMusikSend', compact('revisikeluar'));
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////
-    /// Khusus Controller UKM Musik ///
+    /// Khusus Controller UKM Psdj ///
 
     public function indexPsdj()
     {
         $indexPsdj = InputPsdj::where('status','Baru')->where('user','BEM')->orderby('id','Desc')->get();
         return view('bem.psdj.index',compact('indexPsdj'));
+    }
+
+    public function pengajuanPsdj()
+    {
+        $pengajuanPsdj = InputPsdj::where('user','BEM')->where('status','Baru')->orderby('id','Desc')->get();
+        return view('bem.psdj.pengajuanPsdj', compact('pengajuanPsdj'));
     }
 }

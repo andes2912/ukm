@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\KmhMusik;
 use App\Model\InputMusik;
+use Storage;
 
 class KmhMusikController extends Controller
 {
@@ -24,7 +25,12 @@ class KmhMusikController extends Controller
      */
     public function index()
     {
-        // return view('admin.UkmMusik.index');
+        $KmhMusikAcc        = KmhMusik::where('status','Disetujui')->LIMIT('5')->orderby('id','desc')->get();
+        $KmhMusikRevIn      = InputMusik::where('user','KMH')->where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        $KmhMusikDelay      = KmhMusik::where('status','Menunggu')->LIMIT('5')->orderby('id','desc')->get();
+        $KmhMusikRevSend    = KmhMusik::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        return view('admin.UkmMusik.validasiMusik', compact('KmhMusikAcc','KmhMusikRevIn','KmhMusikDelay','KmhMusikRevSend'));
+        
     }
 
     /**
@@ -106,5 +112,15 @@ class KmhMusikController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function KmhMusikIn(InputMusik $KmhMusikIn)
+    {
+        return storage::download($KmhMusikIn->filename, $KmhMusikIn->title);
+    }
+
+    public function KmhMusikOut(KmhMusik $KmhMusikOut)
+    {
+        return storage::download($KmhMusikOut->filename, $KmhMusikOut->title);
     }
 }

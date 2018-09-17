@@ -61,7 +61,7 @@
 													<p class="post__info"> Pengirim : {{ Auth::user()->name}}</p>
 						</td>
 						<td>
-							<p class="post__date">{{ $BahasaValidasi2->created_at }}</p>
+							<p class="post__date">{{ $revisiMsk->created_at }}</p>
 						</td>
 						<td>
 							<p class="post__info">{{ $revisiMsk->created_at->diffForHumans() }}</p>
@@ -69,18 +69,9 @@
 						
 						<div class="dropdown">
 							<td>
-								<button class="btn btn-block red dropdown-toggle" type="button" data-toggle="dropdown">Action
-									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $revisiMsk->id) }}">Lihat</a></li>									
-									<li><form action="{{ route('validasi.destroy', $revisiMsk->id)}}" method="POST">
-									{{csrf_field()}}
-										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn"> <i class="pe-7f-trash"></i> <span>Hapus</span> </button>										 								
-									</form>
-								</li>
-								</ul>
+							
+								<a href="{{ route('bahasa.unduh', $revisiMsk->id) }}" class="btn red">Lihat</a>								
+									
 							</td>
 						</div>
 					</tr>

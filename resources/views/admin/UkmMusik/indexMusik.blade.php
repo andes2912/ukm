@@ -51,7 +51,7 @@
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Dcfc [ Pengajuan ]</h3>
 					<a href="" button class="btn blue">Detail</a>
-					<a href="" button class="btn inverse blue">Lihat Validasi</a> 									
+					<a href=" {{route('validasikmhMusik.index')}} " button class="btn inverse blue">Lihat Validasi</a> 									
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -95,7 +95,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $indexMusik->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('KmhMusikIn.download', $indexMusik->id) }}">Lihat</a></li>									
 									<li><a href="{{route ('validasikmhMusik.edit', $indexMusik->id)}}">Validasi</a></li>
 									
 								</ul>

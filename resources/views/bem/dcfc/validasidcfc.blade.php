@@ -61,7 +61,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('unduhBem.download', $BemDcfcAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('unduhBemDcfc.download', $BemDcfcAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 
 							</ul>
 						</div> 
@@ -83,7 +83,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('validasidcfc.edit', $InputDcfcRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
-								<li><a href="{{ route('unduhBhs.download', $InputDcfcRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhDcfc.download', $InputDcfcRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 
@@ -147,7 +147,7 @@
 					</div>
 				</div> <!-- /members__container -->								
 				<div class="clearfix"></div>
-				<div class="members__footer"> <a href=" {{url('bem/bahasa/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.bahasa.revisiBhs')}} "><button class="members__search"> Index Revisi
+				<div class="members__footer"> <a href=" {{url('bem/dcfc/pengajuan')}} "><button class="members__load-more"> Index pengajuan</button></a><a href=" {{route('bem.dcfc.revisiDcfcMasuk')}} "><button class="members__search"> Index Revisi
 					</button></a>
 				</div>
 			</div>

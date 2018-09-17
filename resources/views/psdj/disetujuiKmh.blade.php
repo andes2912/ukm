@@ -1,6 +1,6 @@
-@extends('musik.template')
+@extends('psdj.template')
 	@section('title')
-		Halaman UKM Musik
+		Halaman UKM Psdj
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Arsip Proposal UKM Musik</span>
+						<span>Halaman Arsip Proposal UKM Psdj</span>
 					</h1>
 					
 				</div>
@@ -23,7 +23,7 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title">
-						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Disetujui UKM Musik [ BEM ]</h3>
+						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Disetujui UKM Psdj [ BEM ]</h3>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -44,27 +44,27 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($disetujuiBem as $disetujuiBem)
+						@foreach($accKmh as $accKmh)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
 								<div class="post_info ">
-									<h3>{{ $disetujuiBem->id }}</h3>													
+									<h3>{{ $accKmh->id }}</h3>													
 								</div>							
 							</td>
 							<td>
-								<p class="post__info">{{ $disetujuiBem->title }}</p>
+								<p class="post__info">{{ $accKmh->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $disetujuiBem->created_at }}</p>
+								<p class="post__date">{{ $accKmh->created_at }}</p>
 							</td>
 
 							<td>
-								<p class="post__info">{{ $disetujuiBem->created_at->diffForHumans() }}</p>
+								<p class="post__info">{{ $accKmh->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href=" {{route('unduhBemMusik.download', $disetujuiBem->id)}} " class="btn blue" >Lihat</a>
+								<a href=" {{route('unduhPsdjKmh.download', $accKmh->id)}} " class="btn blue" >Lihat</a>
 							</td>
 						</div>
 							

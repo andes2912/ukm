@@ -160,4 +160,10 @@ class MusikController extends Controller
         $disetujuiBem = BemMusik::where('status','Disetujui')->orderby('id','desc')->get();
         return view('musik.disetujuiBem', compact('disetujuiBem'));
     }
+
+    public function disetujuiKmh()
+    {
+        $disetujuiKmh = KmhMusik::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('musik.disetujuiKmh', compact('disetujuiKmh'));
+    }
 }

@@ -100,7 +100,7 @@
 						</a>
 						<ul class="main-nav__submenu">
 							<li ><a href=" {{route('musik.arsip')}} "><span> Index Proposal  </span></a></li>
-							<li><a href="  "><span>Sudah Di Validasi</span></a></li>
+							<li><a href=" {{route('musik.disetujui')}} "><span>Sudah Di Validasi</span></a></li>
 						</ul>
 					</li>
 					
