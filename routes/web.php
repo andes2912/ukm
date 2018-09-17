@@ -64,9 +64,12 @@ Route::group(['prefix' => 'admin'], function() {
     // Halaman Route Admin - Psdj
     Route::get('/UkmPsdj','AdminController@indexPsdj')->name('admin.UkmPsdj.indexPsdj');
     Route::Resource('/UkmPsdj/validasikmhPsdj','KmhPsdjController');
+    Route::get('/UkmPsdj/pengajuan','AdminController@pengajuanPsdj')->name('admin.UkmPsdj.pengajuanPsdj');
+    Route::get('/UkmPsdj/revisikeluar','AdminController@revisikeluarPsdj')->name('admin.UkmPsdj.revisikeluar');
+    Route::get('/UkmPsdj/revisimasuk','AdminController@revisimasukPsdj')->name('admin.UkmPsdj.revisimasuk');
 
-    // Route::get('/psdj/{unduhPsdj}/download','InputPsdjController@unduhPsdj')->name('unduhPsdj.download');
-    // Route::get('/psdj/')
+    Route::get('/psdj/{DownloadKmhPsdj}/download','KmhPsdjController@DownloadKmhPsdj')->name('DownloadKmhPsdj.download');
+    Route::get('/psdj/validasikmhPsdj/{DownloadKmhIn}/dowloadFile','KmhPsdjController@DownloadKmhIn')->name('DownloadKmhIn.download');
 ;});
 
 
@@ -113,6 +116,12 @@ Route::group(['prefix' => 'bem'], function(){
     //  Halaman Route BEM - Psdj
     Route::get('/psdj', 'BemController@indexPsdj')->name('bem.psdj.index');
     Route::Resource('/psdj/validasipsdj','BemPsdjController');
+    Route::get('/psdj/pengajuan','BemController@pengajuanPsdj')->name('bem.psdj.pengajuanPsdj');
+    Route::get('/psdj/revisimasuk','BemController@revisimasukPsdj')->name('bem.psdj.revisiMasukPsdj');
+     Route::get('/psdj/revisikeluar','BemController@revisikeluarPsdj')->name('bem.psdj.revisiKeluarPsdj');
+
+    Route::get('/psdj/{downloadPsdj}/download','BemPsdjController@downloadPsdj')->name('downloadPsdj.download');
+    Route::get('/psdj/{downloadBemPsdj}/downloadFile','BemPsdjController@downloadBemPsdj')->name('downloadBemPsdj.download');
 });
 
 // Halaman Route UKM Bahasa

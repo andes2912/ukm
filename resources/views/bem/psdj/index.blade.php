@@ -51,7 +51,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Bahasa [ Pengajuan ]</h3>
-						<a href=" " button class="btn blue">Detail</a>
+						<a href=" {{route('bem.psdj.pengajuanPsdj')}} " button class="btn blue">Detail</a>
 						<a href=" {{route('validasipsdj.index')}} " button class="btn inverse blue">Lihat Validasi</a> 
 				</div>
 				<div class="widget__config">
@@ -96,7 +96,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href=" {{route('unduhBemMusik.download',$indexPsdj->id)}} ">Lihat</a></li>									
+									<li><a href=" {{route('downloadPsdj.download',$indexPsdj->id)}} ">Lihat</a></li>									
 									<li><a href=" {{route('validasipsdj.edit', $indexPsdj->id )}} ">Validasi</a></li>
 									
 								</ul>

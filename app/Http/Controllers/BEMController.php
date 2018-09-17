@@ -12,6 +12,7 @@ use App\Model\BahasaValidasi;
 use App\Model\BemBahasa;
 use App\Model\BemDcfc;
 use App\Model\BemMusik;
+use App\Model\BemPsdj;
 
 class BEMController extends Controller
 {
@@ -211,5 +212,17 @@ class BEMController extends Controller
     {
         $pengajuanPsdj = InputPsdj::where('user','BEM')->where('status','Baru')->orderby('id','Desc')->get();
         return view('bem.psdj.pengajuanPsdj', compact('pengajuanPsdj'));
+    }
+
+    public function revisimasukPsdj()
+    {
+        $revisimasuk = InputPsdj::where('user','BEM')->where('status','Revisi')->orderby('id','desc')->get();
+        return view('bem.psdj.revisiPsdjMasuk', compact('revisimasuk'));
+    }
+
+    public function revisikeluarPsdj()
+    {
+        $revisikeluar = BemPsdj::where('status','Revisi')->orderby('id','desc')->get();
+        return view('bem.psdj.revisiPsdjKeluar', compact('revisikeluar'));
     }
 }

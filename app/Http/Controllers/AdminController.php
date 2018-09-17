@@ -9,6 +9,7 @@ use App\Model\KmhDcfc;
 use App\Model\InputMusik;
 use App\Model\InputPsdj;
 use App\Model\KmhMusik;
+use App\Model\KmhPsdj;
 use App\Model\News;
 
 class AdminController extends Controller
@@ -139,6 +140,24 @@ class AdminController extends Controller
     {           
         $indexPsdj = InputPsdj::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderBy('id','DESC')->get();
         return view('admin.UkmPsdj.indexPsdj', compact('indexPsdj'));
+    } 
+
+    public function pengajuanPsdj()
+    {
+        $pengajuanPsdj = InputPsdj::where('status','Baru')->where('user','KMH')->orderby('id','desc')->get();
+        return view('admin.UkmPsdj.pengajuanPsdj', compact('pengajuanPsdj'));
+    }
+
+    public function revisikeluarPsdj()
+    {
+        $revisiKeluar = KmhPsdj::where('status','Revisi')->orderby('id','desc')->get();
+        return view('admin.UkmPsdj.revisikeluar', compact('revisiKeluar'));
+    }
+
+    public function revisimasukPsdj()
+    {
+        $revisimasukPsdj = InputPsdj::where('user','KMH')->where('status','Revisi')->orderby('id','desc')->get();
+        return view('admin.UkmPsdj.revisimasuk', compact('revisimasukPsdj'));
     }
 
 }

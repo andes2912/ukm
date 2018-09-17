@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\KmhPsdj;
 use App\Model\InputPsdj;
+use Storage;
+
 class KmhPsdjController extends Controller
 {
     /**
@@ -23,8 +25,13 @@ class KmhPsdjController extends Controller
      */
     public function index()
     {
-        // $KmhPsdjIn = InputPsdj::all();
-        // return view('admin.UkmPsdj.indexPsdj', compact('KmhPsdjIn'));
+
+        $acckmh = KmhPsdj::where('status','Disetujui')->LIMIT('5')->orderby('id','desc')->get();
+        $revkmh = KmhPsdj::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        $delaykmh = KmhPsdj::where('status','Menunggu')->LIMIT('5')->orderby('id','desc')->get();
+        $revInkmh = InputPsdj::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        return view('admin.UkmPsdj.validasiPsdj', compact('acckmh','revkmh','delaykmh','revInkmh'));
+    
     }
 
     /**
@@ -105,5 +112,15 @@ class KmhPsdjController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function DownloadKmhPsdj(InputPsdj $DownloadKmhPsdj)
+    {
+        return storage::download($DownloadKmhPsdj->filename, $DownloadKmhPsdj->title);
+    }
+
+    public function DownloadKmhIn(KmhPsdj $DownloadKmhIn)
+    {
+        return storage::download($DownloadKmhIn->filename, $DownloadKmhIn->title);
     }
 }

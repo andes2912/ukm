@@ -51,7 +51,7 @@
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Psdj [ Pengajuan ]</h3>
 					<a href="" button class="btn blue">Detail</a>
-					<a href="" button class="btn inverse blue">Lihat Validasi</a> 									
+					<a href=" {{route('validasikmhPsdj.index')}} " button class="btn inverse blue">Lihat Validasi</a> 									
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -95,7 +95,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('bahasa.unduh', $indexPsdj->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhPsdj.download', $indexPsdj->id) }}">Lihat</a></li>									
 									<li><a href="{{route ('validasikmhPsdj.edit', $indexPsdj->id)}}">Validasi</a></li>
 									
 								</ul>

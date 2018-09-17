@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\InputPsdj;
 use App\Model\BemPsdj;
+use Storage;
 
 class BemPsdjController extends Controller
 {
@@ -109,5 +110,15 @@ class BemPsdjController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function downloadPsdj(InputPsdj $downloadPsdj)
+    {
+        return storage::download($downloadPsdj->filename, $downloadPsdj->title);
+    }
+
+    public function downloadBemPsdj(BemPsdj $downloadBemPsdj)
+    {
+        return storage::download($downloadBemPsdj->filename, $downloadBemPsdj->title);
     }
 }
