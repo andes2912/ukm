@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Sep 2018 pada 05.04
+-- Waktu pembuatan: 23 Sep 2018 pada 00.36
 -- Versi server: 10.1.31-MariaDB
 -- Versi PHP: 7.2.3
 
@@ -82,6 +82,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2018_09_16_173009_create_input_psdjs_table', 16),
 (34, '2018_09_16_175514_create_bem_psdjs_table', 17),
 (35, '2018_09_16_211035_create_kmh_psdjs_table', 18);
+
+--
+-- Dumping data untuk tabel `musiks`
+--
+
+INSERT INTO `musiks` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'UKM Musik', 'musik@darmajaya.com', '$2y$10$0NUeiqLrDggWU.jTKYn2C.NYkF1.24k7/vfZJItSqQ5Odcirv.w5y', NULL, '2018-09-22 05:27:24', '2018-09-22 05:27:24');
 
 --
 -- Dumping data untuk tabel `news`
