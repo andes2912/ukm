@@ -61,6 +61,12 @@
                                 <li>
                                     <a href="{{route('dcfc.login')}}">UKM DCFC</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('musik.login')}}">UKM MUSIK</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('psdj.login')}}">UKM PSDJ</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
