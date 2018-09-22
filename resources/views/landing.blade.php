@@ -17,7 +17,7 @@
 	<link href="landing/css/one-page-parallax/style-responsive.min.css" rel="stylesheet" />
 	<link href="landing/css/one-page-parallax/theme/default.css" id="theme" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
-	
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset('asset/img/favicon.ico')}}" />
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="landing/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
