@@ -124,6 +124,14 @@ class AdminController extends Controller
         return view('admin.UkmMusik.indexMusik', compact('indexMusik'));
     }
 
+    public function ArsipMusik()
+    {
+        $disetujui = KmhMusik::where('status','Disetujui')->LIMIT('3')->orderby('id','Desc')->get();
+        $direvisi = KmhMusik::where('status','Revisi')->LIMIT('3')->orderby('id','Desc')->get();
+        $menunggu = KmhMusik::where('status','Menunggu')->LIMIT('3')->orderby('id','Desc')->get();
+        return view('admin.UkmMusik.arsipMusik',compact('disetujui','direvisi','menunggu'));
+    }
+
     public function pengajuanmusik()
     {
         $pengajuanmusik = InputMusik::where('user','KMH')->where('status','Baru')->LIMIT('5')->orderby('id','desc')->get();
@@ -149,6 +157,14 @@ class AdminController extends Controller
         $indexPsdj = InputPsdj::where('status','Baru')->where('user','KMH')->LIMIT('5')->orderBy('id','DESC')->get();
         return view('admin.UkmPsdj.indexPsdj', compact('indexPsdj'));
     } 
+
+    public function ArsipPsdj()
+    {
+        $disetujui = KmhPsdj::where('status','Disetujui')->LIMIT('3')->orderby('id','Desc')->get();
+        $direvisi = KmhPsdj::where('status','Revisi')->LIMIT('3')->orderby('id','Desc')->get();
+        $menunggu = KmhPsdj::where('status','Menunggu')->LIMIT('3')->orderby('id','Desc')->get();
+        return view('admin.UkmPsdj.arsipPsdj',compact('disetujui','direvisi','menunggu'));
+    }
 
     public function pengajuanPsdj()
     {

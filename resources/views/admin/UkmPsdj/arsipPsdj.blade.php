@@ -1,6 +1,6 @@
 @extends('admin.template')
 	@section('title')
-		Halaman Admin - Dcfc
+		Halaman Admin - Psdj
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Arsip Proposal UKM Dcfc</span>
+						<span>Halaman Arsip Proposal UKM Psdj</span>
 					</h1>
 					
 				</div>
@@ -50,8 +50,8 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Dcfc [ Disetujui ]</h3>
-					<a href="{{route('admin.UkmBahasa.disetujui')}}" button class="btn blue">Detail</a> 
+					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Disetujui ]</h3>
+					{{-- <a href="{{route('admin.UkmMusik.disetujui')}}" button class="btn blue">Detail</a>  --}}
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -96,7 +96,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('unduhKmhDcfc.download', $disetujui->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhIn.download', $disetujui->id) }}">Lihat</a></li>									
 									<li><form action="{{ route('validasi.destroy', $disetujui->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
@@ -119,8 +119,8 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Dcfc [ Revisi ]</h3>
-					<a href="{{route('admin.UkmBahasa.revisi')}}" button class="btn blue">Detail</a> 
+					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Revisi ]</h3>
+					{{-- <a href="{{route('admin.UkmMusik.revisi')}}" button class="btn blue">Detail</a>  --}}
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -165,7 +165,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('unduhKmhDcfc.download', $direvisi->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhIn.download', $direvisi->id) }}">Lihat</a></li>									
 									<li><form action="{{ route('validasi.destroy', $direvisi->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
@@ -188,8 +188,8 @@
 		<article class="widget">
 			<header class="widget__header one-btn">
 				<div class="widget__title">
-					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Dcfc [ Menunggu ]</h3>
-					<a href="{{route('admin.UkmBahasa.menunggu')}}" button class="btn blue">Detail</a> 
+					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Menunggu ]</h3>
+					{{-- <a href="{{route('admin.UkmMusik.menunggu')}}" button class="btn blue">Detail</a>  --}}
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -234,7 +234,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('unduhKmhDcfc.download', $menunggu->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhIn.download', $menunggu->id) }}">Lihat</a></li>									
 									<li><form action="{{ route('validasi.destroy', $menunggu->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">

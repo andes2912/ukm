@@ -50,7 +50,7 @@
 								<td>
 									<div class="media">
 										<figure class="pull-left post__img">
-												<img class="media-object" src="{{asset('asset/img/admin1.jpg')}}" alt="user">
+												<img class="media-object" src="{{asset('asset/img/logoUkm/darmajaya.png')}}" width="40px" height="40px" alt="user">
 											</figure>
 										<div class="media-body post_desc">
 											

@@ -62,6 +62,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/UkmMusik/revisikeluar','AdminController@revisiKeluarMusik')->name('admin.UkmMusik.revisiKeluar');
     Route::get('/UkmMusik/revisimasuk','AdminController@revisiMasukMusik')->name('admin.UkmMusik.revisiMasuk');
 
+    Route::get('/UkmMusik/arsip','AdminController@arsipMusik')->name('admin.UkmMusik.arsipMusik');
+
     Route::get('/UkmMusik/validasikmhMusik/update/{id}','KmhMusikController@editMusik')->name('admin.UkmMusik.updateMusik');
 
     Route::get('/UkmMusik/{KmhMusikIn}/downloadIn','KmhMusikController@KmhMusikIn')->name('KmhMusikIn.download');
@@ -73,6 +75,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/UkmPsdj/pengajuan','AdminController@pengajuanPsdj')->name('admin.UkmPsdj.pengajuanPsdj');
     Route::get('/UkmPsdj/revisikeluar','AdminController@revisikeluarPsdj')->name('admin.UkmPsdj.revisikeluar');
     Route::get('/UkmPsdj/revisimasuk','AdminController@revisimasukPsdj')->name('admin.UkmPsdj.revisimasuk');
+    Route::get('/UkmPsdj/arsip','AdminController@arsipPsdj')->name('admin.UkmPsdj.arsipPsdj');
 
     Route::get('/UkmPsdj/validasikmhPsdj/update/{id}','KmhPsdjController@editPsdj')->name('admin.UkmPsdj.updatePsdj');
 

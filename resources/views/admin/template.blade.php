@@ -104,7 +104,10 @@
 						</a>
 						<ul class="main-nav__submenu">
 							<li><a href=" {{route('admin.UkmBahasa.arsipbhs')}} "><span>Arsip Bahasa</span></a></li>
-							<li><a href=""><span>Arsip DCFC</span></a></li>
+							<li><a href=" {{route('admin.UkmDcfc.arsipDcfc')}} "><span>Arsip DCFC</span></a></li>
+							<li><a href=" {{route('admin.UkmMusik.arsipMusik')}} "><span>Arsip Musik</span></a></li>
+							<li><a href=" {{route('admin.UkmPsdj.arsipPsdj')}} "><span>Arsip Psdj</span></a></li>
+							
 						</ul>
 					</li>
 

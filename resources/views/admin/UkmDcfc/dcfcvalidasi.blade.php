@@ -94,8 +94,7 @@
 			
 			<div class="tabs__content--3">
 				@foreach($KmhDcfcDelay as $KmhDcfcDelay)
-				<div class="media message">
-					
+				<div class="media message">	
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $KmhDcfcDelay->title }}</h4>
 						<p class="message__msg"><span>{{ $KmhDcfcDelay->created_at->diffForHumans() }}</span> | <span>{{ $KmhDcfcDelay->created_at}}</span></p>

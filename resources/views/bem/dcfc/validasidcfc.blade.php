@@ -95,7 +95,6 @@
 			<div class="tabs__content--3">
 				@foreach($BemDcfcDelay as $BemDcfcDelay)
 				<div class="media message">
-					
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $BemDcfcDelay->title }}</h4>
 						<p class="message__msg"><span>{{ $BemDcfcDelay->created_at->diffForHumans() }}</span> | <span>{{ $BemDcfcDelay->created_at}}</span></p>
