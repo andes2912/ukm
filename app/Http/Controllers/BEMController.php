@@ -14,7 +14,7 @@ use App\Model\BemDcfc;
 use App\Model\BemMusik;
 use App\Model\BemPsdj;
 
-class BEMController extends Controller
+class BemController extends Controller
 {
         /**
      * Create a new controller instance.
@@ -120,14 +120,20 @@ class BEMController extends Controller
 
     public function approveBhs()
     {
-        $ArsipBhsApprov = BemBahasa::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('3')->get();
-        return view('bem.bahasa.approveBhs', compact('ArsipBhsApprov'));
+        $ArsipBhsApprov = BemBahasa::where('status','Disetujui')->orderBy('id','Desc')->get();
+        return view('bem.Bahasa.approveBhs', compact('ArsipBhsApprov'));
     }
 
     public function revisiBhs()
     {
-        $ArsipBhsRev = BemBahasa::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
-        return view('bem.bahasa.revisiBhs', compact('ArsipBhsRev'));
+        $ArsipBhsRev = BemBahasa::where('status','Revisi')->orderBy('id','Desc')->get();
+        return view('bem.Bahasa.revisiBhs', compact('ArsipBhsRev'));
+    }
+
+    public function delayBhs()
+    {
+        $delay = BemBahasa::where('status','Menunggu')->orderby('id','desc')->get();
+        return view('bem.Bahasa.menunggu', compact('delay'));
     }
 
     public function pengajuanBhs()
@@ -152,6 +158,20 @@ class BEMController extends Controller
         return view('bem.dcfc.index',compact('indexdcfc'));
     }
 
+    public function arsipDcfc()
+    {
+        $ArsipAcc = BemDcfc::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipRev = BemDcfc::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipDelay = BemDcfc::where('status','Menunggu')->orderBy('id','Desc')->LIMIT('3')->get();
+        return view('bem.dcfc.arsipDcfc',compact('ArsipAcc','ArsipRev','ArsipDelay'));
+    }
+
+    public function approveDcfc()
+    {
+        $approve = BemDcfc::where('status','Disetujui')->orderby('id','Desc')->get();
+        return view('bem.dcfc.approveDcfc', compact('approve'));
+    }
+
     public function pengajuanDcfc()
     {
         $pengajuanDcfc = InputDcfc::where('status','Baru')->where('user','BEM')->LIMIT('5')->orderby('id','DESC')->get();
@@ -163,6 +183,12 @@ class BEMController extends Controller
         $RevisiDcfcMasuk = InputDcfc::where('user','BEM')->where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
         return view('bem.dcfc.revisiDcfcMasuk', compact('RevisiDcfcMasuk'));
         
+    }
+
+    public function delayDcfc()
+    {
+        $delay = BemDcfc::where('status','Menunggu')->orderby('id','Desc')->get();
+        return view('bem.dcfc.menunggu', compact('delay'));
     }
 
     public function RevisiDcfcSend()
@@ -179,6 +205,26 @@ class BEMController extends Controller
     {
         $indexmusik = InputMusik::where('status','Baru')->where('user','BEM')->orderby('id','Desc')->get();
         return view('bem.musik.index',compact('indexmusik'));
+    }
+
+    public function arsipMusik()
+    {
+        $ArsipAcc = BemMusik::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipRev = BemMusik::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipDelay = BemMusik::where('status','Menunggu')->orderBy('id','Desc')->LIMIT('3')->get();
+        return view('bem.musik.arsipMusik',compact('ArsipAcc','ArsipRev','ArsipDelay'));
+    }
+
+    public function approveMusik()
+    {
+        $approve = BemMusik::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('bem.musik.approveMusik', compact('approve'));
+    }
+
+    public function delayMusik()
+    {
+        $delay = BemMusik::where('status','Menunggu')->orderby('id','desc')->get();
+        return view('bem.musik.menunggu', compact('delay'));
     }
 
     public function pengajuanMusik()
@@ -206,6 +252,26 @@ class BEMController extends Controller
     {
         $indexPsdj = InputPsdj::where('status','Baru')->where('user','BEM')->orderby('id','Desc')->get();
         return view('bem.psdj.index',compact('indexPsdj'));
+    }
+
+    public function arsipPsdj()
+    {
+        $ArsipAcc = BemPsdj::where('status','Disetujui')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipRev = BemPsdj::where('status','Revisi')->orderBy('id','Desc')->LIMIT('3')->get();
+        $ArsipDelay = BemPsdj::where('status','Menunggu')->orderBy('id','Desc')->LIMIT('3')->get();
+        return view('bem.psdj.arsipPsdj',compact('ArsipAcc','ArsipRev','ArsipDelay'));
+    }
+
+    public function approvePsdj()
+    {
+        $approve = BemPsdj::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('bem.psdj.approvePsdj', compact('approve'));
+    }
+
+    public function delayPsdj()
+    {
+        $delay = BemPsdj::where('status','Menunggu')->orderby('id','desc')->get();
+        return view('bem.psdj.menunggu', compact('delay'));
     }
 
     public function pengajuanPsdj()

@@ -51,7 +51,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Musik [ Disetujui ]</h3>
-					{{-- <a href="{{route('admin.UkmMusik.disetujui')}}" button class="btn blue">Detail</a>  --}}
+					<a href="{{route('admin.UkmMusik.disetujui')}}" button class="btn blue">Detail</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -120,7 +120,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Musik [ Revisi ]</h3>
-					{{-- <a href="{{route('admin.UkmMusik.revisi')}}" button class="btn blue">Detail</a>  --}}
+					<a href="{{route('admin.UkmMusik.revisiKeluar')}}" button class="btn blue">Detail</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -189,7 +189,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Musik [ Menunggu ]</h3>
-					{{-- <a href="{{route('admin.UkmMusik.menunggu')}}" button class="btn blue">Detail</a>  --}}
+					<a href="{{route('admin.UkmMusik.menunggu')}}" button class="btn blue">Detail</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>

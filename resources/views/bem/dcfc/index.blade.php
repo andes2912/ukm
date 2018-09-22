@@ -51,7 +51,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Bahasa [ Pengajuan ]</h3>
-						<a href=" {{url('bem/bahasa/pengajuan')}} " button class="btn blue">Detail</a>
+						<a href=" {{url('bem/dcfc/pengajuan')}} " button class="btn blue">Detail</a>
 						<a href=" {{Route('validasidcfc.index')}} " button class="btn inverse blue">Lihat Validasi</a> 
 				</div>
 				<div class="widget__config">
@@ -96,7 +96,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href=" {{route('unduhDcfc.download', $indexdcfc->id)}} ">Lihat</a></li>									
+									<li><a href=" {{route('unduhDcfcIn.download', $indexdcfc->id)}} ">Lihat</a></li>									
 									<li><a href=" {{route('validasidcfc.edit', $indexdcfc->id )}} ">Validasi</a></li>
 									
 								</ul>

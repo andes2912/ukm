@@ -98,6 +98,18 @@ class AdminController extends Controller
         return view('admin.UkmDcfc.arsipDcfc',compact('disetujui','direvisi','menunggu'));
     }
 
+    public function DisetujuiDcfc()
+    {
+        $disetujui = KmhDcfc::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('admin.UkmDcfc.disetujui', compact('disetujui'));
+    }
+
+    public function delayDcfc()
+    {
+        $menunggu = KmhDcfc::where('status','Menunggu')->orderby('id','desc')->get();
+        return view('admin.UkmDcfc.menunggu', compact('menunggu'));
+    }
+
     public function pengajuanDcfc()
     {
         $pengajuanDcfc = InputDcfc::where('user','KMH')->where('status','Baru')->LIMIT('5')->orderby('id','desc')->get();
@@ -132,6 +144,18 @@ class AdminController extends Controller
         return view('admin.UkmMusik.arsipMusik',compact('disetujui','direvisi','menunggu'));
     }
 
+    public function DisetujuiMusik()
+    {
+        $disetujui = KmhMusik::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('admin.UkmMusik.disetujui',compact('disetujui'));
+    }
+
+    public function delayMusik()
+    {
+        $menunggu = KmhMusik::where('status','Menunggu')->orderby('id','desc')->get();
+        return view('admin.UkmMusik.menunggu', compact('menunggu'));
+    }
+
     public function pengajuanmusik()
     {
         $pengajuanmusik = InputMusik::where('user','KMH')->where('status','Baru')->LIMIT('5')->orderby('id','desc')->get();
@@ -164,6 +188,18 @@ class AdminController extends Controller
         $direvisi = KmhPsdj::where('status','Revisi')->LIMIT('3')->orderby('id','Desc')->get();
         $menunggu = KmhPsdj::where('status','Menunggu')->LIMIT('3')->orderby('id','Desc')->get();
         return view('admin.UkmPsdj.arsipPsdj',compact('disetujui','direvisi','menunggu'));
+    }
+
+    public function DisetujuiPsdj()
+    {
+        $disetujui = KmhPsdj::where('status','Disetujui')->orderby('id','desc')->get();
+        return view('admin.UkmPsdj.disetujui', compact('disetujui'));
+    }
+
+    public function delayPsdj()
+    {
+        $menunggu = KmhPsdj::where('status','Menunggu')->orderby('id','desc')->get();
+        return view('admin.UkmPsdj.menunggu', compact('menunggu'));
     }
 
     public function pengajuanPsdj()

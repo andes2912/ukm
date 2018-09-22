@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+// use Illuminate\Support\Facades\Input;
 use App\Model\BemBahasa;
 use App\Model\InputBahasa;
-use App\Model\BahasaValidasi;
-use File;
+// use App\Model\BahasaValidasi;
+// use File;
 use Illuminate\Support\Facades\Storage;
 
 class BemBahasaController extends Controller
@@ -135,13 +135,13 @@ class BemBahasaController extends Controller
         return redirect()->route('bem.Bahasa.arsipBhs');
     }
 
-      public function unduhBem(BemBahasa $unduhBem)
+      public function unduhBemOut(BemBahasa $unduhBemOut)
     {
-        return Storage::download($unduhBem->filename, $unduhBem->title);
+        return Storage::download($unduhBemOut->filename, $unduhBemOut->title);
     }
 
-       public function unduhBhs(InputBahasa $unduhBhs)
+       public function unduhBhsIn(InputBahasa $unduhBhsIn)
     {
-        return Storage::download($unduhBhs->filename, $unduhBhs->title);
+        return Storage::download($unduhBhsIn->filename, $unduhBhsIn->title);
     }
 }

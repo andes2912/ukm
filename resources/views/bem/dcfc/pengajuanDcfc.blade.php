@@ -25,7 +25,7 @@
 						<i class="pe-7s-menu"></i><h3>Daftar Pengajuan Proposal UKM Dcfc</h3>
 					</div>
 					<div class="widget__config">
-						<a href="#" title="Kembali" onclick="window.location.href ='{{ route('bahasavalidasi.index') }}'" ><i class="pe-7s-back"></i></a>
+						<a href="#" title="Kembali" onclick="window.location.href ='{{ route('validasidcfc.index') }}'" ><i class="pe-7s-back"></i></a>
 					</div>
 					
 				</header>
@@ -67,7 +67,7 @@
 							</td>
 							<div class="dropdown">
 							<td>	
-								<a href="{{ route('unduhDcfc.download', $pengajuanDcfc->id) }}" class="btn red"> <span>Lihat</span></a>
+								<a href="{{ route('unduhDcfcIn.download', $pengajuanDcfc->id) }}" class="btn red"> <span>Lihat</span></a>
 						</div>
 							
 						</tr>

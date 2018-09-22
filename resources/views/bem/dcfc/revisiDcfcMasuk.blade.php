@@ -40,7 +40,6 @@
 							<th >ID</th>
 							<th >Judul Proposal Revisi</th>
 							<th >Tanggal Dibuat</th>	
-							<th> Ditujukan</th>
 							<th width="170">Time</th>									
 							<th>Action</th>
 						</tr>
@@ -62,14 +61,11 @@
 								<p class="post__date">{{ $RevisiDcfcMasuk->created_at }}</p>
 							</td>
 							<td>
-								<p class="post_date"> {{ $RevisiDcfcMasuk->user }} </p>
-							</td>
-							<td>
 								<p class="post__info">{{ $RevisiDcfcMasuk->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhDcfc.download', $RevisiDcfcMasuk->id) }}" class="btn red"> <span>Lihat</span></a>
+								<a href="{{ route('unduhDcfcIn.download', $RevisiDcfcMasuk->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							

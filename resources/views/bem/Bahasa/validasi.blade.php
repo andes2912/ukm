@@ -61,7 +61,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('unduhBem.download', $BemBahasaAcc->id) }}" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('unduhBemOut.download', $BemBahasaAcc->id) }}" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 
 							</ul>
 						</div> 
@@ -83,7 +83,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('bahasavalidasi.edit', $InputBhsRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
-								<li><a href="{{ route('unduhBhs.download', $InputBhsRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhBhsIn.download', $InputBhsRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 

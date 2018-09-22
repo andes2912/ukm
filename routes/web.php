@@ -49,6 +49,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/UkmDcfc/arsip','AdminController@arsipDcfc')->name('admin.UkmDcfc.arsipDcfc');
     Route::get('/UkmDcfc/revisimasuk','AdminController@revisimasuk')->name('admin.UkmDcfc.revisiMasuk');
     Route::get('/UkmDcfc/revisikeluar','AdminController@revisikeluar')->name('admin.UkmDcfc.revisiKeluar');
+    Route::get('/UkmDcfc/disetujui','AdminController@DisetujuiDcfc')->name('admin.UkmDcfc.disetujui');
+    Route::get('/UkmDcfc/menunggu','AdminController@delayDcfc')->name('admin.UkmDcfc.menunggu');
 
     Route::get('/UkmDcfc/validasikmh/update/{id}','KmhDcfcController@editDcfc')->name('admin.UkmDcfc.updateDcfc');
 
@@ -63,6 +65,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/UkmMusik/revisimasuk','AdminController@revisiMasukMusik')->name('admin.UkmMusik.revisiMasuk');
 
     Route::get('/UkmMusik/arsip','AdminController@arsipMusik')->name('admin.UkmMusik.arsipMusik');
+    Route::get('/UkmMusik/disetujui','AdminController@DisetujuiMusik')->name('admin.UkmMusik.disetujui');
+    Route::get('/UkmMusik/menunggu', 'AdminController@delayMusik')->name('admin.UkmMusik.menunggu');
 
     Route::get('/UkmMusik/validasikmhMusik/update/{id}','KmhMusikController@editMusik')->name('admin.UkmMusik.updateMusik');
 
@@ -76,6 +80,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/UkmPsdj/revisikeluar','AdminController@revisikeluarPsdj')->name('admin.UkmPsdj.revisikeluar');
     Route::get('/UkmPsdj/revisimasuk','AdminController@revisimasukPsdj')->name('admin.UkmPsdj.revisimasuk');
     Route::get('/UkmPsdj/arsip','AdminController@arsipPsdj')->name('admin.UkmPsdj.arsipPsdj');
+    Route::get('/UkmPsdj/disetujui','AdminController@DisetujuiPsdj')->name('admin.UkmPsdj.disetujui');
+    Route::get('/UkmPsdj/menunggu','AdminController@delayPsdj')->name('admin.UkmPsdj.menunggu');
 
     Route::get('/UkmPsdj/validasikmhPsdj/update/{id}','KmhPsdjController@editPsdj')->name('admin.UkmPsdj.updatePsdj');
 
@@ -98,26 +104,31 @@ Route::group(['prefix' => 'bem'], function(){
     Route::get('/bahasa/revisi','BEMController@revisiBhs')->name('bem.bahasa.revisiBhs');
     Route::get('/bahasa/pengajuan','BEMController@pengajuanBhs')->name('bem.bahasa.pengajuanBhs');
     Route::get('/bahasa/revisimasuk','BEMController@revisiBhsMasuk')->name('bem.bahasa.revisiBhsMasuk');
+    Route::get('/bahasa/menunggu','BemController@delayBhs')->name('bem.bahasa.menunggu');
+
     Route::get('/bahasa/bahasavalidasi','BemBahasaController@index')->name('bem.Bahasa.validasi');
     Route::resource('/bahasa/bahasavalidasi','BemBahasaController');
 
     Route::get('/bahasa/bahasavalidasi/update/{id}','BemBahasaController@editBhs')->name('bem.bahasa.updateBhs');
 
-    Route::get('/bahasa/{unduhBem}/unduhBem','BemBahasaController@unduhBem')->name('unduhBem.download');
-    Route::get('/bahasa/{unduhBhs}/unduhBhs','BemBahasaController@unduhBhs')->name('unduhBhs.download');
+    Route::get('/bahasa/bahasavalidasi/{unduhBemOut}/unduhBemOut','BemBahasaController@unduhBemOut')->name('unduhBemOut.download');
+    Route::get('/bahasa/bahasavalidasi/{unduhBhsIn}/unduhBhsIn','BemBahasaController@unduhBhsIn')->name('unduhBhsIn.download');
     
 
     // Halaman Route BEM - UKM Dcfc
     Route::get('/dcfc','BEMController@indexdcfc')->name('bem.dcfc.index');
     Route::Resource('/dcfc/validasidcfc','BemDcfcController');
+    Route::get('/dcfc/arsip','BemController@arsipDcfc')->name('bem.dcfc.arsipDcfc');
+    Route::get('/dcfc/disetujui','BemController@approveDcfc')->name('bem.dcfc.approveDcfc');
     Route::get('/dcfc/pengajuan','BemController@pengajuanDcfc')->name('bem.dcfc.pengajuanDcfc');
     Route::get('/dcfc/revisimasuk','BemController@RevisiDcfcMasuk')->name('bem.dcfc.revisiDcfcMasuk');
     Route::get('/dcfc/revisikeluar','BemController@RevisiDcfcSend')->name('bem.dcfc.revisiDcfcSend');
+    Route::get('/dcfc/menunggu','BemController@delayDcfc')->name('bem.dcfc.menunggu');
 
     Route::get('/dcfc/validasidcfc/update/{id}', 'BemDcfcController@editDcfc')->name('bem.dcfc.updateDcfc');
 
-    Route::get('/dcfc/{unduhDcfc}/unduhDcfc','BemDcfcController@unduhDcfc')->name('unduhDcfc.download');
-    Route::get('/dcfc/{unduhBemDcfc}/unduhBemDcfc','BemDcfcController@unduhBemDcfc')->name('unduhBemDcfc.download');
+    Route::get('/dcfc/validasidcfc/{unduhDcfcIn}/unduhDcfcIn','BemDcfcController@unduhDcfcIn')->name('unduhDcfcIn.download');
+    Route::get('/dcfc/validasidcfc/{unduhBemDcfcOut}/unduhBemDcfcOut','BemDcfcController@unduhBemDcfcOut')->name('unduhBemDcfcOut.download');
 
     // Halaman Route BEM - Musik
     Route::get('/musik','BemController@indexMusik')->name('bem.musik.index');
@@ -125,6 +136,9 @@ Route::group(['prefix' => 'bem'], function(){
     Route::get('/musik/pengajuan','BemController@pengajuanMusik')->name('bem.musik.pengajuanMusik');
     Route::get('/musik/revisimasuk','BemController@revisiMasuk')->name('bem.musik.revisiMusikMasuk');
     Route::get('/musik/revisikeluar','BemController@revisikeluar')->name('bem.musik.revisiMusikSend');
+    Route::get('/musik/arsip','BemController@arsipMusik')->name('bem.musik.arsipMusik');
+    Route::get('/musik/disetujui','BemController@approveMusik')->name('bem.musik.approveMusik');
+    Route::get('/musik/menunggu', 'BemController@delayMusik')->name('bem.musik.menunggu');
 
     Route::get('/musik/validasimusik/update/{id}','BemMusikController@editMusik')->name('bem.musik.updateMusik');
 
@@ -137,6 +151,9 @@ Route::group(['prefix' => 'bem'], function(){
     Route::get('/psdj/pengajuan','BemController@pengajuanPsdj')->name('bem.psdj.pengajuanPsdj');
     Route::get('/psdj/revisimasuk','BemController@revisimasukPsdj')->name('bem.psdj.revisiMasukPsdj');
     Route::get('/psdj/revisikeluar','BemController@revisikeluarPsdj')->name('bem.psdj.revisiKeluarPsdj');
+    Route::get('/psdj/arsip', 'BemController@arsipPsdj')->name('bem.psdj.arsipPsdj');
+    Route::get('/psdj/disetujui', 'BemController@approvePsdj')->name('bem.psdj.approvePsdj');
+    Route::get('/psdj/menunggu','BemController@delayPsdj')->name('bem.psdj.menunggu');
 
     Route::get('/psdj/validasipsdj/update/{id}', 'BemPsdjController@editPsdj')->name('bem.psdj.updatePsdj');
 

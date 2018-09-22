@@ -1,6 +1,6 @@
 @extends('bem.template')
 	@section('title')
-		Halaman UKM Dcfc
+		Halaman UKM Psdj
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Data Proposal UKM Dcfc</span>
+						<span>Halaman Data Proposal UKM Psdj</span>
 					</h1>
 					
 				</div>
@@ -23,11 +23,10 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title">
-						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal Keluar UKM Dcfc [ Revisi ]</h3>
-						<a href=" {{route('bem.dcfc.revisiDcfcMasuk')}} " class="btn blue">Lihat Revisi Keluar</a>
+						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Disetujui ]</h3>
 					</div>
 					<div class="widget__config">
-						<a href="#" title="Kembali" onclick="window.location.href =''" ><i class="pe-7s-back"></i></a>
+						<a href="#" title="Kembali" onclick="window.location.href ='{{ route('validasipsdj.index') }}'" ><i class="pe-7s-back"></i></a>
 					</div>
 					
 				</header>
@@ -45,27 +44,28 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($RevisiDcfcSend as $RevisiDcfcSend)
+						@foreach($approve as $approve)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
 									<div class="post_info ">
-										<h3>{{ $RevisiDcfcSend->id }}</h3>													
+										<h3>{{ $approve->id }}</h3>													
 									</div>
 							
 							</td>
 							<td>
-								<p class="post__info">{{ $RevisiDcfcSend->title }}</p>
+								<p class="post__info">{{ $approve->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $RevisiDcfcSend->created_at }}</p>
+								<p class="post__date">{{ $approve->created_at }}</p>
 							</td>
 							<td>
-								<p class="post__info">{{ $RevisiDcfcSend->created_at->diffForHumans() }}</p>
+								<p class="post__info">{{ $approve->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhBemDcfcOut.download', $RevisiDcfcSend->id) }}" class="btn red"> <span>Lihat</span></a>
+								<a href="{{ route('downloadBemPsdj.download', $approve->id)}}" class="btn red"> <span>Lihat</span></a>									
+								</ul>
 							</td>
 						</div>
 							

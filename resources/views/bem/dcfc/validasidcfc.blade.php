@@ -61,7 +61,7 @@
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="#" onclick="return false;"><i class="pe-7s-check"></i> <span>Sudah di Validasi</span></a></li>
-								<li><a href="{{ route('unduhBemDcfc.download', $BemDcfcAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
+								<li><a href="{{ route('unduhBemDcfcOut.download', $BemDcfcAcc->id) }}" class="set_fav" onclick="return true;"><i class="pe-7g-arrow2-down"></i> <span>Unduh</span></a></li>
 
 							</ul>
 						</div> 
@@ -78,12 +78,12 @@
 					</figure> --}}
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{$InputDcfcRev->title}} </h4> <hr>
-						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $InputDcfcRev->updated_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputDcfcRev->updated_at->diffForHumans() }}</span></p>
+						<p class="message__msg"><span>Pengirim  : UKM Dcfc</span> | <span> Tanggal : {{ $InputDcfcRev->updated_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputDcfcRev->updated_at->diffForHumans() }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
 								<li><a href="{{route('validasidcfc.edit', $InputDcfcRev->id)}}" onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Terima</span></a></li>
-								<li><a href="{{ route('unduhDcfc.download', $InputDcfcRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
+								<li><a href="{{ route('unduhDcfcIn.download', $InputDcfcRev->id) }}" class="set_fav" onclick="return true;"><i class="pe-7f-back"></i> <span>Lihat</span></a></li>
 								
 							</ul>
 						</div> 

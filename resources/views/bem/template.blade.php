@@ -88,7 +88,7 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-bookmarks"></i></span>
-							UKM Darmajaya <span class="badge badge--line badge--blue">2</span>
+							UKM Darmajaya <span class="badge badge--line badge--blue">4</span>
 						</a>
 						<ul class="main-nav__submenu">
 							<li ><a href=" {{url('bem/bahasa')}} "><span>UKM Bahasa</span></a></li>
@@ -100,12 +100,13 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
-							Arsip Proposal <span class="badge badge--line badge--blue">3</span>
+							Arsip Proposal <span class="badge badge--line badge--blue">4</span>
 						</a>
 						<ul class="main-nav__submenu">
 							<li><a href=" {{route('bem.Bahasa.arsipBhs')}} "><span>Arsip Bahasa</span></a></li>
-							<li><a href=""><span>Arsip As'salam</span></a></li>
-							<li><a href=""><span>Arsip Dcfc</span></a> </li>
+							<li><a href=" {{route('bem.dcfc.arsipDcfc')}} "><span>Arsip Dcfc</span></a> </li>
+							<li><a href=" {{route('bem.musik.arsipMusik')}} "><span>Arsip Musik</span></a></li>
+							<li><a href=" {{route('bem.psdj.arsipPsdj')}} "><span>Arsip Psdj</span></a></li>
 						</ul>
 					</li>
 					

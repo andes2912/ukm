@@ -51,7 +51,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Disetujui ]</h3>
-					{{-- <a href="{{route('admin.UkmMusik.disetujui')}}" button class="btn blue">Detail</a>  --}}
+					<a href="{{route('admin.UkmPsdj.disetujui')}}" button class="btn blue">Detail</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -96,7 +96,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('DownloadKmhIn.download', $disetujui->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhPsdj.download', $disetujui->id) }}">Lihat</a></li>									
 									<li><form action="{{ route('validasi.destroy', $disetujui->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
@@ -120,7 +120,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Revisi ]</h3>
-					{{-- <a href="{{route('admin.UkmMusik.revisi')}}" button class="btn blue">Detail</a>  --}}
+					<a href="{{route('admin.UkmPsdj.revisikeluar')}}" button class="btn blue">Detail</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -165,7 +165,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('DownloadKmhIn.download', $direvisi->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhPsdj.download', $direvisi->id) }}">Lihat</a></li>									
 									<li><form action="{{ route('validasi.destroy', $direvisi->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">
@@ -189,7 +189,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Psdj [ Menunggu ]</h3>
-					{{-- <a href="{{route('admin.UkmMusik.menunggu')}}" button class="btn blue">Detail</a>  --}}
+					<a href="{{route('admin.UkmPsdj.menunggu')}}" button class="btn blue">Detail</a> 
 				</div>
 				<div class="widget__config">
 					<a href="{{ url('admin') }}"><i class="pe-7s-back"></i></a>
@@ -234,7 +234,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href="{{ route('DownloadKmhIn.download', $menunggu->id) }}">Lihat</a></li>									
+									<li><a href="{{ route('DownloadKmhPsdj.download', $menunggu->id) }}">Lihat</a></li>									
 									<li><form action="{{ route('validasi.destroy', $menunggu->id)}}" method="POST">
 									{{csrf_field()}}
 										<input type="hidden" name="_method" value="DELETE">

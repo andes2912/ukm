@@ -1,6 +1,6 @@
 @extends('bem.template')
 	@section('title')
-		Halaman UKM Bahasa
+		Halaman UKM Musik
 	@endsection
 
 	@section('topbar')
@@ -11,7 +11,7 @@
 		<div class="main-header__nav">
 					<h1 class="main-header__title">
 						<i class="pe-7f-home"></i>
-						<span>Halaman Arsip Proposal UKM Bahasa</span>
+						<span>Halaman Arsip Proposal UKM Musik</span>
 					</h1>
 					
 				</div>
@@ -45,8 +45,8 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title">
-						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Bahasa [ Disetujui ]</h3>
-						<a href=" {{route('bem.bahasa.approveBhs')}} " class="btn blue btn-primary">Detail</a>
+						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Musik [ Disetujui ]</h3>
+						<a href=" {{route('bem.musik.approveMusik')}} " class="btn blue btn-primary">Detail</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -67,27 +67,27 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($ArsipBhsAcc as $ArsipBhsAcc)
+						@foreach($ArsipAcc as $ArsipAcc)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
 								<div class="post_info ">
-									<h3>{{ $ArsipBhsAcc->id }}</h3>													
+									<h3>{{ $ArsipAcc->id }}</h3>													
 								</div>							
 							</td>
 							<td>
-								<p class="post__info">{{ $ArsipBhsAcc->title }}</p>
+								<p class="post__info">{{ $ArsipAcc->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $ArsipBhsAcc->created_at }}</p>
+								<p class="post__date">{{ $ArsipAcc->created_at }}</p>
 							</td>
 
 							<td>
-								<p class="post__info">{{ $ArsipBhsAcc->created_at->diffForHumans() }}</p>
+								<p class="post__info">{{ $ArsipAcc->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhBemOut.download', $ArsipBhsAcc->id) }}" class="btn red"> <span>Lihat</span></a>			
+								<a href="{{ route('DownloadMusikBem.download', $ArsipAcc->id) }}" class="btn red"> <span>Lihat</span></a>			
 							</td>
 						</div>
 							
@@ -107,8 +107,8 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
-						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Bahasa [ Direvisi ]</h3>
-						<a href=" {{route('bem.bahasa.revisiBhs')}} " class="btn blue btn-primary">Detail</a>
+						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Musik [ Direvisi ]</h3>
+						<a href=" {{route('bem.musik.revisiMusikMasuk')}} " class="btn blue btn-primary">Detail</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -129,26 +129,26 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($ArsipBhsRev as $ArsipBhsRev)
+						@foreach($ArsipRev as $ArsipRev)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
 								<div class="post_info ">
-									<h3>{{ $ArsipBhsRev->id }}</h3>													
+									<h3>{{ $ArsipRev->id }}</h3>													
 								</div>
 							</td>
 							<td>
-								<p class="post_info">{{ $ArsipBhsRev->title }}</p>
+								<p class="post_info">{{ $ArsipRev->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $ArsipBhsRev->created_at }}</p>
+								<p class="post__date">{{ $ArsipRev->created_at }}</p>
 							</td>
 							<td>
-								<p class="post__info">{{ $ArsipBhsRev->created_at->diffForHumans() }}</p>
+								<p class="post__info">{{ $ArsipRev->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhBemOut.download', $ArsipBhsRev->id) }}" class="btn red"> <span>Lihat</span></a>
+								<a href="{{ route('DownloadMusikBem.download', $ArsipRev->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							
@@ -168,8 +168,8 @@
 			<article class="widget">
 				<header class="widget__header one-btn">
 					<div class="widget__title ">
-						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Bahasa [ Menunggu ]</h3>
-						<a href=" {{route('bem.bahasa.menunggu')}}" class="btn blue btn-primary">Detail</a>
+						<i class="pe-7s-menu"></i><h3>Daftar Arsip Proposal UKM Musik [ Menunggu ]</h3>
+						<a href=" {{route('bem.musik.menunggu')}} " class="btn blue btn-primary">Detail</a>
 					</div>
 					<div class="widget__config">
 						<a href="#"><i class="pe-7f-refresh"></i></a>
@@ -190,26 +190,26 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($ArsipBhsDelay as $ArsipBhsDelay)
+						@foreach($ArsipDelay as $ArsipDelay)
 						<tr class="spacer"></tr>
 						<tr>
 							<td>										
 									<div class="post_info ">
-										<h3>{{ $ArsipBhsDelay->id }}</h3>													
+										<h3>{{ $ArsipDelay->id }}</h3>													
 									</div>
 							</td>
 							<td>
-								<p class="post_info">{{ $ArsipBhsDelay->title }}</p>
+								<p class="post_info">{{ $ArsipDelay->title }}</p>
 							</td>
 							<td>
-								<p class="post__date">{{ $ArsipBhsDelay->created_at }}</p>
+								<p class="post__date">{{ $ArsipDelay->created_at }}</p>
 							</td>
-							<td>
-								<p class="post__info">{{ $ArsipBhsDelay->created_at->diffForHumans() }}</p>
+							<td>ArsipBhsDelay
+								<p class="post__info">{{ $ArsipDelay->created_at->diffForHumans() }}</p>
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhBemOut.download', $ArsipBhsDelay->id) }}" class="btn red"> <span>Lihat</span></a>
+								<a href="{{ route('DownloadMusikBem.download', $ArsipDelay->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							

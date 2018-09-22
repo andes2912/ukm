@@ -69,7 +69,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhBhs.download', $revisiBhsMasuk->id) }}" class="btn red"> <span>Lihat</span></a>
+								<a href="{{ route('unduhBhsIn.download', $revisiBhsMasuk->id) }}" class="btn red"> <span>Lihat</span></a>
 							</td>
 						</div>
 							

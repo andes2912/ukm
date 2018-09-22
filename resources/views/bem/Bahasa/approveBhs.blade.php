@@ -68,7 +68,7 @@
 							</td>
 							<div class="dropdown">
 							<td>
-								<a href="{{ route('unduhBem.download', $ArsipBhsApprov->id)}}" class="btn red"> <span>Lihat</span></a>									
+								<a href="{{ route('unduhBemOut.download', $ArsipBhsApprov->id)}}" class="btn red"> <span>Lihat</span></a>									
 								</ul>
 							</td>
 						</div>

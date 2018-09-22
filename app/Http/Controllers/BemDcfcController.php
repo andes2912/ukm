@@ -130,13 +130,13 @@ class BemDcfcController extends Controller
         return redirect()->route('dcfc.arsip');
     }
 
-       public function unduhDcfc(InputDcfc $unduhDcfc)
+       public function unduhDcfcIn(InputDcfc $unduhDcfcIn)
     {
-        return Storage::download($unduhDcfc->filename, $unduhDcfc->title);
+        return Storage::download($unduhDcfcIn->filename, $unduhDcfcIn->title);
     }
 
-       public function unduhBemDcfc(BemDcfc $unduhBemDcfc)
+       public function unduhBemDcfcOut(BemDcfc $unduhBemDcfcOut)
     {
-        return Storage::download($unduhBemDcfc->filename, $unduhBemDcfc->title);
+        return Storage::download($unduhBemDcfcOut->filename, $unduhBemDcfcOut->title);
     }
 }
