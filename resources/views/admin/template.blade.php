@@ -87,7 +87,7 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-monitor"></i></span>
-							UKM Darmajaya <span class="badge badge--line badge--blue">3</span>
+							UKM Darmajaya <span class="badge badge--line badge--blue">4</span>
 						</a>
 						<ul class="main-nav__submenu">
 							<li><a href="{{route('admin.UkmBahasa.bahasa')}}"><span>UKM Bahasa</span></a></li>
@@ -100,7 +100,7 @@
 					<li class="main-nav--collapsible">
 						<a class="main-nav__link" href="#" onclick="return false;">
 							<span class="main-nav__icon"><i class="pe-7f-disk"></i></span>
-							Arsip Proposal <span class="badge badge--line badge--blue">3</span>
+							Arsip Proposal <span class="badge badge--line badge--blue">4</span>
 						</a>
 						<ul class="main-nav__submenu">
 							<li><a href=" {{route('admin.UkmBahasa.arsipbhs')}} "><span>Arsip Bahasa</span></a></li>
