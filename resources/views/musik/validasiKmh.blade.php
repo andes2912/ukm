@@ -76,8 +76,8 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$KmhMusikRev->title}}</h4> <span style="color:coral;">{{ $KmhMusikRev->created_at->diffForHumans() }}</span> <hr>
-						<p class="message__msg"><span style="color:dodgerblue">Pengirim : KMH </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $KmhMusikRev->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$KmhMusikRev->title}}</h4> <span style="color:coral;">{{ $KmhMusikRev->updated_at->diffForHumans() }}</span> <hr>
+						<p class="message__msg"><span style="color:dodgerblue">Pengirim : KMH </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $KmhMusikRev->updated_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">

@@ -78,7 +78,7 @@
 					</figure> --}}
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{$InputDcfcRev->title}} </h4> <hr>
-						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $InputDcfcRev->created_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputDcfcRev->created_at->diffForHumans() }}</span></p>
+						<p class="message__msg"><span>Pengirim  : UKM Bahasa</span> | <span> Tanggal : {{ $InputDcfcRev->updated_at}}</span> <br> <i class="pe-7s-clock"></i> <span>{{ $InputDcfcRev->updated_at->diffForHumans() }}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -94,21 +94,18 @@
 			
 			<div class="tabs__content--3">
 				@foreach($BemDcfcDelay as $BemDcfcDelay)
-				<div class="media message fav">
-					<figure class="pull-left rounded-image message__img">
-						<img class="media-object" src="{{ asset('asset/img/user1.jpg')}}" alt="user">
-					</figure>
+				<div class="media message">
+					
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $BemDcfcDelay->title }}</h4>
 						<p class="message__msg"><span>{{ $BemDcfcDelay->created_at->diffForHumans() }}</span> | <span>{{ $BemDcfcDelay->created_at}}</span></p>
-						<input type="checkbox" class="msg-o" id="msg-o6">
-						<label class="message__controls--opener" for="msg-o6"><i class="pe-7s-note"></i></label>
+						<input type="checkbox" class="msg-o" id="msg-o6" checked>
+					
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Reply</span></a></li>
-								<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorite</span></a></li>
-								<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Delete</span></a></li>
-								<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+								<li><a href=" {{route('bem.dcfc.updateDcfc', $BemDcfcDelay->id)}} " onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Ubah Status</span></a></li>
+								<li><a href="#" onclick="return true;"><i class="pe-7f-star"></i> <span>Favorite</span></a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -116,9 +113,7 @@
 			</div> <!-- /tabscontent3 -->
 		</div> 	
 	</div> <!-- /tabs -->
-								
-
-								
+																
 	</div> <!-- /widget__content -->
 	</article><!-- /widget -->
 	</div>
@@ -140,7 +135,7 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $BemDcfcRev as $BemDcfcRev )
 							<h3> {{$BemDcfcRev->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BemDcfcRev->created_at}} | {{$BemDcfcRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BemDcfcRev->updated_at}} | {{$BemDcfcRev->updated_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						

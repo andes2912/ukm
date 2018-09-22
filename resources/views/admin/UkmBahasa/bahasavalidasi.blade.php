@@ -94,21 +94,17 @@
 			
 			<div class="tabs__content--3">
 				@foreach($BahasaValidasiDelay as $BahasaValidasiDelay)
-				<div class="media message fav">
-					<figure class="pull-left rounded-image message__img">
-						<img class="media-object" src="{{ asset('asset/img/user1.jpg')}}" alt="user">
-					</figure>
+				<div class="media message ">
+					
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $BahasaValidasiDelay->title }}</h4>
 						<p class="message__msg"><span>{{ $BahasaValidasiDelay->created_at->diffForHumans() }}</span> | <span>{{ $BahasaValidasiDelay->created_at}}</span></p>
-						<input type="checkbox" class="msg-o" id="msg-o6">
-						<label class="message__controls--opener" for="msg-o6"><i class="pe-7s-note"></i></label>
+						<input type="checkbox" class="msg-o" id="msg-o6" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Reply</span></a></li>
-								<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorite</span></a></li>
-								<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Delete</span></a></li>
-								<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+								<li><a href=" {{route('admin.UkmBahasa.updateBhs', $BahasaValidasiDelay->id)}} " onclick="return true;"><i class="pe-7f-back pe-rotate-180"></i> <span>Ubah Status</span></a></li>
+								<li><a href="#" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorite</span></a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -140,7 +136,7 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $BahasaValidasiRev as $BahasaValidasiRev )
 							<h3> {{$BahasaValidasiRev->title}} </h3> <br>
-							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BahasaValidasiRev->created_at}} | {{$BahasaValidasiRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location"> <i class="pe-7s-clock"></i> {{$BahasaValidasiRev->updated_at}} | {{$BahasaValidasiRev->updated_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach											
 						</div>
 						

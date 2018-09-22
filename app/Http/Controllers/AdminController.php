@@ -90,6 +90,14 @@ class AdminController extends Controller
         return view('admin.UkmDcfc.indexDcfc', compact('indexDcfc'));
     }
 
+    public function ArsipDcfc()
+    {
+        $disetujui = KmhDcfc::where('status','Disetujui')->LIMIT('3')->orderby('id','Desc')->get();
+        $direvisi = KmhDcfc::where('status','Revisi')->LIMIT('3')->orderby('id','Desc')->get();
+        $menunggu = KmhDcfc::where('status','Menunggu')->LIMIT('3')->orderby('id','Desc')->get();
+        return view('admin.UkmDcfc.arsipDcfc',compact('disetujui','direvisi','menunggu'));
+    }
+
     public function pengajuanDcfc()
     {
         $pengajuanDcfc = InputDcfc::where('user','KMH')->where('status','Baru')->LIMIT('5')->orderby('id','desc')->get();

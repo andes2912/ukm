@@ -94,6 +94,12 @@ class BahasaValidasiController extends Controller
         return view('admin.UkmBahasa.edit', compact('InputBahasa1'));
     }
 
+    public function editBhs($id)
+    {
+        $UpdateBhs = InputBahasa::findorfail($id);
+        return view('admin.UkmBahasa.updateBhs', compact('UpdateBhs'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -103,7 +109,15 @@ class BahasaValidasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:3',
+        'file' => 'required|file|max:2000'
+            ]); 
+
+        $UpdateBhs = BahasaValidasi::findorfail($id);
+        $UpdateBhs->update($request->all());
+        return redirect()->route('validasi.index');
     }
 
     /**

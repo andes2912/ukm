@@ -76,8 +76,8 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$PsdjKmhRev->title}}</h4> <span style="color:coral;">{{ $PsdjKmhRev->created_at->diffForHumans() }}</span><hr>
-						<p class="message__msg"><span style="color:dodgerblue">Pengirim : KMH </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $PsdjKmhRev->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$PsdjKmhRev->title}}</h4> <span style="color:coral;">{{ $PsdjKmhRev->updated_at->diffForHumans() }}</span><hr>
+						<p class="message__msg"><span style="color:dodgerblue">Pengirim : KMH </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $PsdjKmhRev->updated_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
@@ -96,9 +96,7 @@
 			<div class="tabs__content--3">
 				@foreach($PsdjKmhDelay as $PsdjKmhDelay)
 				<div class="media message">
-					{{-- <figure class="pull-left rounded-image message__img">
-							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
-						</figure> --}}
+
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $PsdjKmhDelay->title }}</h4>
 						<p class="message__msg"><span>{{ $PsdjKmhDelay->created_at->diffForHumans() }}</span> | <span>{{ $PsdjKmhDelay->created_at }}</span></p>
@@ -106,8 +104,8 @@
 						
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Lihat</span></a></li>
-								<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-trash"></i> <span>Delete</span></a></li>
+								<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Dalam Evaluasi</span></a></li>
+				
 							</ul>
 						</div>
 					</div>

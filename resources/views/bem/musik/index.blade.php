@@ -96,7 +96,7 @@
 									<span class="caret"><i class="pe-7g-arrow2-down"></i></span>
 								</button>
 								<ul class="dropdown-menu">
-									<li><a href=" {{route('unduhBemMusik.download',$indexmusik->id)}} ">Lihat</a></li>									
+									<li><a href=" {{route('DownloadMusikIn.download',$indexmusik->id)}} ">Lihat</a></li>									
 									<li><a href=" {{route('validasimusik.edit', $indexmusik->id )}} ">Validasi</a></li>
 									
 								</ul>

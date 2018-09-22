@@ -77,7 +77,7 @@
 						<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">				
 					</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$InputBhsRev->title}} </h4><span style="color:coral;">{{ $InputBhsRev->created_at->diffForHumans() }}</span> <hr>
+						<h4 class="media-heading message__heading">{{$InputBhsRev->title}} </h4><span style="color:coral;">{{ $InputBhsRev->updated_at->diffForHumans() }}</span> <hr>
 						<p class="message__msg"><span style="color:dodgerblue">Pengirim  : Bahasa</span> | <span style="color:darkorange; font:bold;"> Tanggal : {{ $InputBhsRev->created_at}}</span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
@@ -94,21 +94,16 @@
 			
 			<div class="tabs__content--3">
 				@foreach($BemBahasaDelay as $BemBahasaDelay)
-				<div class="media message fav">
-					<figure class="pull-left rounded-image message__img">
-						<img class="media-object" src="{{ asset('asset/img/user1.jpg')}}" alt="user">
-					</figure>
+				<div class="media message">
 					<div class="media-body">
 						<h4 class="media-heading message__heading">{{ $BemBahasaDelay->title }}</h4>
 						<p class="message__msg"><span>{{ $BemBahasaDelay->created_at->diffForHumans() }}</span> | <span>{{ $BemBahasaDelay->created_at}}</span></p>
-						<input type="checkbox" class="msg-o" id="msg-o6">
-						<label class="message__controls--opener" for="msg-o6"><i class="pe-7s-note"></i></label>
+						<input type="checkbox" class="msg-o" id="msg-o6" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
-								<li><a href="#" onclick="return false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Reply</span></a></li>
-								<li><a href="#" class="set_fav" onclick="return false;"><i class="pe-7f-star"></i> <span>Favorite</span></a></li>
-								<li><a href="#" onclick="return false;"><i class="pe-7f-trash"></i> <span>Delete</span></a></li>
-								<li><a href="#" class="close_cntrl" onclick="return false;"><i class="pe-7g-arrow2-up"></i></a></li>
+								<li><a href=" {{route('bem.bahasa.updateBhs', $BemBahasaDelay->id)}} " onclick="true false;"><i class="pe-7f-back pe-rotate-180"></i> <span>Ubah Status</span></a></li>
+								<li><a href="#" onclick="return true;"><i class="pe-7f-star"></i> <span>Favorite</span></a></li>
+							
 							</ul>
 						</div>
 					</div>
@@ -140,7 +135,7 @@
 					<div class="media message checked">
 						<div class="media-body"> @foreach( $BemBahasaRev as $BemBahasaRev )
 							<h3> {{$BemBahasaRev->title}} </h3> <br>
-							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$BemBahasaRev->created_at}} | {{$BemBahasaRev->created_at->diffForHumans()}} </p> <hr> <hr> <br>
+							<p class="message__location" style="color:darkorange; font:bold;"> <i class="pe-7s-clock"></i> {{$BemBahasaRev->updated_at}} | {{$BemBahasaRev->updated_at->diffForHumans()}} </p> <hr> <hr> <br>
 							@endforeach
 						</div>
 						

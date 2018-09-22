@@ -89,6 +89,12 @@ class BemMusikController extends Controller
         return view('bem.musik.inputValMusik',compact('InputMusik'));
     }
 
+    public function editMusik($id)
+    {
+        $UpdateMusik = InputMusik::findorfail($id);
+        return view('bem.musik.updateMusik', compact('UpdateMusik'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -98,7 +104,15 @@ class BemMusikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request,[
+            'title' => 'nullable|max:100',
+            'status' => 'required|min:2',
+        ]);
+
+        $UpdateMusik = BemMusik::findorfail($id);
+        $UpdateMusik->update($request->all());
+
+        return redirect()->route('bem.musik.index');
     }
 
     /**

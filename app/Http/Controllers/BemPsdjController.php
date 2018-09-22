@@ -89,6 +89,12 @@ class BemPsdjController extends Controller
         return view('bem.psdj.InputValPsdj', compact('BemPsdjEdit'));
     }
 
+    public function editPsdj($id)
+    {
+        $UpdatePsdj = InputPsdj::findorfail($id);
+        return view('bem.psdj.updatePsdj', compact('UpdatePsdj'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -98,7 +104,15 @@ class BemPsdjController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request,[
+            'title' => 'nullable|max:100',
+            'status' => 'required|min:2',
+        ]);
+
+        $UpdatePsdj = BemPsdj::findorfail($id);
+        $UpdatePsdj->update($request->all());
+
+        return redirect()->route('bem.psdj.index');
     }
 
     /**

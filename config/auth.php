@@ -152,7 +152,7 @@ return [
         ],
          'bems' => [
             'driver' => 'eloquent',
-            'model' => App\Model\bem::class,
+            'model' => App\Model\Bem::class,
         ],
 
 

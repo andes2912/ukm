@@ -65,7 +65,7 @@ class KmhMusikController extends Controller
         'filename' => $path
         ]);
 
-        return redirect()->route('validasikmhMusik.indexMusik');
+        return redirect()->route('validasikmhMusik.index');
     }
 
     /**
@@ -91,6 +91,12 @@ class KmhMusikController extends Controller
         return view('admin.UkmMusik.editMusik', compact('EditMusik'));
     }
 
+    public function editMusik($id)
+    {
+        $UpdateMusik = InputMusik::findorfail($id);
+        return view('admin.UkmMusik.updateMusik', compact('UpdateMusik'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -100,7 +106,16 @@ class KmhMusikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:3',
+        'file' => 'required|file|max:2000'
+            ]);  
+
+        $UpdateMusik = KmhMusik::findorfail($id);
+        $UpdateMusik->update($request->all());
+
+        return redirect()->route('validasikmhMusik.index');
     }
 
     /**

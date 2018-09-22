@@ -90,6 +90,12 @@ class BemDcfcController extends Controller
         return view('bem.dcfc.InputValDcfc', compact('InputDcfc'));
     }
 
+    public function editDcfc($id)
+    {
+        $UpdateDcfc = InputDcfc::findorfail($id);
+        return view('bem.dcfc.updateDcfc', compact('UpdateDcfc'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -99,7 +105,15 @@ class BemDcfcController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [      
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:2',
+            ]);
+        
+        $UpdateDcfc = BemDcfc::findorfail($id);
+        $UpdateDcfc->update($request->all());
+
+        return redirect()->route('validasidcfc.index');
     }
 
     /**

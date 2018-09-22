@@ -29,7 +29,7 @@ class KmhPsdjController extends Controller
         $acckmh = KmhPsdj::where('status','Disetujui')->LIMIT('5')->orderby('id','desc')->get();
         $revkmh = KmhPsdj::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
         $delaykmh = KmhPsdj::where('status','Menunggu')->LIMIT('5')->orderby('id','desc')->get();
-        $revInkmh = InputPsdj::where('status','Revisi')->LIMIT('5')->orderby('id','desc')->get();
+        $revInkmh = InputPsdj::where('status','Revisi')->where('user','KMH')->LIMIT('5')->orderby('id','desc')->get();
         return view('admin.UkmPsdj.validasiPsdj', compact('acckmh','revkmh','delaykmh','revInkmh'));
     
     }
@@ -91,6 +91,12 @@ class KmhPsdjController extends Controller
         return view('admin.UkmPsdj.editPsdj', compact('editPsdj'));
     }
 
+    public function editPsdj($id)
+    {
+        $UpdatePsdj = InputPsdj::findorfail($id);
+        return view('admin.UkmPsdj.updatePsdj', compact('UpdatePsdj'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -100,7 +106,14 @@ class KmhPsdjController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'nullable|max:100',
+            'status' => 'required|min:2'
+        ]);
+
+        $UpdatePsdj = KmhPsdj::findorfail($id);
+        $UpdatePsdj->update($request->all());
+        return redirect()->route('admin.UkmPsdj.indexPsdj');
     }
 
     /**

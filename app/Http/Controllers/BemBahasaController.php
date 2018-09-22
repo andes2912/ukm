@@ -95,6 +95,12 @@ class BemBahasaController extends Controller
         return view('bem.bahasa.InputValBhs', compact('InputBahasa'));
     }
 
+    public function editBhs($id)
+    {
+        $UpdateBhs = InputBahasa::findorfail($id);
+        return view('bem.bahasa.updateBhs', compact('UpdateBhs'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -104,7 +110,21 @@ class BemBahasaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, [      
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:2',
+            ]);
+
+        $UpdateBhs = BemBahasa::findorfail($id);
+        $UpdateBhs->update($request->all());
+    //     $uploadedFile = $request->file('file');        
+    //     $path = $uploadedFile->store('public/validasi');
+    //     $UpdateBhs = BemBahasa::update([
+    //     'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
+    //     'status' => $request->status,
+    //     'filename' => $path
+    // ]);
+        return redirect()->route('bahasavalidasi.index');
     }
 
     /**

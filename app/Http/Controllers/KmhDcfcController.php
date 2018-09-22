@@ -64,7 +64,7 @@ class KmhDcfcController extends Controller
         'filename' => $path
     ]);
 
-            return redirect()->route('validasikmhDcfc.index');
+            return redirect()->route('validasikmh.index');
     }
 
     /**
@@ -90,6 +90,12 @@ class KmhDcfcController extends Controller
         return view('admin.UkmDcfc.editKmh',compact('kmhdcfc'));
     }
 
+    public function editDcfc($id)
+    {
+        $UpdateDcfc = InputDcfc::findorfail($id);
+        return view('admin.UkmDcfc.updateDcfc', compact('UpdateDcfc'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -99,7 +105,16 @@ class KmhDcfcController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+        'title' => 'nullable|max:100',
+        'status' => 'required|min:3',
+        'file' => 'required|file|max:2000'
+            ]); 
+
+        $UpdateDcfc = KmhDcfc::findorfail($id);
+        $UpdateDcfc->update($request->all());
+        return redirect()->route('validasikmh.index');
+
     }
 
     /**

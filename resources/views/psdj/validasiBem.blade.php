@@ -76,8 +76,8 @@
 							<img class="media-object" src="{{asset('asset/img/user1.jpg')}}" alt="user">
 						</figure> --}}
 					<div class="media-body">
-						<h4 class="media-heading message__heading">{{$PsdjBemRev->title}}</h4> <span style="color:coral;">{{ $PsdjBemRev->created_at->diffForHumans() }}</span><hr>
-						<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $PsdjBemRev->created_at}} </span></p>
+						<h4 class="media-heading message__heading">{{$PsdjBemRev->title}}</h4> <span style="color:coral;">{{ $PsdjBemRev->updated_at->diffForHumans() }}</span><hr>
+						<p class="message__msg"><span style="color:dodgerblue">Pengirim : BEM </span> | <span style="color:darkorange; font:bold;"> Tanggal :{{ $PsdjBemRev->updated_at}} </span></p>
 						<input type="checkbox" class="msg-o" id="msg-o4" checked>
 						<div class="message__controls--cont">
 							<ul class="message__controls">
