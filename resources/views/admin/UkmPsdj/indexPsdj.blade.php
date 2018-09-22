@@ -50,7 +50,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Psdj [ Pengajuan ]</h3>
-					<a href="" button class="btn blue">Detail</a>
+					<a href=" {{route('admin.UkmPsdj.pengajuanPsdj')}} " button class="btn blue">Detail</a>
 					<a href=" {{route('validasikmhPsdj.index')}} " button class="btn inverse blue">Lihat Validasi</a> 									
 				</div>
 				<div class="widget__config">

@@ -53,7 +53,7 @@
                 <header class="widget__header">
                     <div class="widget__title">
                         <i class="pe-7s-menu"></i><h3>Kirim Proposal</h3>
-                    <a href="{{route('validasi.index')}}" class="btn blue">Lihat Validasi</a>
+                    <a href="{{route('validasikmhPsdj.index')}}" class="btn blue">Lihat Validasi</a>
                     </div>
                     <div class="widget__config">
                         <a href="#"><i class="pe-7f-refresh"></i></a>

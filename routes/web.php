@@ -45,7 +45,7 @@ Route::group(['prefix' => 'admin'], function() {
     //Halaman Route Admin - UKM Dcfc
     Route::get('/UkmDcfc','AdminController@indexDcfc')->name('admin.UkmDcfc.indexDcfc'); 
     Route::Resource('/UkmDcfc/validasikmh','KmhDcfcController');
-    Route::get('/UkmDfc/pengajuan','AdminController@pengajuanDcfc')->name('admin.UkmDcfc.pengajuanDcfc');
+    Route::get('/UkmDcfc/pengajuan','AdminController@pengajuanDcfc')->name('admin.UkmDcfc.pengajuanDcfc');
     Route::get('/UkmDcfc/arsip','AdminController@arsipDcfc')->name('admin.UkmDcfc.arsipDcfc');
     Route::get('/UkmDcfc/revisimasuk','AdminController@revisimasuk')->name('admin.UkmDcfc.revisiMasuk');
     Route::get('/UkmDcfc/revisikeluar','AdminController@revisikeluar')->name('admin.UkmDcfc.revisiKeluar');

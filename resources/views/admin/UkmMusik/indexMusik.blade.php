@@ -50,7 +50,7 @@
 			<header class="widget__header one-btn">
 				<div class="widget__title">
 					<i class="pe-7s-menu"></i><h3>Proposal UKM Dcfc [ Pengajuan ]</h3>
-					<a href="" button class="btn blue">Detail</a>
+					<a href=" {{route('admin.UkmDcfc.pengajuanDcfc')}} " button class="btn blue">Detail</a>
 					<a href=" {{route('validasikmhMusik.index')}} " button class="btn inverse blue">Lihat Validasi</a> 									
 				</div>
 				<div class="widget__config">
